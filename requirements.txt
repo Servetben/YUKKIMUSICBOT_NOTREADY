@@ -5,6 +5,7 @@ dnspython
 ffmpeg-python
 gitpython
 async_pymongo
+numpy
 unidecode
 hachoir
 heroku3
