@@ -317,14 +317,12 @@ async def start_pm(client, message: Message, _):
 @LanguageStart
 async def testbot(client, message: Message, _):
     out = start_pannel(_)
-   await message.reply_photo(
+   await message.reply_sticker("CAACAgQAAxkBAAIFwWWQBcEwB_IEuI-axl-xC0igE3_xAAJxCwACj1JJUUVWZlltDUM-HgQ"),
+            return await message.reply_photo(
                 random.choice(YUMI_PICS),
-    return await message.reply_text(
-        _["start_1"].format(
-            message.chat.title, config.MUSIC_BOT_NAME
-        ),
-        reply_markup=InlineKeyboardMarkup(out),
-    )
+                caption=_["start_1"].format(
+            message.chat.title, config.MUSIC_BOT_NAME),
+                reply_markup=InlineKeyboardMarkup(out),
    )
 
 welcome_group = 2
