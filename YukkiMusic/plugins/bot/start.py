@@ -9,7 +9,7 @@
 #
 
 import asyncio
-
+import random
 from pyrogram import filters
 from pyrogram.enums import ChatType, ParseMode
 from pyrogram.types import (InlineKeyboardButton,
@@ -37,21 +37,16 @@ from YukkiMusic.utils.inline import (help_pannel, private_panel,
 loop = asyncio.get_running_loop()
 
 
-@app.on_message(
-    filters.command(get_command("START_COMMAND"))
-    & filters.private
-    & ~BANNED_USERS
-)
+@app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
-async def start_comm(client, message: Message, _):
+async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            return await message.reply_text(
-                _["help_1"], reply_markup=keyboard
-            )
+            return await message.reply_photo(
+                random.choice(YUMI_PICS),
         if name[0:4] == "song":
             return await message.reply_text(_["song_2"])
         if name[0:3] == "sta":
