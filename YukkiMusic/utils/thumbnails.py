@@ -29,6 +29,24 @@ def changeImageSize(maxWidth, maxHeight, image):
     newImage = image.resize((newWidth, newHeight))
     return newImage
 
+def circle(img): 
+     h,w=img.size 
+     a = Image.new('L', [h,w], 0) 
+     b = ImageDraw.Draw(a) 
+     b.pieslice([(0, 0), (h,w)], 0, 360, fill = 255,outline = "white") 
+     c = np.array(img) 
+     d = np.array(a) 
+     e = np.dstack((c, d)) 
+     return Image.fromarray(e)
+
+
+def clear(text):
+    list = text.split(" ")
+    title = ""
+    for i in list:
+        if len(title) + len(i) < 60:
+            title += " " + i
+    return title.strip()
 
 async def gen_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
