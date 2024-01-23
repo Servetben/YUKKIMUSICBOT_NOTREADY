@@ -128,10 +128,6 @@ loop = asyncio.get_running_loop()
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
-    if len(message.text.split()) > 1:
-        name = message.text.split(None, 1)[1]
-        if name[0:4] == "help":
-            keyboard = help_pannel(_)
             return await message.reply_photo(
                 random.choice(YUMI_PICS),
               caption=_["start_2"].format(config.SUPPORT_CHAT),
