@@ -4,6 +4,8 @@ asyncio
 dnspython
 ffmpeg-python
 gitpython
+async_pymongo
+unidecode
 hachoir
 heroku3
 lyricsgenius
