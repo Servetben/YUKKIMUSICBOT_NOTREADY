@@ -136,6 +136,7 @@ async def start_pm(client, message: Message, _):
                 random.choice(YUMI_PICS),
               caption=_["start_2"].format(config.SUPPORT_CHAT),
                 reply_markup=start_pannel,
+            )
         if name[0:4] == "song":
             return await message.reply_text(_["song_2"])
         if name[0:3] == "sta":
