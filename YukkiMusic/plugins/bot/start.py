@@ -124,14 +124,20 @@ YUMI_PICS = [
 loop = asyncio.get_running_loop()
 
 
+
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
-           await message.reply_photo(
+    if len(message.text.split()) > 1:
+        name = message.text.split(None, 1)[1]
+        if name[0:4] == "help":
+            keyboard = help_pannel(_)
+            await message.reply_sticker("CAACAgQAAxkBAAIFwWWQBcEwB_IEuI-axl-xC0igE3_xAAJxCwACj1JJUUVWZlltDUM-HgQ")
+            return await message.reply_photo(
                 random.choice(YUMI_PICS),
-              caption=_["start_2"].format(config.SUPPORT_CHAT),
-                reply_markup=start_pannel,
+                caption=_["help_1"].format(config.SUPPORT_CHAT),
+                reply_markup=keyboard,
             )
         if name[0:4] == "song":
             return await message.reply_text(_["song_2"])
