@@ -11,7 +11,7 @@
 import os
 import re
 import textwrap
-
+import numpy as np
 import aiofiles
 import aiohttp
 from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
