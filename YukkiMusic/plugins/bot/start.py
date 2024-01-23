@@ -128,7 +128,7 @@ loop = asyncio.get_running_loop()
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
-            return await message.reply_photo(
+           await message.reply_photo(
                 random.choice(YUMI_PICS),
               caption=_["start_2"].format(config.SUPPORT_CHAT),
                 reply_markup=start_pannel,
