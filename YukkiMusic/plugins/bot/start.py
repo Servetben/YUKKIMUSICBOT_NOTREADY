@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-present by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
-#
 
 import asyncio
 import random
@@ -131,12 +122,12 @@ async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
-        if name[0:4] == "help":
+        if name[0:4] == "start":
             keyboard = help_pannel(_)
             await message.reply_sticker("CAACAgQAAxkBAAIFwWWQBcEwB_IEuI-axl-xC0igE3_xAAJxCwACj1JJUUVWZlltDUM-HgQ")
             return await message.reply_photo(
                 random.choice(YUMI_PICS),
-                caption=_["help_1"].format(config.SUPPORT_CHAT),
+                caption=_["start_2"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
         if name[0:4] == "song":
