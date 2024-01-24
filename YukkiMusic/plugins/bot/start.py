@@ -73,7 +73,7 @@ loop = asyncio.get_running_loop()
 @LanguageStart
 async def start_comm(client, message: Message, _):
     await add_served_user(message.from_user.id)
-  await message.reply_photo(
+ return await message.reply_photo(
         random.choice(YUMI_PICS),
         caption=_["start_2"].format(config.MUSIC_BOT_NAME),
         reply_markup=private_panel
