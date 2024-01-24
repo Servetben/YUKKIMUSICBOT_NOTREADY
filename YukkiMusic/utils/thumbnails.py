@@ -153,9 +153,9 @@ async def get_qthumb(videoid):
         draw = ImageDraw.Draw(background)
         arial = ImageFont.truetype("Love/font2.ttf", 30)
         font = ImageFont.truetype("Love/font.ttf", 100)
-        draw.text((1220, 550), f"Title: {title[:50]} .", (255, 255, 255), font=font)
-        draw.text((1220, 650), f"Duration: {duration}", (255, 255, 255), font=font)
-        draw.text((1220, 750), f"Views: {views}", (255, 255, 255), font=font)
+        draw.text((1220, 500), f"Title: {title[:50]} .", (255, 255, 255), font=font)
+        draw.text((1220, 640), f"Duration: {duration}", (255, 255, 255), font=font)
+        draw.text((1220, 740), f"Views: {views}", (255, 255, 255), font=font)
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
