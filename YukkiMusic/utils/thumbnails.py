@@ -90,7 +90,7 @@ async def gen_thumb(videoid):
         image2 = image1.convert("RGBA")
         background = Image.open(f"Love/THUMBNAIL_S.jpg")
         y=changeImageSize(950,950,circle(youtube)) 
-        background.paste(y,(630,701),mask=y)
+        background.paste(y,(620,691),mask=y)
         draw = ImageDraw.Draw(background)
         arial = ImageFont.truetype("Love/font2.ttf", 30)
         font = ImageFont.truetype("Love/font.ttf", 120)
