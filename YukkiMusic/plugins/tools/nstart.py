@@ -53,7 +53,7 @@ YUMI_PICS = [
     "https://telegra.ph/file/7c4bf50287cc170d167c4.jpg"
 ]
 
-@app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS )
+@app.on_message(filters.command(["nstart"]) & filters.private & ~BANNED_USERS )
 @LanguageStart
 async def str(client, message: Message, _):
     await message.reply_photo(
