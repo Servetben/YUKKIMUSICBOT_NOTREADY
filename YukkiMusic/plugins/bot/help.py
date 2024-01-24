@@ -13,7 +13,7 @@ from typing import Union
 from config import START_IMG_URL
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
-from config import SUPPORT_CHAT
+from config import SUPPORT_GROUP as SUPPORT_CHAT
 from config import BANNED_USERS
 from strings import get_command, get_string, helpers
 from YukkiMusic import app
