@@ -10,7 +10,7 @@
 
 
 from typing import Union
-from comfig import START_IMG_URL
+from config import START_IMG_URL
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
 from config import SUPPORT_CHAT
