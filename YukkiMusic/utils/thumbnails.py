@@ -89,6 +89,8 @@ async def gen_thumb(videoid):
         image1 = changeImageSize(900, 900, youtube)
         image2 = image1.convert("RGBA")
         background = Image.open(f"Love/THUMBNAIL_S.jpg")
+        enhancer = ImageEnhance.Brightness(youtube)
+        youtube = enhancer.enhance(1)
         y=changeImageSize(950,950,circle(youtube)) 
         background.paste(y,(620,691),mask=y)
         draw = ImageDraw.Draw(background)
