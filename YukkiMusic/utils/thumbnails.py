@@ -107,7 +107,7 @@ async def gen_thumb(videoid):
     except Exception:
         return YOUTUBE_IMG_URL
 
-async def gen_qthumb(videoid):
+async def get_qthumb(videoid):
     if os.path.isfile(f"cache/{videoid}.png"):
         return f"cache/{videoid}.png"
 
