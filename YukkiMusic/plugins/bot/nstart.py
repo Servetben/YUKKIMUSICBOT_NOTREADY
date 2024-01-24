@@ -6,7 +6,7 @@ from pyrogram.enums import ChatType, ParseMode
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 from youtubesearchpython.__future__ import VideosSearch
-
+from config import GITHUB_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP
 import config
 from config import BANNED_USERS
 from config.config import OWNER_ID
@@ -69,5 +69,21 @@ async def str(client, message: Message, _):
             [
                 [InlineKeyboardButton("★ Add Me ★", url="https://t.me/I_Love_You_828")]
             ]
+          [
+            InlineKeyboardButton(
+                text=_["S_B_8"], callback_data="settings_back_helper"
+            ),
+           ]
+          [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+          ]
+          [
+                InlineKeyboardButton(text=_["S_B_7"], user_id=OWNER),
+      ]
         )
     )
