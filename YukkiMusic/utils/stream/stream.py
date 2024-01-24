@@ -29,7 +29,7 @@ from YukkiMusic.utils.inline.playlist import close_markup
 from YukkiMusic.utils.pastebin import Yukkibin
 from YukkiMusic.utils.stream.queue import put_queue, put_queue_index
 from YukkiMusic.utils.thumbnails import gen_thumb
-
+from YukkiMusic.utils.inline.play import queue_markup
 
 async def stream(
     _,
@@ -172,12 +172,14 @@ async def stream(
             )
             position = len(db.get(chat_id)) - 1
             qimg = await get_qthumb(vidid)
+            qbutton = queue_markup(_, videoid, chat_id)
             run = await app.send_photo(
                 original_chat_id,
                 photo=qimg,
                 caption=_["queue_4"].format(
                     position, title[:30], duration_min, user_name
                 ),
+            reply_markup=InlineKeyboardMarkup(qbutton),
             )
         else:
             if not forceplay:
