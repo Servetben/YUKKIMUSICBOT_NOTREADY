@@ -67,6 +67,7 @@ async def start(client, message: Message, _):
         caption=_["start_2"].format(config.MUSIC_BOT_NAME),
         reply_markup=InlineKeyboardMarkup(
           [
+          [
                 InlineKeyboardButton(
                   "★ Add Me ★", url="https://t.me/I_Love_You_828")
             ]
@@ -87,5 +88,6 @@ async def start(client, message: Message, _):
                 InlineKeyboardButton(
                   "owner", user_id=OWNER),
       ]
+]
         )
     )
