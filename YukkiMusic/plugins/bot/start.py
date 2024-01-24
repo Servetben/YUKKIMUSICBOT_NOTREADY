@@ -43,7 +43,7 @@ loop = asyncio.get_running_loop()
     & ~BANNED_USERS
 )
 @LanguageStart
-async def start_comm(client, message: Message, _):
+async def start_command(client, message: Message, _):
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
@@ -194,9 +194,7 @@ async def start_comm(client, message: Message, _):
         except:
             OWNER = None
         out = private_panel(_, app.username, OWNER)
-        if config.START_IMG_URL:
-            try:
-                await message.reply_photo(
+        return await message.reply_photo(
                     photo=config.START_IMG_URL,
                     caption=_["start_2"].format(
                         config.MUSIC_BOT_NAME
@@ -220,22 +218,6 @@ async def start_comm(client, message: Message, _):
                 config.LOG_GROUP_ID,
                 f"{message.from_user.mention} has just started Bot.\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
             )
-
-@app.on_message(
-    filters.command(get_command("START_COMMAND"))
-    & filters.private
-    & ~BANNED_USERS
-)
-@LanguageStart
-async def start_pm(client, message: Message, _):
-    out = private_panel(_, app.username, OWNER)
-    return await message.reply_photo(
-                    photo=config.START_IMG_URL,
-                    caption=_["start_2"].format(
-                        config.MUSIC_BOT_NAME
-                    ),
-                    reply_markup=InlineKeyboardMarkup(out),
-                )
 
 
 @app.on_message(
