@@ -69,7 +69,7 @@ async def start(client, message: Message, _):
           [
           [
                 InlineKeyboardButton(
-                  "★ Add Me ★", url="https://t.me/I_Love_You_828")
+                  "★ Add Me ★", url="https://t.me/I_Love_You_828"),
             ]
           [
             InlineKeyboardButton(
