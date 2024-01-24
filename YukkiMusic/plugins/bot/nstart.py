@@ -66,8 +66,9 @@ async def start(client, message: Message, _):
         random.choice(YUMI_PICS),
         caption=_["start_2"].format(config.MUSIC_BOT_NAME),
         reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("★ Add Me ★", url="https://t.me/I_Love_You_828")]
+          [
+                InlineKeyboardButton(
+                  "★ Add Me ★", url="https://t.me/I_Love_You_828")
             ]
           [
             InlineKeyboardButton(
