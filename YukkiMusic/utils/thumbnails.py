@@ -108,8 +108,8 @@ async def gen_thumb(videoid):
         return YOUTUBE_IMG_URL
 
 async def gen_qthumb(videoid):
-   if os.path.isfile(f"cache/q{videoid}.png"):
-        return f"cache/q{videoid}.png"
+    if os.path.isfile(f"cache/{videoid}.png"):
+        return f"cache/{videoid}.png"
 
     url = f"https://www.youtube.com/watch?v={videoid}"
     try:
@@ -139,13 +139,13 @@ async def gen_qthumb(videoid):
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
                     f = await aiofiles.open(
-                        f"cache/thumbq{videoid}.png", mode="wb"
+                        f"cache/thumb{videoid}.png", mode="wb"
                     )
                     await f.write(await resp.read())
                     await f.close()
      
 
-        youtube = Image.open(f"cache/thumbq{videoid}.png")
+        youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1050, 1050, youtube)
         image2 = image1.convert("RGBA")
         background = Image.open(f"Love/QUEUEthumb.jpg")
@@ -158,10 +158,10 @@ async def gen_qthumb(videoid):
         draw.text((1790, 990), f"Duration: {duration}", (255, 255, 255), font=font)
         draw.text((1790, 1190), f"Views: {views}", (255, 255, 255), font=font)
            try:
-            os.remove(f"cache/thumbq{videoid}.png")
+            os.remove(f"cache/thumb{videoid}.png")
         except:
             pass
-        background.save(f"cache/q{videoid}.png")
-        return f"cache/q{videoid}.png"
+        background.save(f"cache/{videoid}.png")
+        return f"cache/{videoid}.png"
     except Exception:
         return YOUTUBE_IMG_URL
