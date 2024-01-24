@@ -194,7 +194,8 @@ async def start_command(client, message: Message, _):
         except:
             OWNER = None
         out = private_panel(_, app.username, OWNER)
-        return await message.reply_photo(
+          try:
+              return await message.reply_photo(
                     photo=config.START_IMG_URL,
                     caption=_["start_2"].format(
                         config.MUSIC_BOT_NAME
