@@ -149,11 +149,11 @@ async def get_qthumb(videoid):
         image2 = image1.convert("RGBA")
         background = Image.open(f"Love/QUEUEthumb.jpg")
         y=changeImageSize(800, 800,circle(youtube)) 
-        background.paste(y,(360,400),mask=y)
+        background.paste(y,(330,390),mask=y)
         draw = ImageDraw.Draw(background)
         arial = ImageFont.truetype("Love/font2.ttf", 30)
         font = ImageFont.truetype("Love/font.ttf", 100)
-        draw.text((1550, 570), f"Title: {title[:50]} .", (255, 255, 255), font=font)
+        draw.text((1100, 570), f"Title: {title[:50]} .", (255, 255, 255), font=font)
         draw.text((1790, 990), f"Duration: {duration}", (255, 255, 255), font=font)
         draw.text((1790, 1190), f"Views: {views}", (255, 255, 255), font=font)
         try:
