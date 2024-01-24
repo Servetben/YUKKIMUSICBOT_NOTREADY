@@ -221,6 +221,22 @@ async def start_comm(client, message: Message, _):
                 f"{message.from_user.mention} has just started Bot.\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
             )
 
+@app.on_message(
+    filters.command(get_command("START_COMMAND"))
+    & filters.private
+    & ~BANNED_USERS
+)
+@LanguageStart
+async def start_pm(client, message: Message, _):
+    out = private_panel(_, app.username, OWNER)
+    return await message.reply_photo(
+                    photo=config.START_IMG_URL,
+                    caption=_["start_2"].format(
+                        config.MUSIC_BOT_NAME
+                    ),
+                    reply_markup=InlineKeyboardMarkup(out),
+                )
+
 
 @app.on_message(
     filters.command(get_command("START_COMMAND"))
