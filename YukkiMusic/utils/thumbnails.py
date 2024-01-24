@@ -144,7 +144,6 @@ async def gen_qthumb(videoid):
                     await f.write(await resp.read())
                     await f.close()
      
-
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1050, 1050, youtube)
         image2 = image1.convert("RGBA")
@@ -157,7 +156,7 @@ async def gen_qthumb(videoid):
         draw.text((1790, 790), f"Title: {title[:50]} .", (255, 255, 255), font=font)
         draw.text((1790, 990), f"Duration: {duration}", (255, 255, 255), font=font)
         draw.text((1790, 1190), f"Views: {views}", (255, 255, 255), font=font)
-           try:
+        try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
             pass
