@@ -61,7 +61,7 @@ loop = asyncio.get_running_loop()
     & ~BANNED_USERS
 )
 @LanguageStart
-async def start(client, message: Message, _):
+async def str(client, message: Message, _):
     await message.reply_photo(
         random.choice(YUMI_PICS),
         caption=_["start_2"].format(config.MUSIC_BOT_NAME),
