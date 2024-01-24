@@ -139,8 +139,7 @@ async def helper_private(
         await message.reply_photo(
                     photo=random.choice(YUMI_PICS),
                     await update.message.reply_text(
-                _["help_1"], reply_markup=keyboard ),
-            )
+                _["help_1"], reply_markup=keyboard ))
         else:
             await message.reply_photo(
                     photo=random.choice(YUMI_PICS),
