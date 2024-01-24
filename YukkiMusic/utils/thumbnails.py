@@ -106,3 +106,62 @@ async def gen_thumb(videoid):
         return f"cache/{videoid}.png"
     except Exception:
         return YOUTUBE_IMG_URL
+
+async def gen_qthumb(videoid):
+   if os.path.isfile(f"cache/q{videoid}.png"):
+        return f"cache/q{videoid}.png"
+
+    url = f"https://www.youtube.com/watch?v={videoid}"
+    try:
+        results = VideosSearch(url, limit=1)
+        for result in (await results.next())["result"]:
+            try:
+                title = result["title"]
+                title = re.sub("\W+", " ", title)
+                title = title.title()
+            except:
+                title = "Unsupported Title"
+            try:
+                duration = result["duration"]
+            except:
+                duration = "Unknown Mins"
+            thumbnail = result["thumbnails"][0]["url"].split("?")[0]
+            try:
+                views = result["viewCount"]["short"]
+            except:
+                views = "Unknown Views"
+            try:
+                channel = result["channel"]["name"]
+            except:
+                channel = "Unknown Channel"
+
+        async with aiohttp.ClientSession() as session:
+            async with session.get(thumbnail) as resp:
+                if resp.status == 200:
+                    f = await aiofiles.open(
+                        f"cache/thumbq{videoid}.png", mode="wb"
+                    )
+                    await f.write(await resp.read())
+                    await f.close()
+     
+
+        youtube = Image.open(f"cache/thumbq{videoid}.png")
+        image1 = changeImageSize(1050, 1050, youtube)
+        image2 = image1.convert("RGBA")
+        background = Image.open(f"Love/QUEUEthumb.jpg")
+        y=changeImageSize(1090,1090,circle(youtube)) 
+        background.paste(y,(494,600),mask=y)
+        draw = ImageDraw.Draw(background)
+        arial = ImageFont.truetype("resources/font2.ttf", 30)
+        font = ImageFont.truetype("resources/font.ttf", 120)
+        draw.text((1790, 790), f"Title: {title[:50]} .", (255, 255, 255), font=font)
+        draw.text((1790, 990), f"Duration: {duration}", (255, 255, 255), font=font)
+        draw.text((1790, 1190), f"Views: {views}", (255, 255, 255), font=font)
+           try:
+            os.remove(f"cache/thumbq{videoid}.png")
+        except:
+            pass
+        background.save(f"cache/q{videoid}.png")
+        return f"cache/q{videoid}.png"
+    except Exception:
+        return YOUTUBE_IMG_URL
