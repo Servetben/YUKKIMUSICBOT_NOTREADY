@@ -150,6 +150,8 @@ async def get_qthumb(videoid):
         image1 = changeImageSize(1050, 1050, youtube)
         image2 = image1.convert("RGBA")
         background = Image.open(f"Love/QUEUEthumb.jpg")
+        enhancer = ImageEnhance.Brightness(youtube)
+        youtube = enhancer.enhance(1.2)
         y=changeImageSize(773, 773,circle(youtube)) 
         background.paste(y,(310,370),mask=y)
         draw = ImageDraw.Draw(background)
