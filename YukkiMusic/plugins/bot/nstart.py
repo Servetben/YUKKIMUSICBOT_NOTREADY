@@ -65,5 +65,9 @@ async def str(client, message: Message, _):
     await message.reply_photo(
         random.choice(YUMI_PICS),
         caption=_["start_2"].format(config.MUSIC_BOT_NAME),
-        reply_markup=private_panel
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton("★ Add Me ★", url="https://t.me/I_Love_You_828")]
+            ]
+        )
     )
