@@ -6,7 +6,7 @@ from pyrogram.enums import ChatType, ParseMode
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 from youtubesearchpython.__future__ import VideosSearch
-
+from pyrogram import *
 import config
 from config import BANNED_USERS
 from config.config import OWNER_ID
