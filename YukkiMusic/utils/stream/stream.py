@@ -13,7 +13,7 @@ from random import randint
 from typing import Union
 
 from pyrogram.types import InlineKeyboardMarkup
-
+from YukkiMusic.utils.thumbnails import get_qthumb
 import config
 from YukkiMusic import Carbon, YouTube, app
 from YukkiMusic.core.call import Yukki
@@ -169,7 +169,7 @@ async def stream(
                 "video" if video else "audio",
             )
             position = len(db.get(chat_id)) - 1
-            qimg = await gen_qthumb(vidid)
+            qimg = await get_qthumb(vidid)
             button = queue_markup(_, vidid, chat_id)
             run = await app.send_photo(
                 original_chat_id,
