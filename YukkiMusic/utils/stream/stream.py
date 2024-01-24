@@ -23,12 +23,12 @@ from YukkiMusic.utils.database import (add_active_chat,
                                        is_active_chat,
                                        is_video_allowed, music_on)
 from YukkiMusic.utils.exceptions import AssistantErr
-from YukkiMusic.utils.inline.play import (stream_markup,
+from YukkiMusic.utils.inline.play import (stream_markup, queue_markup,
                                           telegram_markup)
 from YukkiMusic.utils.inline.playlist import close_markup
 from YukkiMusic.utils.pastebin import Yukkibin
 from YukkiMusic.utils.stream.queue import put_queue, put_queue_index
-from YukkiMusic.utils.thumbnails import gen_thumb
+from YukkiMusic.utils.thumbnails import gen_thumb, gen_qthumb‎
 
 
 async def stream(
@@ -171,11 +171,15 @@ async def stream(
                 "video" if video else "audio",
             )
             position = len(db.get(chat_id)) - 1
-            await app.send_message(
+            qimg = await gen_qthumb(vidid)
+            button = queue_markup(_, vidid, chat_id)
+            run = await app.send_photo(
                 original_chat_id,
-                _["queue_4"].format(
-                    position, title[:30], duration_min, user_name
+                photo=qimg,
+                caption=_["queue_4"].format(
+                    position, title[:27], duration_min, user_name
                 ),
+                reply_markup=InlineKeyboardMarkup(button),
             )
         else:
             if not forceplay:
