@@ -188,8 +188,8 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_, app.username, OWNER_ID)
-        served_chats = len(await get_served_chats())
-        served_users = len(await get_served_users())
+        served_chats = len(await add_served_chat())
+        served_users = len(await add_served_user())
         UP, CPU, RAM, DISK = await bot_sys_stats()
 
         await message.reply_sticker("CAACAgQAAxkBAAIFwWWQBcEwB_IEuI-axl-xC0igE3_xAAJxCwACj1JJUUVWZlltDUM-HgQ")
