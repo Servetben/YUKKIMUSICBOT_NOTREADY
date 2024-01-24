@@ -71,19 +71,20 @@ async def str(client, message: Message, _):
             ]
           [
             InlineKeyboardButton(
-                text=_["S_B_8"], callback_data="settings_back_helper"
+                "help", callback_data="settings_back_helper"
             ),
            ]
           [
                 InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    "chnl", url="{SUPPORT_CHANNEL}"
                 ),
                 InlineKeyboardButton(
-                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    "grp", url="{SUPPORT_GROUP}"
                 ),
           ]
           [
-                InlineKeyboardButton(text=_["S_B_7"], user_id=OWNER),
+                InlineKeyboardButton(
+                  "owner", user_id=OWNER),
       ]
         )
     )
