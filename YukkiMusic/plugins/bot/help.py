@@ -10,10 +10,10 @@
 
 
 from typing import Union
-
+from comfig import START_IMG_URL
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
-
+from config import SUPPORT_CHAT
 from config import BANNED_USERS
 from strings import get_command, get_string, helpers
 from YukkiMusic import app
@@ -49,27 +49,23 @@ async def helper_private(
         chat_id = update.message.chat.id
         language = await get_lang(chat_id)
         _ = get_string(language)
-        keyboard = help_pannel(_, True)
-        if update.message.photo:
-            await update.message.reply_text(
-                _["help_1"], reply_markup=keyboard
-            )
-        else:
-            await update.edit_message_text(
-                _["help_1"], reply_markup=keyboard
-            )
+        keyboard = private_help_panel(_, True)
+        await update.edit_message_text(
+            _["help_1"].format(SUPPORT_CHAT), reply_markup=keyboard
+        )
     else:
-        chat_id = update.chat.id
-        if await is_commanddelete_on(update.chat.id):
-            try:
-                await update.delete()
-            except:
-                pass
-        language = await get_lang(chat_id)
+        try:
+            await update.delete()
+        except:
+            pass
+        language = await get_lang(update.chat.id)
         _ = get_string(language)
-        keyboard = help_pannel(_)
-        await update.reply_text(_["help_1"], reply_markup=keyboard)
-
+        keyboard = private_help_panel(_)
+        await update.reply_photo(
+            photo=START_IMG_URL,
+            caption=_["help_1"].format(SUPPORT_CHAT),
+            reply_markup=keyboard,
+        )
 
 @app.on_message(
     filters.command(HELP_COMMAND)
