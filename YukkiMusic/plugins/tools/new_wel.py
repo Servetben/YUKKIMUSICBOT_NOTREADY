@@ -1,4 +1,3 @@
-#dekho abhi ye enable krne ki jarurat nahi he i enabled this already its auto wel now
 import os
 from unidecode import unidecode
 from PIL import ImageDraw, Image, ImageFont, ImageChops
