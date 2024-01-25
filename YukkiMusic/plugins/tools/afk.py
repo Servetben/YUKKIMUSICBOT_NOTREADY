@@ -270,7 +270,7 @@ async def chat_watcher_func(_, message):
                                 caption=f"**{replied_first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
                             )
                 except Exception:
-                    msg += f"**{replied_first_name}** ɪs ᴀғᴋ,\nᴩᴀᴛᴀ ɴɪ ʙᴄ ᴋᴀʙ sᴇ\n\n"
+                    msg += f"**{replied_first_name}** ɪs ᴀғk"
         except:
             pass
 
