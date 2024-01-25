@@ -73,8 +73,8 @@ async def ctest(_, message):
 
          img = Image.open("Love/CPLS.jpg")
 
-         img1 = img1.resize((900,900))
-         img2 = img2.resize((900,900))
+         img1 = img1.resize((1000,1000))
+         img2 = img2.resize((1000,1000))
 
          mask = Image.new('L', img1.size, 0)
          draw = ImageDraw.Draw(mask) 
@@ -90,8 +90,8 @@ async def ctest(_, message):
 
          draw = ImageDraw.Draw(img)
 
-         img.paste(img1, (500, 600), img1)
-         img.paste(img2, (1000, 800), img2)
+         img.paste(img1, (450, 1000), img1)
+         img.paste(img2, (500, 1500), img2)
 
          img.save(f'test_{cid}.png')
     
