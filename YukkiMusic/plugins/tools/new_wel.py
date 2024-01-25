@@ -6,7 +6,7 @@ from pyrogram.types import *
 from logging import getLogger
 from YukkiMusic import LOGGER
 from YukkiMusic import app 
-from Love.database.wel2db import *
+from Love.db2.wel2db import *
 from config import LOG_GROUP_ID
 
 COMMAND_HANDLER = ". /".split()
