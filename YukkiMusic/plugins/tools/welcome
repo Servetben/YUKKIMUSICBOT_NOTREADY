@@ -1,3 +1,4 @@
+#all welcome is fixed u can enable this but you need to Desable another welcome only 1 welcome u can enable by shalu
 import os
 from unidecode import unidecode
 from PIL import ImageDraw, Image, ImageFont, ImageChops
