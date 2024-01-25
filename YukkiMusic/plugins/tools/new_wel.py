@@ -1,3 +1,4 @@
+#dekho abhi ye enable krne ki jarurat nahi he i enabled this already its auto wel now
 import os
 from unidecode import unidecode
 from PIL import ImageDraw, Image, ImageFont, ImageChops
@@ -39,14 +40,14 @@ def welcomepic(pic, user, chat, id, uname):
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
     pfp = pfp.resize(
-        (1000, 1000)
+        (1030, 1030)
     ) 
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('Love/SwanseaBold-D0ox.ttf', size=130)
     welcome_font = ImageFont.truetype('Love/SwanseaBold-D0ox.ttf', size=10)
     draw.text((1850, 960), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
     draw.text((1850, 1140), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((1850, 1310), f"USERNAME : {uname}", fill=(255,255,255),font=font)
+    draw.text((1850, 1340), f"USERNAME : {uname}", fill=(255,255,255),font=font)
     pfp_position = (630, 645)  
     background.paste(pfp, pfp_position, pfp)  
     background.save(
@@ -54,37 +55,6 @@ def welcomepic(pic, user, chat, id, uname):
     )
     return f"downloads/welcome#{id}.png"
 
-
-@app.on_message(filters.command("swel", COMMAND_HANDLER) & ~filters.private)
-async def auto_state(_, message):
-    usage = "**Usage:**\n/sswel [ENABLE|DISABLE]"
-    if len(message.command) == 1:
-        return await message.reply_text(usage)
-    chat_id = message.chat.id
-    user = await app.get_chat_member(message.chat.id, message.from_user.id)
-    if user.status in (
-        enums.ChatMemberStatus.ADMINISTRATOR,
-        enums.ChatMemberStatus.OWNER,
-    ):
-      A = await wlcm.find_one({"chat_id" : chat_id})
-      state = message.text.split(None, 1)[1].strip()
-      state = state.lower()
-      if state == "enable":
-        if A:
-           return await message.reply_text("Special Welcome Already Enabled")
-        elif not A:
-           await add_wlcm(chat_id)
-           await message.reply_text(f"Enabled Special Welcome in {message.chat.title}")
-      elif state == "disable":
-        if not A:
-           return await message.reply_text("Special Welcome Already Disabled")
-        elif A:
-           await rm_wlcm(chat_id)
-           await message.reply_text(f"Disabled Special Welcome in {message.chat.title}")
-      else:
-        await message.reply_text(usage)
-    else:
-        await message.reply("Only Admins Can Use This Command")
 
 @app.on_chat_member_updated(filters.group, group=-3)
 async def greet_group(_, member: ChatMemberUpdated):
