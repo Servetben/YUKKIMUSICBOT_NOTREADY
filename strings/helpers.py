@@ -28,7 +28,7 @@ HELP_4 = """💝<u>**Wᴇʟᴄᴏᴍᴇ**</u>
 
 /swel enable| Desable - Fᴏʀ Eɴᴀʙʟᴇ Sᴘᴇᴄɪᴀʟ Wᴇʟᴄᴏᴍᴇ Fᴏʀ Eᴠᴇʀʏ Nᴇᴡ Mᴇᴍʙᴇʀs  Aᴅᴅᴇᴅ Nᴇᴡ Tʜᴜᴍʙɴᴀɪʟ.
 """
-HELP_5 = """🧡<u>**bhag:**</u>
+HELP_5 = """✨<u>**Pʟᴀʏʟɪsᴛ:**</u>
 
 ✅**<u>Bot's Server Playlists:</u>**
 /playlist  - Check Your Saved Playlist On Servers.
