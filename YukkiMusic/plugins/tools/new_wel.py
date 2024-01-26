@@ -54,9 +54,9 @@ def welcomepic(pic, user, chat, id, uname):
     )
     return f"downloads/welcome#{id}.png"
 
-@app.on_message(filters.command("ssswel", COMMAND_HANDLER) & ~filters.private)
+@app.on_message(filters.command("swel", COMMAND_HANDLER) & ~filters.private)
 async def auto_state(_, message):
-    usage = "**Usage:**\n/ssswel [ENABLE|DISABLE]"
+    usage = "**Usage:**\n/swel [ENABLE|DISABLE]"
     if len(message.command) == 1:
         return await message.reply_text(usage)
     chat_id = message.chat.id
@@ -143,7 +143,7 @@ async def greet_group(_, member: ChatMemberUpdated):
 
    ✨ Oɴᴄᴇ ᴀɢᴀɪɴ...ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴍʏ ʜᴏᴜsᴇ , Cᴏᴍᴇ ғʀᴇᴇʟʏ ,  Gᴏ sᴀғᴇʟʏ ᴀɴᴅ ʟᴇᴀᴠᴇ sᴏᴍᴇᴛʜɪɴɢ ᴏғ ᴛʜᴇ ʜᴀᴘᴘɪɴᴇss ʏᴏᴜ ʙʀɪɴɢ.✨
 
-ᴏᴡɴᴇʀ ☞ @itz_SHALINI 💓 **
+ᴏᴡɴᴇʀ ☞ 💞 💙 💓 **
 """,
 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton (f"{user.first_name}", url=f"https://t.me/{user.username}")]])
         )
