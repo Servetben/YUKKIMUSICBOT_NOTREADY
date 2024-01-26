@@ -72,11 +72,22 @@ NOTE - This Command Is Only For Group Admins
 ➠ sᴘᴇᴄɪᴀʟ ᴄᴏᴍᴍᴀɴᴅs: shalu ban , shalu mute , shalu unmute, shalu promote etc
 """
 
-HELP_9 = """🍊<u>**Dᴏᴡɴʟᴏᴀᴅ:**</u>
+HELP_9 = """💌<u>**Nᴏᴛᴇs:**</u>
 
-/video - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
-/yt - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
-/song - Tᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ ғʀᴏᴍ YᴏᴜTᴜʙᴇ
+» ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs ꜰᴏʀ Nᴏᴛᴇs :
 
-example - /video Love nwantiti.
-"""
+/get ☞ get the note with this notename
+# ☞ same as /get
+/notes or /saved ☞ list all saved notes in this chat
+/number ☞ Will pull the note of that number in the list. 
+If you would like to retrieve the contents of a note without any formatting, use /get  noformat. This can be useful when updating a current note.
+
+Admins only:
+/save  ☞ saves notedata as a note with name notename
+A button can be added to a note by using standard markdown link syntax - the link should just be prepended with a buttonurl: section, as such: somelink. Check /markdownhelp for more info.
+/save ☞ save the replied message as a note with name notename
+/clear ☞ clear note with this name
+ ❍ /removeallnotes ☞ removes all notes from the group
+ Note ☞ Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
+ """
+ 
