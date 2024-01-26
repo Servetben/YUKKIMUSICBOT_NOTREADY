@@ -9,7 +9,7 @@ from YukkiMusic.utils.shalu_ban import admin_filter
 SPAM_CHATS = []
 
 
-@app.on_message(filters.command(["mention", "tagall", "all", "stag"]) & filters.group & admin_filter)
+@app.on_message(filters.command(["tagall", "all", "stag"]) & filters.group & admin_filter)
 async def tag_all_users(_,message): 
     replied = message.reply_to_message  
     if len(message.command) < 2 and not replied:
@@ -54,7 +54,7 @@ async def tag_all_users(_,message):
         except Exception:
             pass        
            
-@app.on_message(filters.command("tagstop", "tagcancel", "stagoff", "scancel") & ~filters.private)
+@app.on_message(filters.command("tagstop", "tagcancel", "scancel") & ~filters.private)
 async def cancelcmd(_, message):
     chat_id = message.chat.id
     if chat_id in SPAM_CHATS:
