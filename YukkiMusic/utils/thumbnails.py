@@ -92,7 +92,7 @@ async def gen_thumb(videoid):
         enhancer = ImageEnhance.Brightness(youtube)
         youtube = enhancer.enhance(1)
         y=changeImageSize(950,950,circle(youtube)) 
-        background.paste(y,(620,691),mask=y)
+        background.paste(y,(620,676),mask=y)
         draw = ImageDraw.Draw(background)
         arial = ImageFont.truetype("Love/font2.ttf", 30)
         font = ImageFont.truetype("Love/font.ttf", 120)
