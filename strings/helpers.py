@@ -13,21 +13,19 @@ HELP_1 = """✅**<u>ᴀғᴋ</u>**
 /Afk - ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ. """
 
 
-HELP_2 = """✅<u>**ᴄᴏᴜᴘʟᴇs:**</u>
+HELP_2 = """💞<u>**ᴄᴏᴜᴘʟᴇs:**</u>
 
-/couples - Fᴏʀ Tᴏᴅᴀʏ Cᴏᴜᴘʟᴇs Iᴍᴀɢᴇs Iɴ Sᴛʏʟɪsʜ ᴛʜᴜᴍʙɴᴀɪʟ
+/couples - Fᴏʀ Tᴏᴅᴀʏ Cᴏᴜᴘʟᴇs Iᴍᴀɢᴇs Iɴ Sᴛʏʟɪsʜ ᴛʜᴜᴍʙɴᴀɪʟ.
 
 
-HELP_3 = """✅<u>**ɪɴғᴏ:**</u>
+HELP_3 = """🥂<u>**ɪɴғᴏ:**</u>
 
-/id | /info - ғᴏʀ ʏᴏᴜʀ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏʀ ᴀɴʏ ᴏᴛʜᴇʀs ɪɴғᴏʀᴍᴀᴛɪᴏɴ ɪɴ sᴛʏʟɪsʜ ᴛʜᴜᴍʙɴᴀɪʟ
+/id | /info - ғᴏʀ ʏᴏᴜʀ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏʀ ᴀɴʏ ᴏᴛʜᴇʀs ɪɴғᴏʀᴍᴀᴛɪᴏɴ ɪɴ sᴛʏʟɪsʜ ᴛʜᴜᴍʙɴᴀɪʟ.
 """
 
-HELP_4 = """✅<u>**Extra  Commands:**</u>
-/start - Start the Music Bot.
+HELP_4 = """💝<u>**Wᴇʟᴄᴏᴍᴇ**</u>
 
-**Example:** `/broadcast -user -assistant -pin Hello Testing`
-
+/swel enable| Desable - Fᴏʀ Eɴᴀʙʟᴇ Sᴘᴇᴄɪᴀʟ Wᴇʟᴄᴏᴍᴇ Fᴏʀ Eᴠᴇʀʏ Nᴇᴡ Mᴇᴍʙᴇʀs  Aᴅᴅᴇᴅ Nᴇᴡ Tʜᴜᴍʙɴᴀɪʟ.
 """
 HELP_5 = """🧡<u>**bhag:**</u>
 
