@@ -8,25 +8,20 @@
 # All rights reserved.
 #
 
-HELP_1 = """✅**<u>Admin Commands:</u>**
+HELP_1 = """✅**<u>ᴀғᴋ</u>**
 
-**c** stands for channel play.
-
-/unauth [Username] - Remove a user from AUTH LIST of the group.
-/authusers - Check AUTH LIST of the group."""
+/Afk - ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ. """
 
 
-HELP_2 = """✅<u>**Play Commands:**</u>
+HELP_2 = """✅<u>**ᴄᴏᴜᴘʟᴇs:**</u>
 
-✅**<u>Bot's Server Playlists:</u>**
-/playlist  - Check Your Saved Playlist On Servers.
-/deleteplaylist - Delete any saved music in your playlist
-/play  - Start playing Your Saved Playlist from Servers."""
+/couples - Fᴏʀ Tᴏᴅᴀʏ Cᴏᴜᴘʟᴇs Iᴍᴀɢᴇs Iɴ Sᴛʏʟɪsʜ ᴛʜᴜᴍʙɴᴀɪʟ
 
 
-HELP_3 = """✅<u>**Bot Commands:**</u>
+HELP_3 = """✅<u>**ɪɴғᴏ:**</u>
 
-/queue or /cqueue- Check Queue List of Music."""
+/id | /info - ғᴏʀ ʏᴏᴜʀ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏʀ ᴀɴʏ ᴏᴛʜᴇʀs ɪɴғᴏʀᴍᴀᴛɪᴏɴ ɪɴ sᴛʏʟɪsʜ ᴛʜᴜᴍʙɴᴀɪʟ
+"""
 
 HELP_4 = """✅<u>**Extra  Commands:**</u>
 /start - Start the Music Bot.
