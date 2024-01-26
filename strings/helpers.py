@@ -35,9 +35,11 @@ HELP_5 = """✨<u>**Pʟᴀʏʟɪsᴛ:**</u>
 /deleteplaylist - Delete any saved music in your playlist
 /play  - Start playing Your Saved Playlist from Servers."""
 
-HELP_6 = """🧡<u>**bhag:**</u>
+HELP_6 = """🍊<u>**Dᴏᴡɴʟᴏᴀᴅ:**</u>
 
-✅**<u>Bot's Server Playlists:</u>**
-/playlist  - Check Your Saved Playlist On Servers.
-/deleteplaylist - Delete any saved music in your playlist
-/play  - Start playing Your Saved Playlist from Servers."""
+/video - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
+/yt - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
+/song - Tᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ ғʀᴏᴍ YᴏᴜTᴜʙᴇ
+
+example - /video Love nwantiti.
+"""
