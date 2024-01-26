@@ -91,3 +91,26 @@ A button can be added to a note by using standard markdown link syntax - the lin
  Note ☞ Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
  """
  
+HELP_10 = """✅**<u>ᴀғᴋ</u>**
+
+/Afk - ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ. """
+
+HELP_11 = """✅**<u>ᴀғᴋ</u>**
+
+/Afk - ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ. """
+
+HELP_12 = """✅**<u>ᴀғᴋ</u>**
+
+/Afk - ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ. """
+
+HELP_13 = """✅**<u>ᴀғᴋ</u>**
+
+/Afk - ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ. """
+
+HELP_14 = """✅**<u>ᴀғᴋ</u>**
+
+/Afk - ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ. """
+
+HELP_15 = """✅**<u>ᴀғᴋ</u>**
+
+/Afk - ᴀᴡᴀʏ ғʀᴏᴍ ᴋᴇʏʙᴏᴀʀᴅ. """
