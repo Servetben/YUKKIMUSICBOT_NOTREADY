@@ -58,13 +58,18 @@ HELP_7 = """💫<u>**Mᴜsɪᴄ:**</u>
 /queue ☞ Tᴏ Sʜᴏᴡ Tʜᴇ ǫᴜᴇᴜᴇ ʟɪsᴛ.
 """
 
-HELP_8 = """🍊<u>**Dᴏᴡɴʟᴏᴀᴅ:**</u>
+HELP_8 = """🍊<u>**Mᴀɴᴀɢᴇᴍᴇɴᴛ:**</u>
 
-/video - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
-/yt - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
-/song - Tᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ ғʀᴏᴍ YᴏᴜTᴜʙᴇ
+NOTE - This Command Is Only For Group Admins
 
-example - /video Love nwantiti.
+/kickme ☞ kicks the user who issued the command
+/ban ☞ bans a user. (via handle, or reply)
+/unban ☞ unbans a user. (via handle, or reply)
+/kick ☞ kicks a user out of the group, (via handle, or reply)
+/mute ☞ silences a user. Can also be used as a reply, muting the replied to user.
+/unmute ☞ unmutes a user. Can also be used as a reply, muting the replied to user.
+
+➠ sᴘᴇᴄɪᴀʟ ᴄᴏᴍᴍᴀɴᴅs: shalu ban , shalu mute , shalu unmute, shalu promote etc
 """
 
 HELP_9 = """🍊<u>**Dᴏᴡɴʟᴏᴀᴅ:**</u>
