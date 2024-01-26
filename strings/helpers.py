@@ -34,3 +34,10 @@ HELP_5 = """🧡<u>**bhag:**</u>
 /playlist  - Check Your Saved Playlist On Servers.
 /deleteplaylist - Delete any saved music in your playlist
 /play  - Start playing Your Saved Playlist from Servers."""
+
+HELP_6 = """🧡<u>**bhag:**</u>
+
+✅**<u>Bot's Server Playlists:</u>**
+/playlist  - Check Your Saved Playlist On Servers.
+/deleteplaylist - Delete any saved music in your playlist
+/play  - Start playing Your Saved Playlist from Servers."""
