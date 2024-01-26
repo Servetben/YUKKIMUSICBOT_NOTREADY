@@ -144,7 +144,7 @@ async def greet_group(_, member: ChatMemberUpdated):
    ✨ Oɴᴄᴇ ᴀɢᴀɪɴ...ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴍʏ ʜᴏᴜsᴇ , Cᴏᴍᴇ ғʀᴇᴇʟʏ ,  Gᴏ sᴀғᴇʟʏ ᴀɴᴅ ʟᴇᴀᴠᴇ sᴏᴍᴇᴛʜɪɴɢ ᴏғ ᴛʜᴇ ʜᴀᴘᴘɪɴᴇss ʏᴏᴜ ʙʀɪɴɢ.✨
 
 ᴏᴡɴᴇʀ ☞ @itz_SHALINI 💓 **
-"''",
+""",
 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton (f"{user.first_name}", url=f"https://t.me/{user.username}")]])
 
     except Exception as e:
