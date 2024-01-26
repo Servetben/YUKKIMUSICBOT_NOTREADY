@@ -43,3 +43,35 @@ HELP_6 = """🍊<u>**Dᴏᴡɴʟᴏᴀᴅ:**</u>
 
 example - /video Love nwantiti.
 """
+
+HELP_7 = """💫<u>**Mᴜsɪᴄ:**</u>
+
+/play ☞ Tᴏ Pʟᴀʏ Sᴏɴɢ Iɴ VC
+/vplay ☞ Tᴏ Pʟᴀʏ Vɪᴅᴇᴏ Sᴏɴɢ ɪɴ ᴠᴄ
+/pause ☞ Tᴏ Pᴀᴜsᴇ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ sᴛʀᴇᴀᴍ 
+/resume ☞ Tᴏ Rᴇsᴜᴍᴇ Tʜᴇ Cᴜʀʀᴇɴᴛ sᴛʀᴇᴀᴍ
+/skip ☞ Tᴏ sᴋɪᴘ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ sᴛʀᴇᴀᴍ
+/stop ☞ Tᴏ Sᴛᴏᴘ ᴄᴜʀʀᴇɴᴛ sᴛʀᴇᴀᴍ
+/playforce ☞ Tᴏ Sᴛᴏᴘ ᴄᴜʀʀᴇɴᴛ sᴛʀᴇᴀᴍ ᴀɴᴅ ᴘʟᴀʏ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ sᴏɴɢ
+/vplayforce ☞ Tᴏ sᴛᴏᴘ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ sᴏɴɢ ᴀɴᴅ ᴘʟᴀʏ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ᴠɪᴅᴇᴏ ᴛʀᴀᴄᴋ
+/seek ☞ Tᴏ Sᴇᴇᴋ Yᴏᴜʀ Sᴏɴɢ 
+/queue ☞ Tᴏ Sʜᴏᴡ Tʜᴇ ǫᴜᴇᴜᴇ ʟɪsᴛ.
+"""
+
+HELP_8 = """🍊<u>**Dᴏᴡɴʟᴏᴀᴅ:**</u>
+
+/video - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
+/yt - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
+/song - Tᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ ғʀᴏᴍ YᴏᴜTᴜʙᴇ
+
+example - /video Love nwantiti.
+"""
+
+HELP_9 = """🍊<u>**Dᴏᴡɴʟᴏᴀᴅ:**</u>
+
+/video - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
+/yt - ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ Fʀᴏᴍ YᴏᴜTᴜʙᴇ
+/song - Tᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ ғʀᴏᴍ YᴏᴜTᴜʙᴇ
+
+example - /video Love nwantiti.
+"""
