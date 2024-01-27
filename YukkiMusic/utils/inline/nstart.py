@@ -2,7 +2,7 @@ from typing import Union
 
 from pyrogram.types import InlineKeyboardButton
 import config 
-from config import GITHUB_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP
+from config import GITHUB_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP, OWNER_ID
 from YukkiMusic import app
 
 def nstart_pannel(_):
@@ -16,7 +16,7 @@ def nstart_pannel(_):
         [InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")],
         [
             InlineKeyboardButton(
-                        text=_["S_B_7"], user_id=OWNER ),
+                        text=_["S_B_7"], user_id=OWNER_ID ),
             InlineKeyboardButton(text=_["S_B_7"], callback_data="gib_source"),
         ],
         [
