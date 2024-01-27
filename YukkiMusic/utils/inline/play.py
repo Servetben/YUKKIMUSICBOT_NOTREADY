@@ -7,7 +7,7 @@
 #
 # All rights reserved.
 #
-
+import config 
 import random
 
 from pyrogram.types import InlineKeyboardButton
