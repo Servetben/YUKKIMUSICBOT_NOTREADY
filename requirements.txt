@@ -27,6 +27,7 @@ requests
 speedtest-cli
 spotipy
 tgcrypto
+gpytranslate
 wget
 youtube-search
 youtube-search-python
