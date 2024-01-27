@@ -16,7 +16,7 @@ def start_pannel(_):
     return buttons
 
 
-def private_panel(_):
+def private_panel(_, app.username, OWNER):
     buttons = [
         [
             InlineKeyboardButton(
