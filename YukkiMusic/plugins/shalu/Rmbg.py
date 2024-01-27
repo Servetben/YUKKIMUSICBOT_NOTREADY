@@ -34,7 +34,7 @@ async def RemoveBG(input_file_name):
             return True, name
 
 
-@app.on_message(filters.command(["rmbg", "bgremove"))
+@app.on_message(filters.command(["rmbg", "bgremove"]))
 async def rmbg(bot, message):
   rmbg = await message.reply("Processing...") 
   replied = message.reply_to_message
