@@ -5,12 +5,12 @@ from pyrogram.types import InlineKeyboardButton
 from config import GITHUB_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP
 from YukkiMusic import app
 
-def nstart_pannel(_, app.username, OWNER):
+def nstart_pannel(_):
     buttons = [
         [
             InlineKeyboardButton(
                 text=_["S_B_3"],
-                url=f"https://t.me/{app.username}?startgroup=true",
+                url=f"https://t.me/shalini_69_NBot?startgroup=true",
             )
         ],
         [InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")],
