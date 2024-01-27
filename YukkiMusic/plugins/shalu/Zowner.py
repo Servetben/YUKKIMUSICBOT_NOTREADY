@@ -42,7 +42,7 @@ SHALINI_PICS = [
 
 
 @app.on_message(filters.command(["owner"]) & filters.private & ~BANNED_USERS )
-@language
+@LanguageStart
 async def str(client, message: Message, _):
     await message.reply_photo(
         random.choice(SHALINI_PICS),
