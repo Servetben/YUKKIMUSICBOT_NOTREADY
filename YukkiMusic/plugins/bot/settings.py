@@ -12,7 +12,7 @@ import config
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.errors import MessageNotModified
-from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
+from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InputMediaVideo, 
                             InlineKeyboardMarkup, Message)
 
 from config import (BANNED_USERS, CLEANMODE_DELETE_MINS,
