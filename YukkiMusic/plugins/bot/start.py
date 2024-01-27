@@ -191,7 +191,7 @@ async def start_command(client, message: Message, _):
             OWNER = OWNER_ID[0]
         except:
             OWNER = None
-        out = nstart_pannel(_, app.username, OWNER)
+        out = nstart_pannel(_)
         if config.START_IMG_URL:
             try:
                 await message.reply_photo(
