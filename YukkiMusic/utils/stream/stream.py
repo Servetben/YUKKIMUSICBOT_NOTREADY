@@ -29,7 +29,6 @@ from YukkiMusic.utils.inline.playlist import close_markup
 from YukkiMusic.utils.pastebin import Yukkibin
 from YukkiMusic.utils.stream.queue import put_queue, put_queue_index
 from YukkiMusic.utils.thumbnails import gen_thumb
-from YukkiMusic.utils.inline.play import queue_markup
 
 async def stream(
     _,
