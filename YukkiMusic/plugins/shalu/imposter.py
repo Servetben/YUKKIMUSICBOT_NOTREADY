@@ -77,14 +77,10 @@ async def chk_usr(_, message: Message):
         or lastname_before != message.from_user.last_name
     ):
         msg += f"""
-**ᴜsᴇʀ sʜᴏʀᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ**
 
-•✰˚♫. * ● ¸ . ★ .¸¸♡¸¸★ :●. *°☆ ¸. ● .. ✷
+**✰ɴᴀᴍᴇ** : {message.from_user.mention}
+**✰ᴜsᴇʀ ɪᴅ** : {message.from_user.id}
 
-**ɴᴀᴍᴇ** : {message.from_user.mention}
-**ᴜsᴇʀ ɪᴅ** : {message.from_user.id}
-
-•✰˚♫. * ● ¸ . ★ .¸¸♡¸¸★ :●. *°☆ ¸. ● .. ✷
 \n
 """
     if usernamebefore != message.from_user.username:
@@ -97,12 +93,9 @@ async def chk_usr(_, message: Message):
         msg += """
 ** ᴄʜᴀɴɢᴇᴅ ᴜsᴇʀɴᴀᴍᴇ **
 
-•✰˚♫. * ● ¸ . ★ .¸¸♡¸¸★ :●. *°☆ ¸. ● .. ✷
+**★Bᴇғᴏʀᴇ** : {bef}
+**★Aғᴛᴇʀ** : {aft}
 
-**ғʀᴏᴍ** : {bef}
-**ᴛᴏ** : {aft}
-
-•✰˚♫. * ● ¸ . ★ .¸¸♡¸¸★ :●. *°☆ ¸. ● .. ✷
 \n
 """.format(bef=usernamebefore, aft=usernameafter)
         await add_userdata(
@@ -115,13 +108,9 @@ async def chk_usr(_, message: Message):
         msg += """
 **ᴄʜᴀɴɢᴇs ғɪʀsᴛ ɴᴀᴍᴇ**
 
-•✰˚♫. * ● ¸ . ★ .¸¸♡¸¸★ :●. *°☆ ¸. ● .. ✷
+**♡Bᴇғᴏʀᴇ** : {bef}
+**♡Aғᴛᴇʀ** : {aft}
 
-
-**ғʀᴏᴍ** : {bef}
-**ᴛᴏ** : {aft}
-
-•✰˚♫. * ● ¸ . ★ .¸¸♡¸¸★ :●. *°☆ ¸. ● .. ✷\n
 """.format(
             bef=first_name, aft=message.from_user.first_name
         )
@@ -136,10 +125,11 @@ async def chk_usr(_, message: Message):
         lastname_after = message.from_user.last_name or "NO LAST NAME"
         msg += """
 **ᴄʜᴀɴɢᴇs ʟᴀsᴛ ɴᴀᴍᴇ **
-➖➖➖➖➖➖➖➖➖➖➖➖
-**ғʀᴏᴍ** : {bef}
-**ᴛᴏ** : {aft}
-➖➖➖➖➖➖➖➖➖➖➖➖\n
+
+**✷Bᴇғᴏʀᴇ** : {bef}
+**✷Aғᴛᴇʀ** : {aft}
+
+\n
 """.format(
             bef=lastname_before, aft=lastname_after
         )
