@@ -7,7 +7,7 @@
 #
 # All rights reserved.
 #
-import time
+from time import time, strftime, gmtime
 import config 
 from pyrogram import filters
 from pyrogram.enums import ChatType
