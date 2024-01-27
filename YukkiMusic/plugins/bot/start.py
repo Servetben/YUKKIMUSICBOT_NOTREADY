@@ -29,7 +29,7 @@ from YukkiMusic.utils.database import (add_served_chat,
                                        get_userss, is_on_off,
                                        is_served_private_chat)
 from YukkiMusic.utils.decorators.language import LanguageStart
-from YukkiMusic.utils.inline import (help_pannel, private_panel, nstart_pannel, 
+from YukkiMusic.utils.inline import (help_pannel, private_panel,  
                                      start_pannel)
 
 loop = asyncio.get_running_loop()
@@ -191,7 +191,7 @@ async def start_command(client, message: Message, _):
             OWNER = OWNER_ID[0]
         except:
             OWNER = None
-        out = nstart_pannel(_)
+        out = private_panel(_, app.username, OWNER)
         if config.START_IMG_URL:
             try:
                 await message.reply_photo(
