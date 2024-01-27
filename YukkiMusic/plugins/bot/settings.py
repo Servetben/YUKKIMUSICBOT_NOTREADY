@@ -7,6 +7,7 @@
 #
 # All rights reserved.
 #
+import time
 import config 
 from pyrogram import filters
 from pyrogram.enums import ChatType
