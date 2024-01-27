@@ -7,7 +7,7 @@
 #
 # All rights reserved.
 #
-import config 
+
 import random
 
 from pyrogram.types import InlineKeyboardButton
@@ -42,18 +42,13 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             )
         ],
         [
-InlineKeyboardButton(text="ᴘᴀᴜꜱᴇ", callback_data=f"ADMIN Pause|{chat_id}"),
-InlineKeyboardButton(text="ʀᴇꜱᴜᴍᴇ", callback_data=f"ADMIN Resume|{chat_id}"),
-InlineKeyboardButton(text="ꜱᴋɪᴘ", callback_data=f"ADMIN Skip|{chat_id}"),
-InlineKeyboardButton(text="ꜱᴛᴏᴘ", callback_data=f"ADMIN Stop|{chat_id}"),
-        ],
-        [
             InlineKeyboardButton(
                 text=_["PL_B_2"],
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text=_["S_B_9"], user_id=config.OWNER_ID
+                text=_["PL_B_3"],
+                callback_data=f"PanelMarkup {videoid}|{chat_id}",
             ),
         ],
         [
@@ -98,7 +93,8 @@ def stream_markup(_, videoid, chat_id):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text=_["S_B_9"], user_id=config.OWNER_ID
+                text=_["PL_B_3"],
+                callback_data=f"PanelMarkup None|{chat_id}",
             ),
         ],
         [
@@ -343,36 +339,3 @@ def panel_markup_3(_, videoid, chat_id):
         ],
     ]
     return buttons
-
-def queue_markup(_, videoid, chat_id):
-    buttons = [
-        [
-            InlineKeyboardButton(
-                text="▶️",
-                callback_data=f"ADMIN Pause|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="⏸️",
-                callback_data=f"ADMIN Resume|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="⏏️",
-                callback_data=f"add_playlist {videoid}",
-            ),
-            InlineKeyboardButton(
-                text="⏩",
-                callback_data=f"ADMIN Skip|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="⏹️",
-                callback_data=f"ADMIN Stop|{chat_id}",
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="❌ 𝐂𝐥𝐨𝐬𝐞 ❌", callback_data="close"
-            )
-        ],
-    ]
-    return buttons
-    
