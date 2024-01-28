@@ -19,7 +19,9 @@ from YukkiMusic.utils.database import (add_active_chat,
                                        set_loop)
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
+from pyrogram.errors import (ChatAdminRequired,
+                             UserAlreadyParticipant,
+                             UserNotParticipant)
 from config import PLAYLIST_IMG_URL, PRIVATE_BOT_MODE, adminlist
 from strings import get_string
 from YukkiMusic import YouTube, app
