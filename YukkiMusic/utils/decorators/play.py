@@ -17,7 +17,7 @@ from YukkiMusic.utils.database import (add_active_chat,
                                        remove_active_chat,
                                        remove_active_video_chat,
                                        set_loop)
-
+from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import (ChatAdminRequired,
                              UserAlreadyParticipant,
