@@ -83,7 +83,7 @@ async def settings_cb(client, CallbackQuery, _):
 @app.on_callback_query(filters.regex("gib_source"))
 async def gib_repo_callback(_, callback_query):
     await callback_query.edit_message_media(
-        media=InputMediaVideo("https://telegra.ph/file/b1367262cdfbcd0b2af07.mp4", has_spoiler=True),
+        media=InputMediaVideo("https://telegra.ph/file/e32eefb47ddd4cfde46e5.mp4", has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
                 [close_button]
@@ -96,13 +96,13 @@ close_button = InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close
 @app.on_callback_query(filters.regex("^bot_info_data$"))
 async def show_bot_info(c: app, q: CallbackQuery):
     start = time()
-    x = await c.send_message(q.message.chat.id, "Pinging..")
+    x = await c.send_message(q.message.chat.id, "Fᴇᴛᴄʜɪɴɢ Iɴғᴏʀᴍᴀᴛɪᴏɴ....")
     delta_ping = time() - start
     await x.delete()
     txt = f"""
-    🏓 Pɪɴɢ: {delta_ping * 1000:.3f} ms   
-    🐍 Pʏᴛʜᴏɴ Vᴇʀsɪᴏɴ: 3.10.4
-    🔥 Pʏʀᴏɢʀᴀᴍ Vᴇʀsɪᴏɴ: 2.0.106
+    💫 Pɪɴɢ: {delta_ping * 1000:.3f} ms   
+    ✨ Pʏᴛʜᴏɴ Vᴇʀsɪᴏɴ: 3.10.4
+    🎀 Pʏʀᴏɢʀᴀᴍ Vᴇʀsɪᴏɴ: 2.0.106
     """
     await q.answer(txt, show_alert=True)
     return
