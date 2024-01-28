@@ -146,10 +146,8 @@ def PlayWrapper(command):
                     or get.status == ChatMemberStatus.RESTRICTED
                 ):
                     return await message.reply_text(
-                        _["call_2"].format(
-                            app.mention, userbot.id, userbot.name, userbot.username
+                        _["call_2"].format(userbot.username, userbot.id)
                         )
-                    )
         except UserNotParticipant:
             chat = await app.get_chat(chat_id)
             if chat.username:
