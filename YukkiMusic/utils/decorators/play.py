@@ -137,14 +137,19 @@ def PlayWrapper(command):
             fplay = None
         userbot = await get_assistant(chat_id)
         try:
-            try:
-                get = await app.get_chat_member(chat_id, userbot.id)
-            except ChatAdminRequired:
-                raise AssistantErr(_["call_1"])
-            if get.status == ChatMemberStatus.BANNED or get.status == ChatMemberStatus.LEFT:
-                raise AssistantErr(
-                    _["call_2"].format(userbot.username, userbot.id)
-                )
+                try:
+                    get = await app.get_chat_member(chat_id, userbot.id)
+                except ChatAdminRequired:
+                    return await message.reply_text(_["call_1"])
+                if (
+                    get.status == ChatMemberStatus.BANNED
+                    or get.status == ChatMemberStatus.RESTRICTED
+                ):
+                    return await message.reply_text(
+                        _["call_2"].format(
+                            app.mention, userbot.id, userbot.name, userbot.username
+                        )
+                    )
         except UserNotParticipant:
             chat = await app.get_chat(chat_id)
             if chat.username:
