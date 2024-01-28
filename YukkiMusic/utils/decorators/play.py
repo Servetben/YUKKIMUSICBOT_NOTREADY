@@ -129,6 +129,7 @@ def PlayWrapper(command):
             fplay = True
         else:
             fplay = None
+
           if not await is_active_chat(chat_id):
             userbot = await get_assistant(chat_id)
             try:
