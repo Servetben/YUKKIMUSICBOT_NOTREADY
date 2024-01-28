@@ -142,11 +142,11 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
         buttons.append(
       [
             InlineKeyboardButton(
-                text="source",
-                callback_data="sᴏᴜʀᴄᴇ"),
+                text="sᴏᴜʀᴄᴇ",
+                callback_data="gib_source"),
            InlineKeyboardButton(
-               text="info",
-               callback_data="Bᴏᴛ Iɴғᴏ"),
+               text="Bᴏᴛ Iɴғᴏ",
+               callback_data="bot_info_data"),
         ]
     )
     return buttons
