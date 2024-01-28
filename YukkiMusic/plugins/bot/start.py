@@ -281,8 +281,7 @@ async def start_command(client, message: Message, _):
         out = private_panel(_, app.username, OWNER)
         if config.START_IMG_URL:
             try:
-                await message.reply_photo(
-                    photo=random.choice(YUMI_PICS),
+                await message.reply_photo(random.choice(YUMI_PICS),
                     caption=_["start_2"].format(
                         config.MUSIC_BOT_NAME
                     ),
