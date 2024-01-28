@@ -135,10 +135,6 @@ def PlayWrapper(command):
             fplay = True
         else:
             fplay = None
-
-      async def join_assistant(self, original_chat_id, chat_id):
-        language = await get_lang(original_chat_id)
-        _ = get_string(language)
         userbot = await get_assistant(chat_id)
         try:
             try:
