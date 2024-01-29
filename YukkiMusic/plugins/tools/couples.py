@@ -62,7 +62,7 @@ async def ctest(_, message):
          try:
             p1 = await app.download_media(photo1.big_file_id, file_name="pfp.png")
          except Exception:
-            p1 = "Love/CPLS.jpg"
+            p1 = "Love/cplshebhai.jpg"
          try:
             p2 = await app.download_media(photo2.big_file_id, file_name="pfp1.png")
          except Exception:
@@ -71,10 +71,10 @@ async def ctest(_, message):
          img1 = Image.open(f"{p1}")
          img2 = Image.open(f"{p2}")
 
-         img = Image.open("Love/CPLS.jpg")
+         img = Image.open("Love/cplshebhai.jpg")
 
-         img1 = img1.resize((1100,1100))
-         img2 = img2.resize((1100,1100))
+         img1 = img1.resize((500, 500))
+         img2 = img2.resize((500, 500))
 
          mask = Image.new('L', img1.size, 0)
          draw = ImageDraw.Draw(mask) 
