@@ -38,13 +38,6 @@ async def get_userinfo_img(
 
     img_draw = ImageDraw.Draw(bg)
 
-    img_draw.text(
-        (529, 627),
-        text=str(user_id).upper(),
-        font=get_font(46, font_path),
-        fill=(255, 255, 255),
-    )
-
     path = f"./userinfo_img_{user_id}.png"
     bg.save(path)
     return path
