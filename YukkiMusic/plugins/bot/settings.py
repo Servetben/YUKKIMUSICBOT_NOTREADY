@@ -99,7 +99,7 @@ async def gib_repo_callback(_, callback_query):
         ),
     )
 
-close_button = InlineKeyboardButton(" ʙᴀᴄᴋ ", callback_data="settingsback_helper")
+close_button = InlineKeyboardButton(" ʙᴀᴄᴋ ", callback_data="settingsback_helperhe")
 
 @app.on_callback_query(filters.regex("^bot_info_data$"))
 async def show_bot_info(c: app, q: CallbackQuery):
@@ -641,4 +641,37 @@ async def cleanmode_mark(client, CallbackQuery, _):
         )
     except MessageNotModified:
         return
+app.on_callback_query(
+    filters.regex("settingsback_helper") & ~BANNED_USERS
+)
+@languageCB
+async def settings_back_markup(
+    client, CallbackQuery: CallbackQuery, _
+):
+    try:
+        await CallbackQuery.answer()
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
+    if CallbackQuery.message.chat.type == ChatType.PRIVATE:
+        try:
+            await app.resolve_peer(OWNER_ID[0])
+            OWNER = OWNER_ID[0]
+        except:
+            OWNER = None
+        buttons = private_panel(_, app.username, OWNER)
+        try:
+            await CallbackQuery.edit_message_text(
+                _["start_2"].format(MUSIC_BOT_NAME),
+                reply_markup=InlineKeyboardMarkup(buttons),
+            )
+        except MessageNotModified:
+            pass
+    else:
+        buttons = setting_markup(_)
+        try:
+            await CallbackQuery.edit_message_reply_markup(
+                reply_markup=InlineKeyboardMarkup(buttons)
+            )
+        except MessageNotModified:
+            pass
