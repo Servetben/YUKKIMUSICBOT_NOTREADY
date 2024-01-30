@@ -117,7 +117,7 @@ async def show_bot_info(c: app, q: CallbackQuery):
 
 
 @app.on_callback_query(
-    filters.regex("settingsback_helper") & ~BANNED_USERS
+    filters.regex("settingsback_helperhe") & ~BANNED_USERS
 )
 @languageCB
 async def settings_back_markup(
