@@ -131,18 +131,3 @@ async def helper_cb(client, CallbackQuery, _):
     elif cb == "hb20":
         await CallbackQuery.edit_message_text(helpers.HELP_20, reply_markup=keyboard)
 
-@app.on_callback_query(filters.regex("next_inline"))
-async def nexxt_inline(
-    client: app, update: Union[types.Message, types.CallbackQuery]
-):
-  is_callback = isinstance(update, types.CallbackQuery)
-   await callback_query.edit_message_media(
-     reply_markup=InlineKeyboardMarkup(
-            [
-                InlineKeyboardButton(
-                  text=_["H_B_20"],
-                  callback_data="help_callback hb20",
-                ),
-            ]
-        ),
-   )
