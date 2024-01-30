@@ -153,13 +153,13 @@ async def get_qthumb(videoid):
         enhancer = ImageEnhance.Brightness(youtube)
         youtube = enhancer.enhance(1.2)
         y=changeImageSize(870, 870,circle(youtube)) 
-        background.paste(y,(550,630),mask=y)
+        background.paste(y,(545,630),mask=y)
         draw = ImageDraw.Draw(background)
         arial = ImageFont.truetype("Love/font2.ttf", 30)
         font = ImageFont.truetype("Love/font.ttf", 120)
-        draw.text((1890, 640), f"Title: {title[:50]} .", (255, 255, 255), font=font)
-        draw.text((1890, 1000), f"Duration: {duration}", (255, 255, 255), font=font)
-        draw.text((1890, 1470), f"Views: {views}", (255, 255, 255), font=font)
+        draw.text((1820, 640), f"Title: {title[:50]} .", (255, 255, 255), font=font)
+        draw.text((1820, 940), f"Duration: {duration}", (255, 255, 255), font=font)
+        draw.text((1820, 1240), f"Views: {views}", (255, 255, 255), font=font)
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
