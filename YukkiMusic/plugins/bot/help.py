@@ -132,7 +132,9 @@ async def helper_cb(client, CallbackQuery, _):
         await CallbackQuery.edit_message_text(helpers.HELP_20, reply_markup=keyboard)
 
 @app.on_callback_query(filters.regex("next_inline"))
-async def next_inline(_, callback_query):
+async def nexxt_inline(
+    client: app, update: Union[types.Message, types.CallbackQuery]
+):
    await callback_query.edit_message_media(
      reply_markup=InlineKeyboardMarkup(
             [
