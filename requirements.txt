@@ -8,8 +8,6 @@ async_pymongo
 numpy
 unidecode
 pyfiglet
-httpx==0.25.2
-gtts
 telegraph
 hachoir
 search_engine_parser
@@ -35,3 +33,4 @@ wget
 youtube-search
 youtube-search-python
 yt-dlp
+uuid==1.30
