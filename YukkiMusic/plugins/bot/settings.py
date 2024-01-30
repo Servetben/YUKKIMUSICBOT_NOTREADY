@@ -9,7 +9,6 @@
 #
 from time import time, strftime, gmtime
 import config 
-import random
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.errors import MessageNotModified
@@ -45,13 +44,6 @@ from YukkiMusic.utils.inline.settings import (
     video_quality_markup)
 from YukkiMusic.utils.inline.start import private_panel
 
-YUMI_PICS = [
-"https://telegra.ph/file/6c885935e50762da25472.jpg",
-"https://telegra.ph/file/bf8ea432e132ec30cb0c2.jpg",
-"https://telegra.ph/file/30250b09029076698e4b2.jpg",
-"https://telegra.ph/file/bce5cfde2ed72fe655e69.jpg",
-"https://telegra.ph/file/92f3de73c8a0c541dd672.jpg",
-]
 ### Command
 SETTINGS_COMMAND = get_command("SETTINGS_COMMAND")
 
@@ -99,10 +91,24 @@ async def gib_repo_callback(_, callback_query):
         ),
     )
 
-close_button = InlineKeyboardButton(" ʙᴀᴄᴋ ", callback_data="settingsback_helperhe")
+close_button = InlineKeyboardButton(" Ê™á´€á´„á´‹ ", callback_data="settingsback_helper")
+
+@app.on_callback_query(filters.regex("^bot_info_data$"))
+async def show_bot_info(c: app, q: CallbackQuery):
+    start = time()
+    x = await c.send_message(q.message.chat.id, "Fá´‡á´›á´„ÊœÉªÉ´É¢ IÉ´Ò“á´Ê€á´á´€á´›Éªá´É´....")
+    delta_ping = time() - start
+    await x.delete()
+    txt = f"""
+    ðŸ’« PÉªÉ´É¢: {delta_ping * 1000:.3f} ms   
+    âœ¨ PÊá´›Êœá´É´ Vá´‡Ê€sÉªá´É´: 3.10.4
+    ðŸŽ€ PÊÊ€á´É¢Ê€á´€á´ Vá´‡Ê€sÉªá´É´: 2.0.106
+    """
+    await q.answer(txt, show_alert=True)
+    return
 
 
-app.on_callback_query(
+@app.on_callback_query(
     filters.regex("settingsback_helper") & ~BANNED_USERS
 )
 @languageCB
@@ -126,56 +132,6 @@ async def settings_back_markup(
                 _["start_2"].format(MUSIC_BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
-        except MessageNotModified:
-            pass
-    else:
-        buttons = setting_markup(_)
-        try:
-            await CallbackQuery.edit_message_reply_markup(
-                reply_markup=InlineKeyboardMarkup(buttons)
-            )
-        except MessageNotModified:
-            pass
-
-@app.on_callback_query(filters.regex("^bot_info_data$"))
-async def show_bot_info(c: app, q: CallbackQuery):
-    start = time()
-    x = await c.send_message(q.message.chat.id, "Fᴇᴛᴄʜɪɴɢ Iɴғᴏʀᴍᴀᴛɪᴏɴ....")
-    delta_ping = time() - start
-    await x.delete()
-    txt = f"""
-    💫 Pɪɴɢ: {delta_ping * 1000:.3f} ms   
-    ✨ Pʏᴛʜᴏɴ Vᴇʀsɪᴏɴ: 3.10.4
-    🎀 Pʏʀᴏɢʀᴀᴍ Vᴇʀsɪᴏɴ: 2.0.106
-    """
-    await q.answer(txt, show_alert=True)
-    return
-
-
-@app.on_callback_query(
-    filters.regex("settingsback_helperhe") & ~BANNED_USERS
-)
-@languageCB
-async def settings_back_markup(
-    client, CallbackQuery: CallbackQuery, _
-):
-    try:
-        await CallbackQuery.answer()
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-    if CallbackQuery.message.chat.type == ChatType.PRIVATE:
-        try:
-            await app.resolve_peer(OWNER_ID[0])
-            OWNER = OWNER_ID[0]
-        except:
-            OWNER = None
-        buttons = private_panel(_, app.username, OWNER)
-        try:
-            await CallbackQuery.edit_message_text(
-              _["start_2"].format(config.MUSIC_BOT_NAME),
-                  reply_markup=InlineKeyboardMarkup(buttons),
-              )
         except MessageNotModified:
             pass
     else:
@@ -557,7 +513,7 @@ async def authusers_mar(client, CallbackQuery, _):
                     j += 1
                 except Exception:
                     continue
-                msg += f"{j}➤ {user}[`{user_id}`]\n"
+                msg += f"{j}âž¤ {user}[`{user_id}`]\n"
                 msg += (
                     f"   {_['auth_8']} {admin_name}[`{admin_id}`]\n\n"
                 )
