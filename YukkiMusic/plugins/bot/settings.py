@@ -129,9 +129,11 @@ async def settings_back_markup(
         buttons = private_panel(_, app.username, OWNER)
         try:
             await CallbackQuery.edit_message_text(
-                _["start_2"].format(MUSIC_BOT_NAME),
-                reply_markup=InlineKeyboardMarkup(buttons),
-            )
+              photo=random.choice(YUMI_PICS),
+                    caption=_["start_2"].format(
+                        config.MUSIC_BOT_NAME ),
+                  reply_markup=InlineKeyboardMarkup(buttons),
+              )
         except MessageNotModified:
             pass
     else:
