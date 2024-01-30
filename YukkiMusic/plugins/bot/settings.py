@@ -19,6 +19,7 @@ from config import (BANNED_USERS, CLEANMODE_DELETE_MINS,
                     MUSIC_BOT_NAME, OWNER_ID)
 from strings import get_command
 from YukkiMusic import app
+import random 
 from YukkiMusic.utils.database import (add_nonadmin_chat,
                                        cleanmode_off, cleanmode_on,
                                        commanddelete_off,
@@ -47,7 +48,15 @@ from YukkiMusic.utils.inline.start import private_panel
 ### Command
 SETTINGS_COMMAND = get_command("SETTINGS_COMMAND")
 
-
+VIDEO_URL = [
+"https://telegra.ph/file/994be8612ef77a7f58a28.mp4",
+"https://telegra.ph/file/192e3530d0825cb34f8e0.mp4",
+"https://telegra.ph/file/bbe808e82960f66a32a33.mp4",
+"https://telegra.ph/file/f6171217c55cb4747a7da.mp4",
+"https://telegra.ph/file/38e7abacc8c8f88c2fafc.mp4",
+"https://telegra.ph/file/3f5602d66591fbd5793ec.mp4"
+]
+  
 @app.on_message(
     filters.command(SETTINGS_COMMAND)
     & filters.group
@@ -83,7 +92,7 @@ async def settings_cb(client, CallbackQuery, _):
 @app.on_callback_query(filters.regex("gib_source"))
 async def gib_repo_callback(_, callback_query):
     await callback_query.edit_message_media(
-        media=InputMediaVideo("https://telegra.ph/file/e32eefb47ddd4cfde46e5.mp4", has_spoiler=True),
+        media=InputMediaVideo(random.choice(VIDEO_URL), has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
                 [close_button]
