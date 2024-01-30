@@ -136,7 +136,6 @@ async def nexxt_inline(
     client: app, update: Union[types.Message, types.CallbackQuery]
 ):
   is_callback = isinstance(update, types.CallbackQuery)
-     await update.answer()
    await callback_query.edit_message_media(
      reply_markup=InlineKeyboardMarkup(
             [
