@@ -149,7 +149,7 @@ async def get_qthumb(videoid):
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1050, 1050, youtube)
         image2 = image1.convert("RGBA")
-        background = Image.open(f"Love/QUEUEthumb.jpg")
+        background = Image.open(f"Love/Newpic.jpg")
         enhancer = ImageEnhance.Brightness(youtube)
         youtube = enhancer.enhance(1.2)
         y=changeImageSize(773, 773,circle(youtube)) 
