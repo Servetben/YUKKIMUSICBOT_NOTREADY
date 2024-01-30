@@ -45,6 +45,13 @@ from YukkiMusic.utils.inline.settings import (
     video_quality_markup)
 from YukkiMusic.utils.inline.start import private_panel
 
+YUMI_PICS = [
+"https://telegra.ph/file/6c885935e50762da25472.jpg",
+"https://telegra.ph/file/bf8ea432e132ec30cb0c2.jpg",
+"https://telegra.ph/file/30250b09029076698e4b2.jpg",
+"https://telegra.ph/file/bce5cfde2ed72fe655e69.jpg",
+"https://telegra.ph/file/92f3de73c8a0c541dd672.jpg",
+]
 ### Command
 SETTINGS_COMMAND = get_command("SETTINGS_COMMAND")
 
