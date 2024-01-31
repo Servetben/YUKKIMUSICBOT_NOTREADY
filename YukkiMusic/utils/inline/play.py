@@ -339,3 +339,36 @@ def panel_markup_3(_, videoid, chat_id):
         ],
     ]
     return buttons
+
+#queue markup
+def queue_markup(_, videoid, chat_id):
+    buttons = [
+           [
+            InlineKeyboardButton(
+                text="▶️",
+                callback_data=f"ADMIN Pause|{chat_id}",
+            ),
+            InlineKeyboardButton(
+                text="⏸️",
+                callback_data=f"ADMIN Resume|{chat_id}",
+            ),
+            InlineKeyboardButton(
+                text="⏏️",
+                callback_data=f"add_playlist {videoid}",
+            ),
+            InlineKeyboardButton(
+                text="⏩",
+                callback_data=f"ADMIN Skip|{chat_id}",
+            ),
+            InlineKeyboardButton(
+                text="⏹️",
+                callback_data=f"ADMIN Stop|{chat_id}",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="❌ 𝐂𝐥𝐨𝐬𝐞 ❌", callback_data="close"
+            )
+        ],
+    ]
+    return buttons
