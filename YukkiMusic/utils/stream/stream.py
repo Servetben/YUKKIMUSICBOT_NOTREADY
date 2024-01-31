@@ -12,7 +12,7 @@ import os
 from random import randint
 from typing import Union
 
-from pyrogram.types import InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from YukkiMusic.utils.thumbnails import get_qthumb
 import config
 from YukkiMusic import Carbon, YouTube, app
@@ -179,7 +179,11 @@ async def stream(
                 caption=_["queue_4"].format(
                     position, title[:30], duration_min, user_name
                 ),
-          reply_markup=InlineKeyboardMarkup(button),
+          reply_markup=InlineKeyboardMarkup(
+            InlineKeyboardButton(
+              text="Hello"
+              url=f"https://t.me/funny"),
+      ),
             )
         else:
             if not forceplay:
