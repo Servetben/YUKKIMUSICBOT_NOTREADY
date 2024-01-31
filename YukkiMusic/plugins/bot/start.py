@@ -233,18 +233,18 @@ async def start_command(client, message: Message, _):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-🔍__**Video Track Information**__
+ㅤㅤ**💓 ❰ 𝐒ᴏɴɢ ♫ 𝐈ɴғᴏʀᴍᴀᴛɪᴏɴ ❱ 💓**
+        
+**𝐍𝐚𝐦𝐞 ➪ [{title}]({link})**　　
 
-❇️**Title:** {title}
+**𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧 ➪ [{duration} ᴍɪɴ.]({link})**
+**𝐕𝐢𝐞𝐰𝐬 ➪ [{views}]({link})**
+**𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐎𝐧 ➪ [{published}]({link})**
+**𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ➪ [{channel}]({link})**
+**𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐋𝐢𝐧𝐤 ➪ [ᴠɪsɪᴛ ᴄʜᴀɴɴᴇʟ]({channellink})**
+**𝐋𝐢𝐧𝐤 ➪ [ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ]({link})**
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-⏰**Published Time:** {published}
-🎥**Channel Name:** {channel}
-📎**Channel Link:** [Visit From Here]({channellink})
-🔗**Video Link:** [Link]({link})
-
-⚡️ __Searched Powered By {config.MUSIC_BOT_NAME}__"""
+☆........☆...ᴍᴀᴅᴇ ʙʏ » Ꮥʜꫝʟɪɴɪ....☆"""
             key = InlineKeyboardMarkup(
                 [
                     [
