@@ -179,7 +179,7 @@ async def stream(
                 caption=_["queue_4"].format(
                     position, title[:30], duration_min, user_name
                 ),
-               reply_markup=queues,
+          reply_markup=InlineKeyboardMarkup(queues),
             )
         else:
             if not forceplay:
