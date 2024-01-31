@@ -18,6 +18,7 @@ import config
 from YukkiMusic import Carbon, YouTube, app
 from YukkiMusic.core.call import Yukki
 from YukkiMusic.misc import db
+from YukkiMusic.utils.inline.play import queue_markup
 from YukkiMusic.utils.database import (add_active_chat,
                                        add_active_video_chat,
                                        is_active_chat,
@@ -171,12 +172,14 @@ async def stream(
             )
             position = len(db.get(chat_id)) - 1
             qimg = await get_qthumb(vidid)
+            queues = queue_markup(_, videoid, chat_id):
             run = await app.send_photo(
                 original_chat_id,
                 photo=qimg,
                 caption=_["queue_4"].format(
                     position, title[:30], duration_min, user_name
                 ),
+               reply_markup=queues,
             )
         else:
             if not forceplay:
