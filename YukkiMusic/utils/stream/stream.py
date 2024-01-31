@@ -181,7 +181,7 @@ async def stream(
                 ),
           reply_markup=InlineKeyboardMarkup(
             InlineKeyboardButton(
-              text="Hello"
+              text="Hello",
               url=f"https://t.me/funny"),
       ),
             )
