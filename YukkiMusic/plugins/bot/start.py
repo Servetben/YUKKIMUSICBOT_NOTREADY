@@ -262,7 +262,6 @@ async def start_command(client, message: Message, _):
                 message.chat.id,
                 photo=thumbnail,
                 caption=searched_text,
-                parse_mode="markdown",
                 reply_markup=key,
             )
             if await is_on_off(config.LOG):
