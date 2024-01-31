@@ -35,7 +35,7 @@ def circle(pfp, size=(450, 450)):
     return pfp
 
 def welcomepic(pic, user, chat, id, uname):
-    background = Image.open("Love/NEWWEL.jpg")
+    background = Image.open("Love/welwel2.png")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
     pfp = pfp.resize(
@@ -44,9 +44,9 @@ def welcomepic(pic, user, chat, id, uname):
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('Love/SwanseaBold-D0ox.ttf', size=130)
     welcome_font = ImageFont.truetype('Love/SwanseaBold-D0ox.ttf', size=10)
-    draw.text((1850, 960), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
-    draw.text((1850, 1140), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((1850, 1340), f"USERNAME : {uname}", fill=(255,255,255),font=font)
+    draw.text((1250, 960), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
+    draw.text((1250, 1140), f'ID: {id}', fill=(255, 255, 255), font=font)
+    draw.text((1250, 1340), f"USERNAME : {uname}", fill=(255,255,255),font=font)
     pfp_position = (620, 625)  
     background.paste(pfp, pfp_position, pfp)  
     background.save(
