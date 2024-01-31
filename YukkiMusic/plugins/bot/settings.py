@@ -101,7 +101,7 @@ async def gib_repo_callback(_, callback_query):
         ),
     )
 
-close_button = InlineKeyboardButton(" ᴄʟᴏsᴇ ", callback_data="settingsback_helper")
+close_button = InlineKeyboardButton(" ʙᴀᴄᴋ ", callback_data="settingsback_helper")
 
 @app.on_callback_query(filters.regex("^bot_info_data$"))
 async def show_bot_info(c: app, q: CallbackQuery):
