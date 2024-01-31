@@ -18,7 +18,6 @@ import config
 from YukkiMusic import Carbon, YouTube, app
 from YukkiMusic.core.call import Yukki
 from YukkiMusic.misc import db
-from YukkiMusic.utils.inline.play import queue_markup
 from YukkiMusic.utils.database import (add_active_chat,
                                        add_active_video_chat,
                                        is_active_chat,
@@ -179,11 +178,6 @@ async def stream(
                 caption=_["queue_4"].format(
                     position, title[:30], duration_min, user_name
                 ),
-          reply_markup=InlineKeyboardMarkup(
-            InlineKeyboardButton(
-              text="Hello",
-              url=f"https://t.me/funny"),
-      ),
             )
         else:
             if not forceplay:
