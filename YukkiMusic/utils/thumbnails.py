@@ -153,7 +153,7 @@ async def get_qthumb(videoid):
         enhancer = ImageEnhance.Brightness(youtube)
         youtube = enhancer.enhance(1.2)
         y=changeImageSize(879, 879,circle(youtube)) 
-        background.paste(y,(545,630),mask=y)
+        background.paste(y,(541,630),mask=y)
         draw = ImageDraw.Draw(background)
         arial = ImageFont.truetype("Love/font2.ttf", 30)
         font = ImageFont.truetype("Love/font.ttf", 120)
