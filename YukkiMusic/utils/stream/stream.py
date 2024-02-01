@@ -92,6 +92,16 @@ async def stream(
                 if not forceplay:
                     db[chat_id] = []
                 status = True if video else None
+    elif streamtype == "youtube":
+        link = result["link"]
+        vidid = result["vidid"]
+        title = (result["title"]).title()
+        duration_min = result["duration_min"]
+        status = True if video else None
+        try:
+            file_path, direct = await YouTube.download(
+                vidid, mystic, videoid=True, video=status
+              )
                 try:
                     file_path, direct = await YouTube.download(
                         vidid, mystic, video=status, videoid=True
