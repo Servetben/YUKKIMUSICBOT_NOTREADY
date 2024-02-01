@@ -5,6 +5,7 @@ dnspython
 ffmpeg-python
 gitpython
 async_pymongo
+future==0.18.3
 numpy
 unidecode
 pyfiglet
@@ -20,7 +21,7 @@ psutil
 apscheduler
 pykeyboard
 py-tgcalls
-git+https://github.com/KurimuzonAkuma/pyrogram@dev
+git+https://github.com/unknownteam72/pyrogram@dev
 python-dotenv
 emojis
 pyyaml
