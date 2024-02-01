@@ -31,7 +31,7 @@ from YukkiMusic.utils.inline import (help_pannel, private_panel,
     & ~BANNED_USERS
 )
 @LanguageStart
-async def startt(c: app, q: client, message: Message, _):
+async def startt(c: app, q: message: Message, _):
     start = time()
     x = await c.send_message(q.message.chat.id, "Fᴇᴛᴄʜɪɴɢ Iɴғᴏʀᴍᴀᴛɪᴏɴ....")
     delta_ping = time() - start
