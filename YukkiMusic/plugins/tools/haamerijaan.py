@@ -21,8 +21,8 @@ async def chat_gpt(bot, message):
 
             try:
                 # Check if "results" key is present in the JSON response
-                if "results" in response.json():
-                    x = response.json()["results"]
+                if "answer" in response.json():
+                    x = response.json()["answer"]
                     end_time = time.time()
                     telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ms"
                     await message.reply_text(
