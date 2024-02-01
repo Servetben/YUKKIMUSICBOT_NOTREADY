@@ -7,6 +7,7 @@ from pyrogram.types import (InlineKeyboardButton,
 from youtubesearchpython.__future__ import VideosSearch
 import random 
 import config
+from pyrogram.enums import ChatType
 from config import BANNED_USERS
 from config.config import OWNER_ID
 from pyrogram.enums import ChatAction, ParseMode
