@@ -401,11 +401,11 @@ async def start_command(client, message: Message, _):
         await asyncio.sleep(0.2)
         await accha.edit("__ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ..__")
         await asyncio.sleep(0.2)
-        await accha.edit("__ᴍᴀᴅᴇ ʙʏ Sʜᴀʟɪɴɪ..__")
+        await accha.edit("__ᴍᴀᴅᴇ ʙʏ Ꮥʜꫝʟɪɴɪ..__")
         await asyncio.sleep(0.3)
         await accha.delete()
         umm = await message.reply_sticker(sticker=random.choice(STICKER))
-        await asyncio.sleep(2)
+        await asyncio.sleep(1)
         await umm.delete()
         await message.reply_photo(
                    random.choice(YUMI_PICS),
