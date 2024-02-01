@@ -1,9 +1,9 @@
 import requests
-import random
+from  YukkiMusic import app
+from config import BOT_USERNAME
+import time
+from pyrogram.enums import ChatAction, ParseMode
 from pyrogram import filters
-from YukkiMusic import app
-
-GPT_API_URL = "https://chatgpt.apinepdev.workers.dev"
 
 
 @app.on_message(filters.command(["Arti"]))
