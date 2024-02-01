@@ -31,9 +31,10 @@ from YukkiMusic.utils.inline import (help_pannel, private_panel,
     & ~BANNED_USERS
 )
 @LanguageStart
-async def start_comm(client, message: Message, _):
+async def startt(client, message: Message, _):
     start = time()
-    x = await app.send_message("Fᴇᴛᴄʜɪɴɢ Iɴғᴏʀᴍᴀᴛɪᴏɴ....")
+    x = await message.reply_text(
+      "Fᴇᴛᴄʜɪɴɢ Iɴғᴏʀᴍᴀᴛɪᴏɴ....")
     delta_ping = time() - start
     await x.delete()
     txt = f"""
