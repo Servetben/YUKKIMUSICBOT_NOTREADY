@@ -29,7 +29,8 @@ async def chat_gpt(bot, message):
                     parse_mode=ParseMode.MARKDOWN
                 )
             except KeyError:
-                # Handle the case when "results" key is not found
+                # Print the actual JSON response to understand its structure
+                print(response.json())
                 await message.reply_text("No 'results' key found in the response.")
     except Exception as e:
         await message.reply_text(f"**ᴇʀʀᴏʀ: {e} ")
