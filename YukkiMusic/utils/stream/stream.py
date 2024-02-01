@@ -121,6 +121,7 @@ async def stream(
                     caption=_["stream_1"].format(
                         user_name,
                         f"https://t.me/{app.username}?start=info_{vidid}",
+                        title[:30], duration_min,
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
