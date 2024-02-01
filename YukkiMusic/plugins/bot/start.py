@@ -390,9 +390,7 @@ async def start_command(client, message: Message, _):
         umm = await message.reply_sticker(sticker=random.choice(STICKER))
         await asyncio.sleep(2)
         await umm.delete()
-        await message.reply_text(
-            text=f"""** hello **""")
-       await message.reply_photo(
+        await message.reply_photo(
                    random.choice(YUMI_PICS),
                     caption=_["start_2"].format(
                         config.MUSIC_BOT_NAME ),
