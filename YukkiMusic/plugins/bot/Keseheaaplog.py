@@ -40,5 +40,5 @@ async def startt(client, message: Message, _):
     txt = f"""
 HELLO
     """
-    await q.answer(txt, show_alert=True)
+    await app.answer(txt, show_alert=True)
     return
