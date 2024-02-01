@@ -98,11 +98,11 @@ async def stream(
         title = (result["title"]).title()
         duration_min = result["duration_min"]
         status = True if video else None
-        try:
+                try:
             file_path, direct = await YouTube.download(
                 vidid, mystic, videoid=True, video=status
               )
-                except:
+           except:
                     raise AssistantErr(_["play_16"])
                 await Yukki.join_call(
                     chat_id, original_chat_id, file_path, video=status
