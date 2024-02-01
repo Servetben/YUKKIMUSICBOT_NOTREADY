@@ -24,23 +24,42 @@ from YukkiMusic.utils.database import (add_served_chat,
 from YukkiMusic.utils.decorators.language import LanguageStart
 from YukkiMusic.utils.inline import (help_pannel, private_panel,  
                                      start_pannel)
+EMOJIOS = [
+    "💣",
+    "💥",
+    "🪄",
+    "🧨",
+    "⚡",
+    "🤡",
+    "👻",
+    "🎃",
+    "🎩",
+    "🕊",
+]
+
+STICKER = [
+    "CAACAgUAAx0CYlaJawABBy4vZaieO6T-Ayg3mD-JP-f0yxJngIkAAv0JAALVS_FWQY7kbQSaI-geBA",
+    "CAACAgUAAx0CYlaJawABBy4rZaid77Tf70SV_CfjmbMgdJyVD8sAApwLAALGXCFXmCx8ZC5nlfQeBA",
+    "CAACAgUAAx0CYlaJawABBy4jZaidvIXNPYnpAjNnKgzaHmh3cvoAAiwIAAIda2lVNdNI2QABHuVVHgQ",
+]
 
 @app.on_message(filters.command(["Heyy","Lol"],  prefixes=["+", ".", "/", "-", "", "$","#","&"]))
-async def hello(bot, message):
-    try:
-        start_time = time.time()
-        await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
-       x=await.message.reply_sticker(
-                "CAACAgUAAxkBAAI33mLYLNLilbRI-sKAAob0P7koTEJNAAIOBAACl42QVKnra4sdzC_uKQQ")
-            x.delete()
-      lol=await.message.reply_text(
-        "hello")
-           lol.delete()
-            time.sleep(0.4)
-            lol.edit_text("💛")
-            time.sleep(0.5)
-            lol.edit_text("🤍")
-            time.sleep(0.3)
-            lol.edit_text("❤️")
-            time.sleep(0.4)
-            lol.delete()
+async def helloo(_, m: Message):
+  if m.chat.type == ChatType.PRIVATE:
+        accha = await m.reply_text(
+            text=random.choice(EMOJIOS),
+        )
+        await asyncio.sleep(1.3)
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ ѕтαятιиg..__")
+        await asyncio.sleep(0.2)
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ sтαятιиg.....__")
+        await asyncio.sleep(0.2)
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ sтαятιиg..__")
+        await asyncio.sleep(0.2)
+        await accha.delete()
+        umm = await m.reply_sticker(sticker=random.choice(STICKER))
+        await asyncio.sleep(2)
+        await umm.delete()
+        await m.reply_text(
+            text=f"""** hello **"""
+        )
