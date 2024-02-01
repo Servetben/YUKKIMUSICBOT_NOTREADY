@@ -8,7 +8,8 @@
 # All rights reserved.
 
 import asyncio
-
+import time
+from time import time, strftime, gmtime
 from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
