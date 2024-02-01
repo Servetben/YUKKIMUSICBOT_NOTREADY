@@ -7,52 +7,25 @@ GPT_API_URL = "https://chatgpt.apinepdev.workers.dev"
 
 
 @app.on_message(filters.command(["Arti"]))
-async def chat_gpt(event):
-    if event.fwd_from:
-        return
+async def chat_gpt(bot, message):
+    try:
+        start_time = time.time()
+        await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
+        if len(message.command) < 2:
+            await message.reply_text(
+            "Example:**\n\n`/chatgpt Where is TajMahal?`")
+        else:
+            a = message.text.split(' ', 1)[1]
+            response = requests.get(f'https://chatgpt.apinepdev.workers.dev/? question={a}') 
+            x=response.json()["results"]
+            end_time = time.time()
+            telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ᴍs"
+            await message.reply_text(f" {x}\n\n✨ᴛɪᴍᴇ ᴛᴀᴋᴇɴ  {telegram_ping} \n\n 💓 ᴘᴏᴡᴇʀᴇᴅ ʙʏ @{BOT_USERNAME} ", parse_mode=ParseMode.MARKDOWN)     
+    except Exception as e:
+        await message.reply_text(f"**ᴇʀʀᴏʀ: {e} ")
+      
+    
 
-    query = event.pattern_match.group(1)
+    
 
-    if query:
-        # Send "Please wait" message
-        processing_message = await event.reply("💭")
-
-        try:
-            # Make a request to GPT API
-            response = requests.get(f"{GPT_API_URL}/?question={query}")
-
-            if response.status_code == 200:
-                # Extract the answer from the API response
-                result = response.json()
-
-                # Check if "join" key is present and remove it
-                if "join" in result:
-                    del result["join"]
-
-                # Add signature to the answer
-                answer = result.get("answer", "❍ ɴᴏ ᴀɴsᴡᴇʀ ʀᴇᴄᴇɪᴠᴇᴅ ғʀᴏᴍ ᴄʜᴀᴛ ᴀɪ.")
-                signature = "\n\n❍ ᴀɴsᴡᴇʀɪɴɢ ʙʏ ➛ [๛ᴀ ᴠ ɪ s ʜ ᴀ ༗](https://t.me/Avishaxbot)"
-                reply_message = answer + signature
-
-                # Edit the "Please wait" message with the final answer
-                await processing_message.edit(reply_message)
-            else:
-                # If there's an error with the API, inform the user
-                await processing_message.edit("Error communicating with ChatGPT API.")
-        except requests.exceptions.RequestException as e:
-            # Handle network-related errors
-            await processing_message.edit(f"Error: {str(e)}. Please try again later.")
-        except Exception as e:
-            # Handle unexpected errors
-            await processing_message.edit(f"Unexpected error: {str(e)}. Please try again later.")
-    else:
-        # Provide information about the correct command format
-        await event.reply("❍ ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ǫᴜᴇsᴛɪᴏɴ after /ask ᴄᴏᴍᴍᴀɴᴅ.\n\n❍ ғᴏʀ ᴇxᴀᴍᴘʟᴇ ➛ /ask ᴡʜᴀᴛ ɪs ᴛʜᴇ ᴍᴇᴀɴɪɴɢ ᴏғ ʟɪғᴇ ?")
-
-
-mod_name = "ᴄʜᴀᴛ-ᴀɪ"
-help = """
- ❍ /ask  *➛* ʀᴇᴘʟʏ ᴛo ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ 💭
- ❍ /gpt *➛* ʀᴇᴘʟʏ ᴛo ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ 🌴
- 
- """
+    
