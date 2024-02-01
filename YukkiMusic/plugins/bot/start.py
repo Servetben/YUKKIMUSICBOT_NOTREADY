@@ -376,7 +376,7 @@ async def start_command(client, message: Message, _):
         except:
             OWNER = None
         out = private_panel(_, app.username, OWNER)
-        accha = await messsage.reply_text(
+        accha = await message.reply_text(
             text=random.choice(EMOJIOS),
         )
         await asyncio.sleep(1.3)
