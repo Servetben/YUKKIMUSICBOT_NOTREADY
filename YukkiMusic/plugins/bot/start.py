@@ -396,13 +396,6 @@ async def start_command(client, message: Message, _):
                         config.MUSIC_BOT_NAME ),
                   reply_markup=InlineKeyboardMarkup(out),
       ),
-            except:
-                await message.reply_photo(
-                   random.choice(YUMI_PICS),
-                    caption=_["start_2"].format(
-                        config.MUSIC_BOT_NAME ),
-                  reply_markup=InlineKeyboardMarkup(out),
-                )
         else:
             await message.reply_photo(
                    random.choice(YUMI_PICS),
