@@ -378,7 +378,7 @@ async def start_command(client, message: Message, _):
         out = private_panel(_, app.username, OWNER)
         if config.START_IMG_URL:
             try:
-                  if message.chat.type == ChatType.PRIVATE:
+        if message.chat.type == ChatType.PRIVATE:
         accha = await messsage.reply_text(
             text=random.choice(EMOJIOS),
         )
