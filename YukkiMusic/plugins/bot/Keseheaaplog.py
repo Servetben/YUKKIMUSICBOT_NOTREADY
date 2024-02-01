@@ -26,7 +26,7 @@ from YukkiMusic.utils.inline import (help_pannel, private_panel,
                                      start_pannel)
 
 @app.on_message(
-    filters.command([start])
+    filters.command(get_command("START_COMMAND"))
     & filters.private
     & ~BANNED_USERS
 )
