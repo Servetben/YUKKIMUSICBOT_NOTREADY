@@ -16,7 +16,7 @@ async def chat_gpt(bot, message):
             "Example:**\n\n`/chatgpt Where is TajMahal?`")
         else:
             a = message.text.split(' ', 1)[1]
-            response = requests.get(f'https://chatgpt.apinepdev.workers.dev/? question={a}') 
+            response = requests.get(f'https://chatgpt.apinepdev.workers.dev/?question={a}') 
             x=response.json()["results"]
             end_time = time.time()
             telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ᴍs"
