@@ -31,14 +31,13 @@ from YukkiMusic.utils.inline import (help_pannel, private_panel,
     & ~BANNED_USERS
 )
 @LanguageStart
-async def startt(client, message: Message, _):
+async def startt(c: app, q: client, message: Message, _):
     start = time()
-    x = await message.reply_text(
-      "Fᴇᴛᴄʜɪɴɢ Iɴғᴏʀᴍᴀᴛɪᴏɴ....")
+    x = await c.send_message(q.message.chat.id, "Fᴇᴛᴄʜɪɴɢ Iɴғᴏʀᴍᴀᴛɪᴏɴ....")
     delta_ping = time() - start
     await x.delete()
     txt = f"""
-HELLO
+hello
     """
-    await app.answer(txt, show_alert=True)
+    await q.answer(txt, show_alert=True)
     return
