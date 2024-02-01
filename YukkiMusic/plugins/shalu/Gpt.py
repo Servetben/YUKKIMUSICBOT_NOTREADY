@@ -34,9 +34,9 @@ async def chat(bot, message):
                     )
                 else:
                     await message.reply_text("No 'results' key found in the response.")
-            except ValueError:
+            except ValueError as ve:
                 # Handle the case when the response is not valid JSON
-                await message.reply_text("Invalid JSON format in the response.")
+                await message.reply_text(f"Invalid JSON format in the response: {ve}")
     except Exception as e:
         await message.reply_text(f"**ᴇʀʀᴏʀ: {e} ")
-            
+                    
