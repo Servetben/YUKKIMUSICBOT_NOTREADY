@@ -98,7 +98,7 @@ async def stream(
         title = (result["title"]).title()
         duration_min = result["duration_min"]
         status = True if video else None
-           try:
+            try:
             file_path, direct = await YouTube.download(
                 vidid, mystic, videoid=True, video=status
               )
