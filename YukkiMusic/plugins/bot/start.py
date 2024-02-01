@@ -11,6 +11,7 @@ import asyncio
 import time
 from time import time, strftime, gmtime
 from pyrogram import filters
+from pyrogram.enums import ChatType
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 from youtubesearchpython.__future__ import VideosSearch
@@ -33,6 +34,24 @@ from YukkiMusic.utils.decorators.language import LanguageStart
 from YukkiMusic.utils.inline import (help_pannel, private_panel,  
                                      start_pannel)
 
+EMOJIOS = [
+    "💣",
+    "💥",
+    "🪄",
+    "🧨",
+    "⚡",
+    "🤡",
+    "👻",
+    "🎃",
+    "🎩",
+    "🕊",
+]
+
+STICKER = [
+    "CAACAgUAAx0CYlaJawABBy4vZaieO6T-Ayg3mD-JP-f0yxJngIkAAv0JAALVS_FWQY7kbQSaI-geBA",
+    "CAACAgUAAx0CYlaJawABBy4rZaid77Tf70SV_CfjmbMgdJyVD8sAApwLAALGXCFXmCx8ZC5nlfQeBA",
+    "CAACAgUAAx0CYlaJawABBy4jZaidvIXNPYnpAjNnKgzaHmh3cvoAAiwIAAIda2lVNdNI2QABHuVVHgQ",
+]
 
 YUMI_PICS = [
 "https://telegra.ph/file/86ee02ba743844f861333.jpg",
@@ -359,12 +378,30 @@ async def start_command(client, message: Message, _):
         out = private_panel(_, app.username, OWNER)
         if config.START_IMG_URL:
             try:
-                await message.reply_photo(
+                  if message.chat.type == ChatType.PRIVATE:
+        accha = await messsage.reply_text(
+            text=random.choice(EMOJIOS),
+        )
+        await asyncio.sleep(1.3)
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ ѕтαятιиg..__")
+        await asyncio.sleep(0.2)
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ sтαятιиg.....__")
+        await asyncio.sleep(0.2)
+        await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ sтαятιиg..__")
+        await asyncio.sleep(0.2)
+        await accha.delete()
+        umm = await message.reply_sticker(sticker=random.choice(STICKER))
+        await asyncio.sleep(2)
+        await umm.delete()
+        await message.reply_text(
+            text=f"""** hello **"""
+        )
+       await message.reply_photo(
                    random.choice(YUMI_PICS),
                     caption=_["start_2"].format(
                         config.MUSIC_BOT_NAME ),
                   reply_markup=InlineKeyboardMarkup(out),
-                )
+      )
             except:
                 await message.reply_photo(
                    random.choice(YUMI_PICS),
