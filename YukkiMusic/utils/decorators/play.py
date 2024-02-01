@@ -193,6 +193,7 @@ def PlayWrapper(command):
                     pass
                 except Exception as e:
                     raise AssistantErr(_["call_3"].format(e))
+                    await message.reply_text(_["call_3"])
                   
         return await command(
             client,
