@@ -36,7 +36,7 @@ from YukkiMusic.utils.inline.playlist import botplaylist_markup
 from YukkiMusic.utils.exceptions import AssistantErr
 
 def PlayWrapper(command):
-    async def wrapper(client, message):
+    async def wrapper(client, message, original_chat_id):
         if await is_maintenance() is False:
             if message.from_user.id not in SUDOERS:
                 return await message.reply_text(
