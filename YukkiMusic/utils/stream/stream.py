@@ -102,10 +102,6 @@ async def stream(
             file_path, direct = await YouTube.download(
                 vidid, mystic, videoid=True, video=status
               )
-                try:
-                    file_path, direct = await YouTube.download(
-                        vidid, mystic, video=status, videoid=True
-                    )
                 except:
                     raise AssistantErr(_["play_16"])
                 await Yukki.join_call(
