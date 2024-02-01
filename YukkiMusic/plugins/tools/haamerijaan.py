@@ -20,18 +20,20 @@ async def chat_gpt(bot, message):
             response = requests.get(f'https://chatgpt.apinepdev.workers.dev/?question={a}')
 
             try:
-                # Try to access "results" key in the JSON response
-                x = response.json()["results"]
-                end_time = time.time()
-                telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ms"
-                await message.reply_text(
-                    f" {x}\n\n✨ᴛɪᴍᴇ ᴛᴀᴋᴇɴ  {telegram_ping} \n\n 💓 ᴘᴏᴡᴇʀᴇᴅ ʙʏ @{BOT_USERNAME}",
-                    parse_mode=ParseMode.MARKDOWN
-                )
+                # Check if "results" key is present in the JSON response
+                if "results" in response.json():
+                    x = response.json()["results"]
+                    end_time = time.time()
+                    telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ms"
+                    await message.reply_text(
+                        f" {x}\n\n✨ᴛɪᴍᴇ ᴛᴀᴋᴇɴ  {telegram_ping} \n\n 💓 ᴘᴏᴡᴇʀᴇᴅ ʙʏ @{BOT_USERNAME}",
+                        parse_mode=ParseMode.MARKDOWN
+                    )
+                else:
+                    await message.reply_text("No 'results' key found in the response.")
             except KeyError:
-                # Print the actual JSON response to understand its structure
-                print(response.json())
-                await message.reply_text("No 'results' key found in the response.")
+                # Handle any other KeyError that might occur
+                await message.reply_text("Error accessing the response.")
     except Exception as e:
         await message.reply_text(f"**ᴇʀʀᴏʀ: {e} ")
-                
+            
