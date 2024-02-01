@@ -25,7 +25,7 @@ from YukkiMusic.utils.decorators.language import LanguageStart
 from YukkiMusic.utils.inline import (help_pannel, private_panel,  
                                      start_pannel)
 
-app.on_message(
+@app.on_message(
     filters.command([start])
     & filters.private
     & ~BANNED_USERS
