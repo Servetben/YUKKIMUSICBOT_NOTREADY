@@ -12,7 +12,8 @@ import os
 from random import randint
 from typing import Union
 
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup
+import random
 from YukkiMusic.utils.thumbnails import get_qthumb
 import config
 from YukkiMusic import Carbon, YouTube, app
@@ -29,6 +30,7 @@ from YukkiMusic.utils.inline.playlist import close_markup
 from YukkiMusic.utils.pastebin import Yukkibin
 from YukkiMusic.utils.stream.queue import put_queue, put_queue_index
 from YukkiMusic.utils.thumbnails import gen_thumb
+
 
 async def stream(
     _,
@@ -92,17 +94,11 @@ async def stream(
                 if not forceplay:
                     db[chat_id] = []
                 status = True if video else None
-    elif streamtype == "youtube":
-        link = result["link"]
-        vidid = result["vidid"]
-        title = (result["title"]).title()
-        duration_min = result["duration_min"]
-        status = True if video else None
-            try:
-            file_path, direct = await YouTube.download(
-                vidid, mystic, videoid=True, video=status
-              )
-           except:
+                try:
+                    file_path, direct = await YouTube.download(
+                        vidid, mystic, video=status, videoid=True
+                    )
+                except:
                     raise AssistantErr(_["play_16"])
                 await Yukki.join_call(
                     chat_id, original_chat_id, file_path, video=status
@@ -127,7 +123,6 @@ async def stream(
                     caption=_["stream_1"].format(
                         user_name,
                         f"https://t.me/{app.username}?start=info_{vidid}",
-                        title[:30], duration_min,
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
@@ -177,11 +172,9 @@ async def stream(
                 "video" if video else "audio",
             )
             position = len(db.get(chat_id)) - 1
-            qimg = await get_qthumb(vidid)
-            run = await app.send_photo(
+            await app.send_message(
                 original_chat_id,
-                photo=qimg,
-                caption=_["queue_4"].format(
+                _["queue_4"].format(
                     position, title[:30], duration_min, user_name
                 ),
             )
