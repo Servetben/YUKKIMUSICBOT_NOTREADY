@@ -10,7 +10,6 @@
 from unidecode import unidecode 
 import os
 import re
-import random 
 import textwrap
 import numpy as np
 import aiofiles
@@ -22,14 +21,7 @@ from youtubesearchpython.__future__ import VideosSearch
 
 from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
 
-NUMBERS = [
-  "255, 105, 180",
-  "255, 255, 0",
-  "255, 0, 0",
-  "0, 255, 0",
-  "255, 165, 0",
-]
-  
+
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
     heightRatio = maxHeight / image.size[1]
@@ -109,7 +101,7 @@ async def gen_thumb(videoid):
         draw.text((1820, 740), f"Title: {title[:50]} .", (255, 255, 255), font=font)
         draw.text((1820, 940), f"Views: {views}", (255, 255, 255), font=font)
         draw.text((1820, 1140), f"Channel: {channel}", (255, 255, 255), font=font)
-        draw.text((3200, 10), f" SHALINI X MUSIC ", (random.choice(NUMBERS)), font=font2)
+        draw.text((3200, 10), f" SHALINI X MUSIC ", (255, 105, 180), font=font2)
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
