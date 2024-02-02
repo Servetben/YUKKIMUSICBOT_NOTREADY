@@ -384,7 +384,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                         f"https://t.me/{app.username}?start=info_{videoid}",
                         title[:23],
                         check[0]["dur"],
-                        user_name,
+                        user,
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
