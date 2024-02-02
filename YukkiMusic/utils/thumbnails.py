@@ -99,7 +99,7 @@ async def gen_thumb(videoid):
         font = ImageFont.truetype("Love/font.ttf", 120)
         draw.text((1820, 740), f"Title: {title[:50]} .", (255, 255, 255), font=font)
         draw.text((1820, 940), f"Views: {views}", (255, 255, 255), font=font)
-        draw.text((2500, 10), f" SHALINI X MUSIC ", (255, 255, 255), fill=green, font=font)
+        draw.text((2500, 10), f" SHALINI X MUSIC ", (255, 255, 255), font=font)
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
