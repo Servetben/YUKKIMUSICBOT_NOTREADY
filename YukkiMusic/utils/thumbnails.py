@@ -89,7 +89,7 @@ async def gen_thumb(videoid):
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(900, 900, youtube)
         image2 = image1.convert("RGBA")
-        background = Image.open(f"Love/THUMBNAIL_S.jpg")
+        background = Image.open(f"Love/Stream2.jpg")
         enhancer = ImageEnhance.Brightness(youtube)
         youtube = enhancer.enhance(1.4)
         y=changeImageSize(950,950,circle(youtube)) 
@@ -98,7 +98,6 @@ async def gen_thumb(videoid):
         arial = ImageFont.truetype("Love/font2.ttf", 30)
         font = ImageFont.truetype("Love/font.ttf", 120)
         draw.text((1790, 790), f"Title: {title[:50]} .", (255, 255, 255), font=font)
-        draw.text((1790, 990), f"Duration: {duration}", (255, 255, 255), font=font)
         draw.text((1790, 1190), f"Views: {views}", (255, 255, 255), font=font)
         try:
             os.remove(f"cache/thumb{videoid}.png")
