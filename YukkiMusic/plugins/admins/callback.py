@@ -383,7 +383,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                     caption=_["stream_1"].format(
                         f"https://t.me/{app.username}?start=info_{videoid}",
                         title[:23],
-                        duration_min,
+                        check[0]["dur"],
                         user_name,
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
