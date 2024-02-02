@@ -203,8 +203,8 @@ async def stream(
             img = await gen_thumb(vidid)
             button = stream_markup(_, vidid, chat_id)
             run = await app.send_photo(
-                original_chat_id,
                 photo=img,
+                original_chat_id,
                 caption=_["stream_1"].format(
                     user_name,
                     f"https://t.me/{app.username}?start=info_{vidid}",
