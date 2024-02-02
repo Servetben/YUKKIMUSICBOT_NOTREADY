@@ -179,7 +179,7 @@ async def stream(
                 photo=img,
                 original_chat_id,
                 _["queue_4"].format(
-                    position, title[:30], duration_min, user_name
+                    position, title[:30], duration_min, user_name,
                 ),
             )
         else:
