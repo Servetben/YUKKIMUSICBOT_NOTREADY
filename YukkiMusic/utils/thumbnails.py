@@ -76,7 +76,11 @@ async def gen_thumb(videoid):
                 channel = result["channel"]["name"]
             except:
                 channel = "Unknown Channel"
-
+            try:
+                username = message.from_user.username
+            except:
+                username = "unknown user"
+              
         async with aiohttp.ClientSession() as session:
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
@@ -100,7 +104,7 @@ async def gen_thumb(videoid):
         font2 = ImageFont.truetype("Love/font.ttf", 85)
         draw.text((1820, 740), f"Title: {title[:50]} .", (255, 255, 255), font=font)
         draw.text((1820, 940), f"Views: {views}", (255, 255, 255), font=font)
-        draw.text((3200, 10), f" SHALINI X MUSIC ", (255, 255, 255), font=font2)
+        draw.text((3200, 10), f" user: {username}", (255, 255, 255), font=font)
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
