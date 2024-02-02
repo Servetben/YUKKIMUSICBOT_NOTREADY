@@ -92,14 +92,15 @@ async def gen_thumb(videoid):
         background = Image.open(f"Love/Stream2.jpg")
         enhancer = ImageEnhance.Brightness(youtube)
         youtube = enhancer.enhance(1.4)
-        y=changeImageSize(1052,1052,circle(youtube)) 
-        background.paste(y,(395,490),mask=y)
+        y=changeImageSize(1057,1057,circle(youtube)) 
+        background.paste(y,(391,486),mask=y)
         draw = ImageDraw.Draw(background)
         arial = ImageFont.truetype("Love/font2.ttf", 30)
         font = ImageFont.truetype("Love/font.ttf", 120)
+        font2 = ImageFont.truetype("Love/font.ttf", 90)
         draw.text((1820, 740), f"Title: {title[:50]} .", (255, 255, 255), font=font)
         draw.text((1820, 940), f"Views: {views}", (255, 255, 255), font=font)
-        draw.text((2950, 10), f" SHALINI X MUSIC ", (255, 255, 255), font=font)
+        draw.text((2970, 10), f" SHALINI X MUSIC ", (255, 255, 255), font=font)
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
