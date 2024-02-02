@@ -101,7 +101,7 @@ async def gen_thumb(videoid):
         draw.text((1820, 740), f"Title: {title[:50]} .", (255, 255, 255), font=font)
         draw.text((1820, 940), f"Views: {views}", (255, 255, 255), font=font)
         draw.text((1820, 1140), f"Channel: {channel}", (255, 255, 255), font=font)
-        draw.text((3200, 10), f" SHALINI X MUSIC ", (255, 255, 255), font=font2)
+        draw.text((3200, 10), f" SHALINI X MUSIC ", (0, 255, 0), font=font2)
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
