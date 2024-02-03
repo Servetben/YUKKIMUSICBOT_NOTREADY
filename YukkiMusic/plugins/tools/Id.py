@@ -47,14 +47,14 @@ async def get_userinfo_img(
     img_draw.text(
         (1500, 1900),
         text=str(user_id).upper(),
-        font=get_font(148, font_path),
-        fill=(255, 255, 255),
+        font=get_font(140, font_path),
+        fill=(0, 255, 0),
     )
     img_draw.text(
         (1410, 1550),
         text="YOUR INFORMATION",
         font=get_font(148, font_path),
-        fill=(255, 255, 255),
+        fill=(0, 0, 255),
 )
 
     path = f"./userinfo_img_{user_id}.png"
