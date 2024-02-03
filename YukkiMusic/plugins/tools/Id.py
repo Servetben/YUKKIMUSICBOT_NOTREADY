@@ -26,7 +26,7 @@ resize_text = (
 
 async def get_userinfo_img(
     bg_path: str,
-    name: user.first_name,
+    name: User.first_name,
     font_path: str,
     user_id: Union[int, str],    
     profile_path: Optional[str] = None
