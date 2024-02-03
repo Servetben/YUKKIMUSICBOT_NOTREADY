@@ -41,7 +41,7 @@ async def get_userinfo_img(
         circular_img = Image.new("RGBA", img.size, (0, 0, 0, 0))
         circular_img.paste(img, (0, 0), mask)
         resized = circular_img.resize((1090, 1090))
-        bg.paste(resized, (160, 1089), resized)
+        bg.paste(resized, (156, 1099), resized)
         
     img_draw = ImageDraw.Draw(bg)
     img_draw.text(
@@ -51,7 +51,7 @@ async def get_userinfo_img(
         fill=(255, 255, 255),
     )
     img_draw.text(
-        (1500, 1500),
+        (1410, 1500),
         text="YOUR INFORMATION",
         font=get_font(148, font_path),
         fill=(255, 255, 255),
