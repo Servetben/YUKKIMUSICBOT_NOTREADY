@@ -64,7 +64,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             ),
             InlineKeyboardButton(
                 text=_["S_B_7"],
-                user_id=config.OWNER_ID,
+                url=f"tg://openmessage?user_id=6761639198",
             ),
         ],
         [
@@ -111,7 +111,7 @@ def queue_markup(_, videoid, chat_id):
             ),
             InlineKeyboardButton(
                 text=_["S_B_7"],
-                user_id=config.OWNER_ID,
+                url=f"tg://openmessage?user_id=6761639198",
             ),
         ],
         [
@@ -131,7 +131,7 @@ def stream_markup(_, videoid, chat_id):
             ),
             InlineKeyboardButton(
                 text=_["S_B_7"],
-                user_id=config.OWNER_ID,
+                url=f"tg://openmessage?user_id=6761639198",
             ),
         ],
         [
