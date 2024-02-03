@@ -106,8 +106,9 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons.append(
       [
             InlineKeyboardButton(
-                text="Cʜᴀɴɴᴇʟ",
-                url=f"https://t.me/loveyou" ),
+               text=_["S_B_7"], 
+               user_id=OWNER
+                    ),
            InlineKeyboardButton(
                text="sᴜᴘᴘᴏʀᴛ",
                url=f"https://t.me/kyarehalkag" ),
@@ -131,22 +132,14 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
                     ),
                 ]
             )
-        if OWNER:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_7"], user_id=OWNER
-                    ),
-                ]
-            )
         buttons.append(
       [
             InlineKeyboardButton(
-                text="sᴏᴜʀᴄᴇ",
-                callback_data="gib_source"),
-           InlineKeyboardButton(
                text="Bᴏᴛ Iɴғᴏ",
                callback_data="bot_info_data"),
+           InlineKeyboardButton(
+                text="sᴏᴜʀᴄᴇ",
+                callback_data="gib_source"),
         ]
     )
     return buttons
