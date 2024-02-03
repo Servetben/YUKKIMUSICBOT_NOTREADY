@@ -26,7 +26,7 @@ resize_text = (
 
 async def get_userinfo_img(
     bg_path: str,
-    first_name: from_user.first_name,
+    name: user_info.first_name
     font_path: str,
     user_id: Union[int, str],    
     profile_path: Optional[str] = None
@@ -53,7 +53,7 @@ async def get_userinfo_img(
     )
     img_draw.text(
         (529, 627),
-        text=str(user_info.first_name).upper(),
+        text=str(name).upper(),
         font=get_font(46, font_path),
         fill=(255, 255, 255),
 )
