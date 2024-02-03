@@ -62,7 +62,9 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text_
+                text=_["S_B_7"],
+                url=f"https://t.me/hellllo",
+            ),
         ],
         [
             InlineKeyboardButton(
@@ -107,8 +109,8 @@ def queue_markup(_, videoid, chat_id):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text=_["PL_B_3"],
-                callback_data=f"PanelMarkup {videoid}|{chat_id}",
+                text=_["S_B_7"],
+                url=f"https://t.me/hellllo",
             ),
         ],
         [
@@ -127,8 +129,8 @@ def stream_markup(_, videoid, chat_id):
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text=_["PL_B_3"],
-                callback_data=f"PanelMarkup None|{chat_id}",
+                text=_["S_B_7"],
+                url=f"https://t.me/hellllo",
             ),
         ],
         [
