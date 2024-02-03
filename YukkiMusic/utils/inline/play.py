@@ -64,7 +64,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             ),
             InlineKeyboardButton(
                 text=_["S_B_7"],
-                url=f"config.OWNER_ID",
+                user_id=config.OWNER_ID,
             ),
         ],
         [
@@ -111,7 +111,7 @@ def queue_markup(_, videoid, chat_id):
             ),
             InlineKeyboardButton(
                 text=_["S_B_7"],
-                url=f"https://t.me/hellllo",
+                user_id=config.OWNER_ID,
             ),
         ],
         [
@@ -131,7 +131,7 @@ def stream_markup(_, videoid, chat_id):
             ),
             InlineKeyboardButton(
                 text=_["S_B_7"],
-                url=f"https://t.me/hellllo",
+                user_id=config.OWNER_ID,
             ),
         ],
         [
