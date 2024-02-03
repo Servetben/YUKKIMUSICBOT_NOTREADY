@@ -51,13 +51,26 @@ async def ytmusic(client, message: Message):
 
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
     mi = search.result()
+    
+    # Check if "search_result" key is present
+    if "search_result" not in mi:
+        await pablo.edit("sᴏɴɢ ɴᴏᴛ ғᴏᴜɴᴅ ᴏɴ ʏᴏᴜᴛᴜʙᴇ.\n\n»ᴘʟᴇᴀꜱᴇ ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ")
+        return
+
     mio = mi["search_result"]
+    
+    # Check if the result list is not empty
+    if not mio:
+        await pablo.edit("sᴏɴɢ ɴᴏᴛ ғᴏᴜɴᴅ ᴏɴ ʏᴏᴜᴛᴜʙᴇ.\n\n»ᴘʟᴇᴀꜱᴇ ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ")
+        return
+
     mo = mio[0]["link"]
     thum = mio[0]["title"]
     fridayz = mio[0]["id"]
     thums = mio[0]["channel"]
     kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
     await asyncio.sleep(0.6)
+    # ... rest of your code ...
     url = mo
     sedlyf = wget.download(kekme)
     opts = {
