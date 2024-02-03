@@ -41,9 +41,20 @@ async def get_userinfo_img(
         circular_img.paste(img, (0, 0), mask)
         resized = circular_img.resize((1040, 1040))
         bg.paste(resized, (1590, 997), resized)
-
+        
     img_draw = ImageDraw.Draw(bg)
-
+    img_draw.text(
+        (529, 627),
+        text=str(user_id).upper(),
+        font=get_font(46, font_path),
+        fill=(255, 255, 255),
+    )
+    img_draw.text(
+        (529, 627),
+        text=str(user_info.first_name).upper(),
+        font=get_font(46, font_path),
+        fill=(255, 255, 255),
+)
 
     path = f"./userinfo_img_{user_id}.png"
     bg.save(path)
