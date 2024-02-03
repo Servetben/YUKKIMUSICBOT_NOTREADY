@@ -9,6 +9,7 @@
 #
 
 import random
+import config
 
 from pyrogram.types import InlineKeyboardButton
 
@@ -63,7 +64,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             ),
             InlineKeyboardButton(
                 text=_["S_B_7"],
-                url=f"https://t.me/hellllo",
+                url=f"config.OWNER_ID",
             ),
         ],
         [
