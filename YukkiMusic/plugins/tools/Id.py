@@ -41,13 +41,13 @@ async def get_userinfo_img(
         circular_img = Image.new("RGBA", img.size, (0, 0, 0, 0))
         circular_img.paste(img, (0, 0), mask)
         resized = circular_img.resize((1090, 1090))
-        bg.paste(resized, (190, 1089), resized)
+        bg.paste(resized, (160, 1089), resized)
         
     img_draw = ImageDraw.Draw(bg)
     img_draw.text(
-        (1709, 2027),
+        (1600, 1900),
         text=str(user_id).upper(),
-        font=get_font(128, font_path),
+        font=get_font(148, font_path),
         fill=(255, 255, 255),
     )
     img_draw.text(
