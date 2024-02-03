@@ -99,17 +99,16 @@ async def settings_cb(client, CallbackQuery, _):
     )
 
 @app.on_callback_query(filters.regex("gib_source"))
-async def gib_repo_callback(_, callback_query):
-    await callback_query.edit_message_media(
-        media=InputMediaVideo(random.choice(VIDEO_URL), has_spoiler=True),
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [close_button]
-            ]
-        ),
-    )
-
-close_button = InlineKeyboardButton(" ʙᴀᴄᴋ ", callback_data="settingsback_helper")
+async def gib_repo_callback(c: app, q: CallbackQuery):
+    start = time()
+    x = await c.send_message(q.message.chat.id, "ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ....")
+    delta_ping = time() - start
+    await x.delete()
+    txt = f"""
+Bʜᴀɢ Yᴀʜᴀ Sᴇ 😂 ʀᴇᴘᴏ ɴᴀʜɪ ᴍɪʟᴇɢɪ ✨
+    """
+    await q.answer(txt, show_alert=True)
+    return
 
 @app.on_callback_query(filters.regex("^bot_info_data$"))
 async def show_bot_info(c: app, q: CallbackQuery):
