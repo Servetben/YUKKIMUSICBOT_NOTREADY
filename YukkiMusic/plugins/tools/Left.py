@@ -34,7 +34,7 @@ async def get_userinfo_img(
         circular_img = Image.new("RGBA", img.size, (0, 0, 0, 0))
         circular_img.paste(img, (0, 0), mask)
         resized = circular_img.resize((1860, 1860))
-        bg.paste(resized, (1115, 1120), resized)
+        bg.paste(resized, (765, 1240), resized)
 
     img_draw = ImageDraw.Draw(bg)
 
