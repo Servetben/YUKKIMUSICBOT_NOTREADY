@@ -6,6 +6,7 @@ from YukkiMusic import app as Hiroko
 from pyrogram import filters, Client, enums
 from pyrogram.enums import ParseMode
 from pyrogram.types import *
+from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
 from typing import Union, Optional
 
 
@@ -25,6 +26,7 @@ resize_text = (
 
 async def get_userinfo_img(
     bg_path: str,
+    first_name = from_user.first_name,
     font_path: str,
     user_id: Union[int, str],    
     profile_path: Optional[str] = None
