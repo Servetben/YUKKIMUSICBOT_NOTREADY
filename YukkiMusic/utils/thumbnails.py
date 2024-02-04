@@ -89,7 +89,7 @@ async def gen_thumb(videoid):
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(900, 900, youtube)
         image2 = image1.convert("RGBA")
-        background = Image.open(f"Love/Stream2.jpg")
+        background = Image.open(f"Love/Strem2.jpg")
         enhancer = ImageEnhance.Brightness(youtube)
         youtube = enhancer.enhance(1.4)
         y=changeImageSize(1059,1059,circle(youtube)) 
@@ -101,7 +101,7 @@ async def gen_thumb(videoid):
         draw.text((1820, 740), f"Title: {title[:50]} .", (255, 255, 255), font=font)
         draw.text((1820, 940), f"Views: {views}", (255, 255, 255), font=font)
         draw.text((1820, 1140), f"Channel: {channel}", (255, 255, 255), font=font)
-        draw.text((3200, 10), f" SHALINI X MUSIC ", (255, 105, 180), font=font2)
+        draw.text((3200, 10), f" hmm ", (255, 105, 180), font=font2)
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
@@ -151,7 +151,7 @@ async def get_qthumb(videoid):
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1050, 1050, youtube)
         image2 = image1.convert("RGBA")
-        background = Image.open(f"Love/Newpic.jpg")
+        background = Image.open(f"Love/Nepic.jpg")
         enhancer = ImageEnhance.Brightness(youtube)
         youtube = enhancer.enhance(1.4)
         y=changeImageSize(879, 879,circle(youtube)) 
