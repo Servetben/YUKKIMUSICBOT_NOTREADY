@@ -390,22 +390,6 @@ async def start_command(client, message: Message, _):
         except:
             OWNER = None
         out = private_panel(_, app.username, OWNER)
-        accha = await message.reply_text(
-            text=random.choice(EMOJIOS),
-        )
-        await asyncio.sleep(1.2)
-        await accha.edit("__Lᴏᴀᴅɪɴɢ__")
-        await asyncio.sleep(0.2)
-        await accha.edit("__Lᴏᴀᴅɪɴɢ.....__")
-        await asyncio.sleep(0.2)
-        await accha.edit("__ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ..__")
-        await asyncio.sleep(0.2)
-        await accha.edit("__ᴍᴀᴅᴇ ʙʏ Ꮥʜꫝʟɪɴɪ..__")
-        await asyncio.sleep(0.3)
-        await accha.delete()
-        umm = await message.reply_sticker(sticker=random.choice(STICKER))
-        await asyncio.sleep(1)
-        await umm.delete()
         await message.reply_photo(
                    random.choice(YUMI_PICS),
                     caption=_["start_2"].format(
