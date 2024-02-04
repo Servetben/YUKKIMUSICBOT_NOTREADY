@@ -1,5 +1,6 @@
 import time, re
 from config import BOT_USERNAME
+import random 
 from pyrogram.enums import MessageEntityType
 from pyrogram import filters
 from pyrogram.types import Message
@@ -7,7 +8,10 @@ from YukkiMusic import app
 from YukkiMusic.mongo.readable_time import get_readable_time
 from YukkiMusic.mongo.afkdb import add_afk, is_afk, remove_afk
 
-
+JIHA = [
+"https://telegra.ph/file/790f5f3cdcbe30633a541.jpg",
+"https://telegra.ph/file/ec3283c6af0a1795d47a7.jpg"
+]
 
 @app.on_message(filters.command(["afk"], prefixes=["/", "!", ""]))
 async def active_afk(_, message: Message):
@@ -160,7 +164,9 @@ async def active_afk(_, message: Message):
         }
 
     await add_afk(user_id, details)    
-    await message.reply_text(f"{message.from_user.first_name} ɪs ɴᴏᴡ ᴀғᴋ!")
+    await message.reply_photo(
+            photo=random.choice(JIHA),
+            caption=f"{message.from_user.first_name} ɪs ɴᴏᴡ ᴀғᴋ!")
 
 
 
