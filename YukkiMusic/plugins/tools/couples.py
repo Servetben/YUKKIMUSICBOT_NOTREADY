@@ -31,7 +31,7 @@ def dt_tom():
 tomorrow = str(dt_tom())
 today = str(dt()[0])
 
-@app.on_message(filters.command("couples"))
+@app.on_message(filters.command("zcouples"))
 async def ctest(_, message):
     cid = message.chat.id
     if message.chat.type == ChatType.PRIVATE:
@@ -71,9 +71,9 @@ async def ctest(_, message):
          img1 = Image.open(f"{p1}")
          img2 = Image.open(f"{p2}")
 
-         img = Image.open("Love/NewCouple.jpg")
+         img = Image.open("Love/HMMM.jpg")
 
-         img1 = img1.resize((735,735))
+         img1 = img1.resize((500,500))
          img2 = img2.resize((735,735))
 
          mask = Image.new('L', img1.size, 0)
@@ -102,7 +102,7 @@ async def ctest(_, message):
 {N1} + {N2} = ❣️
 ➖➖➖➖➖➖➖➖➖➖➖➖
 
-
+HAA MERI JAAN
 ɴᴇxᴛ ᴄᴏᴜᴘʟᴇs ᴡɪʟʟ ʙᴇ sᴇʟᴇᴄᴛᴇᴅ ᴏɴ {tomorrow} !!**
 """
     
