@@ -23,7 +23,7 @@ API_HASH = getenv("API_HASH")
 
 ## Get it from @Botfather in Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
-BOT_USERNAME = getenv("BOT_USERNAME" , "SHALINI_69BOT")
+BOT_USERNAME = getenv("BOT_USERNAME" , "SSSS_9BOT")
 # Database to save your chats and stats... Get MongoDB:-  https://telegra.ph/How-To-get-Mongodb-URI-04-06
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
@@ -73,11 +73,11 @@ SUPPORT_GROUP = getenv(
 )  # Example:- https://t.me/YukkiSupport
 
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
-AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", None)
+AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "True")
 
 # Time after which you're assistant account will leave chats automatically.
 AUTO_LEAVE_ASSISTANT_TIME = int(
-    getenv("ASSISTANT_LEAVE_TIME", "50000")
+    getenv("ASSISTANT_LEAVE_TIME", "5")
 )  # Remember to give value in Seconds
 
 # Time after which bot will suggest random chats about bot commands.
