@@ -33,8 +33,8 @@ async def get_userinfo_img(
 
         circular_img = Image.new("RGBA", img.size, (0, 0, 0, 0))
         circular_img.paste(img, (0, 0), mask)
-        resized = circular_img.resize((1780, 1780))
-        bg.paste(resized, (400, 1340), resized)
+        resized = circular_img.resize((780, 780))
+        bg.paste(resized, (900, 300), resized)
 
     img_draw = ImageDraw.Draw(bg)
 
@@ -44,7 +44,7 @@ async def get_userinfo_img(
 
 # --------------------------------------------------------------------------------- #
 
-bg_path = "Love/Left_Img.jpg"
+bg_path = "Love/POLICELEFT.png"
 font_path = "Love/SwanseaBold-D0ox.ttf"
 
 # --------------------------------------------------------------------------------- #
@@ -83,12 +83,12 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 user_id=user.id,
                 profile_path=photo,
             )
-        
-            caption = f"**ᴀ ᴍᴇᴍʙᴇʀ ʟᴇғᴛ ғʀᴏᴍ ʏᴏᴜʀ ɢʀᴏᴜᴘ 🥹\n\n✧══════•❁❀❁•══════✧\n╠╼➪ ✨ 𝐍𝐀𝐌𝐄 = {user.mention}\n╠╼➪ 💫 𝐔𝐒𝐄𝐑 𝐈𝐃 = {user.id}\n╠╼➪  🎁 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 = @{user.username}\n✧══════•❁❀❁•══════✧\n\n๏sᴇᴇ ʏᴏᴜ sᴏᴏɴ ᴀɢᴀɪɴ..!**"
-            button_text = " ᴠɪᴇᴡ ᴜsᴇʀ "
+
+            caption = f"**ᴀ ᴍᴇᴍʙᴇʀ ʟᴇғᴛ ғʀᴏᴍ ʏᴏᴜʀ \n\n Name = {user.mention} \n\n๏sᴇᴇ ʏᴏᴜ sᴏᴏɴ ᴀɢᴀɪɴ..!**"
+            button_text = " Police "
 
             # Generate a deep link to open the user's profile
-            deep_link = f"tg://openmessage?user_id={user.id}"
+            deep_link = f"https://t.me/funny"
 
             # Send the message with the photo, caption, and button
             await client.send_photo(
@@ -105,4 +105,3 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
     else:
         # Handle the case where the user has no profile photo
         print(f"User {user.id} has no profile photo.")
-        
