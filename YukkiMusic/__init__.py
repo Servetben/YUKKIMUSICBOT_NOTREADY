@@ -13,9 +13,14 @@ from YukkiMusic.core.dir import dirr
 from YukkiMusic.core.git import git
 from YukkiMusic.core.userbot import Userbot
 from YukkiMusic.misc import dbb, heroku, sudo
-
+import telegram.ext as tg
+from aiohttp import ClientSession
+from pyrogram import Client
+from telethon import TelegramClient
 from .logging import LOGGER
+from config import *
 
+telethn = TelegramClient("YukkiBoot", API_ID, API_HASH)
 # Directories
 dirr()
 
