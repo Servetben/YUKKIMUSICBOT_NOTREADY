@@ -11,7 +11,7 @@
 import asyncio
 from datetime import datetime, timedelta
 from typing import Union
-
+from ntgcalls import TelegramServerError
 from pyrogram import Client
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import (ChatAdminRequired,
@@ -20,8 +20,8 @@ from pyrogram.errors import (ChatAdminRequired,
 from pyrogram.types import InlineKeyboardMarkup
 from pytgcalls import PyTgCalls
 from pytgcalls.exceptions import (AlreadyJoinedError,
-                                  NoActiveGroupCall,
-                                  TelegramServerError)
+                                  NoActiveGroupCall)
+                                  
 from pytgcalls.types import (JoinedGroupCallParticipant,
                              LeftGroupCallParticipant, Update)
 from pytgcalls.types import MediaStream
