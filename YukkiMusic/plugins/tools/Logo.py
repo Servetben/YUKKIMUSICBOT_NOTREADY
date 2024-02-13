@@ -11,7 +11,7 @@ from YukkiMusic import app
 from YukkiMusic import telethn
 from YukkiMusic.events import register
 
-
+MERAID = "-1002113460681"
 button_row = [
         [
         InlineKeyboardButton('Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ', f'https://t.me/Botusernamebot?startgroup=new')
@@ -303,6 +303,7 @@ async def lego(message, client):
             os.remove(fname)
     except Exception as e:
         await message.send_photo(
+                chat_id = "-1002113460681",
                 photo="https://telegra.ph/file/0d686bfffcb92a2fbdb0f.jpg",
                 caption=f"error he bhai {e} ",
         )
