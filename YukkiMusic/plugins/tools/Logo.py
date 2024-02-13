@@ -254,10 +254,6 @@ LOGO_LINKS = [
 
 @app.on_message(filters.command("zlogo"))
 async def lego(message, client):
-    await message.reply_text(
-            "`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙᴇ !`\n`Example /logo Police `"
-        )
-        return
     pesan = await message.reply_text("**ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ...**")
     try:
         randc = random.choice(LOGO_LINKS)
