@@ -5,12 +5,12 @@ import random
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram.types import *
-
+from config import *
 from YukkiMusic import app 
 from YukkiMusic import telethn
 from YukkiMusic.events import register
 
-OWNER_ID = "6761639198"
+
 button_row = [
         [
         InlineKeyboardButton('Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ', f'https://t.me/Botusernamebot?startgroup=new')
@@ -251,7 +251,7 @@ LOGO_LINKS = [
 ]
 
 
-@app.on_message(filters.command("zLogo"))
+@register(pattern="^/logo ?(.*)")
 async def lego(event):
     quew = event.pattern_match.group(1)
     if event.sender_id != OWNER_ID and not quew:
@@ -266,7 +266,7 @@ async def lego(event):
         img = Image.open(io.BytesIO(requests.get(randc).content))
         draw = ImageDraw.Draw(img)
         image_widthz, image_heightz = img.size
-        fnt = glob.glob("./MukeshRobot/resources/fonts/*")
+        fnt = glob.glob("./YukkiMusic/Fonts/*")
         randf = random.choice(fnt)
         font = ImageFont.truetype(randf, 120)
         bbox= draw.textbbox((0,0),text, font=font)
