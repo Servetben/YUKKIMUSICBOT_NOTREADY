@@ -6,7 +6,7 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram.types import *
 from config import *
-
+from YukkiMusic import app 
 from YukkiMusic import telethn
 from YukkiMusic.events import register
 
@@ -251,22 +251,20 @@ LOGO_LINKS = [
 ]
 
 
-@register(pattern="^/logo ?(.*)")
-async def lego(event):
-    quew = event.pattern_match.group(1)
-    if event.sender_id != OWNER_ID and not quew:
-        await event.reply(
-            "`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙᴇ !`\n`Example /logo <mukesh>`"
+@app.on_message(filters.command("zlogo"))
+async def lego(message)
+    if message.sender_id != OWNER_ID and not quew:
+        await message.reply_text(
+            "`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙᴇ !`\n`Example /logo Police `"
         )
         return
-    pesan = await event.reply("**ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ...**")
+    pesan = await message.reply_text("**ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ...**")
     try:
-        text = event.pattern_match.group(1)
         randc = random.choice(LOGO_LINKS)
         img = Image.open(io.BytesIO(requests.get(randc).content))
         draw = ImageDraw.Draw(img)
         image_widthz, image_heightz = img.size
-        fnt = glob.glob("YukkiMusic/Fonts/*")
+        fnt = ImageFont.truetype("YukkiMusic/Fonts/*")    
         randf = random.choice(fnt)
         font = ImageFont.truetype(randf, 120)
         bbox= draw.textbbox((0,0),text, font=font)
@@ -297,11 +295,9 @@ async def lego(event):
         )
         fname = "mukesh.png"
         img.save(fname, "png")
-        await telethn.send_file(
-            event.chat_id,
-            file=fname,
+        await message.reply_photo(
+            photo=fname,
             caption=f"""━━━━━━━━━━━━━
-
 ☘️ ʟᴏɢᴏ ᴄʀᴇᴀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ☘️
 ◈──────────────◈
 🔥 ᴄʀᴇᴀᴛᴇᴅ ʙʏ : @mee
