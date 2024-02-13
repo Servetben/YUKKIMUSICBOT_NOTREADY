@@ -3,6 +3,7 @@ import io
 import os
 import random
 import requests
+from pyrogram import *
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram.types import *
 from config import *
@@ -252,7 +253,7 @@ LOGO_LINKS = [
 
 
 @app.on_message(filters.command("zlogo"))
-async def lego(message):
+async def lego(message, client):
     if message.sender_id != OWNER_ID and not quew:
         await message.reply_text(
             "`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙᴇ !`\n`Example /logo Police `"
