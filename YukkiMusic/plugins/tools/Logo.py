@@ -252,7 +252,7 @@ LOGO_LINKS = [
 
 
 @app.on_message(filters.command("zlogo"))
-async def lego(message)
+async def lego(message):
     if message.sender_id != OWNER_ID and not quew:
         await message.reply_text(
             "`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙᴇ !`\n`Example /logo Police `"
