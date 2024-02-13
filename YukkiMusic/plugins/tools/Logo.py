@@ -302,5 +302,7 @@ async def lego(message, client):
         if os.path.exists(fname):
             os.remove(fname)
     except Exception as e:
-        await app.send_text(f"ᴇʀʀᴏʀ {e}, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀ ")
-            
+        await message.reply_photo(
+                photo="https://telegra.ph/file/0d686bfffcb92a2fbdb0f.jpg",
+                caption=f"error he bhai {e} ",
+        )
