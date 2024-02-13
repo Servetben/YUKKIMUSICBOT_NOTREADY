@@ -254,12 +254,12 @@ LOGO_LINKS = [
 
 @app.on_message(filters.command("zlogo"))
 async def lego(message, client):
-     try:
+    try:
         randc = random.choice(LOGO_LINKS)
         img = Image.open(io.BytesIO(requests.get(randc).content))
         draw = ImageDraw.Draw(img)
         image_widthz, image_heightz = img.size
-        fnt = ImageFont.truetype("YukkiMusic/Fonts/*")    
+        fnt = ImageFont.truetype("YukkiMusic/Fonts/*")
         randf = random.choice(fnt)
         font = ImageFont.truetype(randf, 120)
         bbox= draw.textbbox((0,0),text, font=font)
@@ -297,11 +297,10 @@ async def lego(message, client):
 ◈──────────────◈
 🔥 ᴄʀᴇᴀᴛᴇᴅ ʙʏ : @mee
 ━━━━━━━━━━━━━━""",reply_markup=InlineKeyboardMarkup(button_row),
-)
+        )
         await pesan.delete()
         if os.path.exists(fname):
             os.remove(fname)
     except Exception as e:
-        await event.reply(f"ᴇʀʀᴏʀ {e}, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀ ")
-
-
+        await message.reply(f"ᴇʀʀᴏʀ {e}, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀ ")
+            
