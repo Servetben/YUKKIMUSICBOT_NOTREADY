@@ -254,8 +254,7 @@ LOGO_LINKS = [
 
 @app.on_message(filters.command("zlogo"))
 async def lego(message, client):
-    pesan = await message.reply_text("**ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ...**")
-    try:
+     try:
         randc = random.choice(LOGO_LINKS)
         img = Image.open(io.BytesIO(requests.get(randc).content))
         draw = ImageDraw.Draw(img)
