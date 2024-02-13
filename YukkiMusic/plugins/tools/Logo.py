@@ -9,7 +9,9 @@ from config import *
 from YukkiMusic import telethn
 from YukkiMusic.events import register
 button_row = [
+        [
         InlineKeyboardButton('Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ', f'https://t.me/Botusernamebot?startgroup=new')
+],
 ]
 
 
