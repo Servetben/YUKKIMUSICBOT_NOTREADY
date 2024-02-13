@@ -6,7 +6,7 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram.types import *
 from config import *
-from YukkiMusic import app 
+
 from YukkiMusic import telethn
 from YukkiMusic.events import register
 
@@ -266,7 +266,7 @@ async def lego(event):
         img = Image.open(io.BytesIO(requests.get(randc).content))
         draw = ImageDraw.Draw(img)
         image_widthz, image_heightz = img.size
-        fnt = glob.glob("./YukkiMusic/Fonts/*")
+        fnt = glob.glob("YukkiMusic/Fonts/*")
         randf = random.choice(fnt)
         font = ImageFont.truetype(randf, 120)
         bbox= draw.textbbox((0,0),text, font=font)
