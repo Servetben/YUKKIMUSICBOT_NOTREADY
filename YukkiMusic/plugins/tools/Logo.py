@@ -302,5 +302,5 @@ async def lego(message, client):
         if os.path.exists(fname):
             os.remove(fname)
     except Exception as e:
-        await app.send_message(f"ᴇʀʀᴏʀ {e}, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀ ")
+        await app.send_text(f"ᴇʀʀᴏʀ {e}, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀ ")
             
