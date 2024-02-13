@@ -14,6 +14,8 @@ hachoir
 search_engine_parser
 heroku3
 lyricsgenius
+telethon==1.34.0
+opencv-python-headless==4.9.0.80
 motor
 ntgcalls
 pillow==9.5.0
