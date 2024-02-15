@@ -77,13 +77,7 @@ async def handle_callback(client: app, update: Union[types.Message, types.Callba
             except:
                 pass
             chat_id = update.message.chat.id
-            await update.edit_message_caption("**hello**", reply_markup=InlineKeyboardMarkup(but))
+            await update.edit_message(up, caption="**hello**", reply_markup=InlineKeyboardMarkup(but))
         else:
-            try:
-                await update.delete()
-            except:
-                pass
-            await message.reply_photo(up, caption="**hello**", reply_markup=InlineKeyboardMarkup(but))
-    else:
         await query.message.reply("Request failed try /again")
           
