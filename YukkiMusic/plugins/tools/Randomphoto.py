@@ -48,8 +48,8 @@ def get_waifu(client, message):
         message.reply("Request failed try /again")
                 
 @app.on_callback_query(filters.regex("again"))
-async def handle_callback(client: app, update: Union , query[types.Message, types.CallbackQuery]):
-   response = requests.get(url).json()
+async def handle_callback(client: app, update: Union[types.Message, types.CallbackQuery]):
+    response = requests.get(url).json()
     up = response['url']
     if up:
         but = [
@@ -70,20 +70,20 @@ async def handle_callback(client: app, update: Union , query[types.Message, type
                 ),
             ],
         ]
- is_callback = isinstance(update, types.CallbackQuery)
-    if is_callback:
-        try:
-            await update.answer()
-        except:
-            pass
-        chat_id = update.message.chat.id
-        await update.edit_message(up, caption="**hello**",reply_markup=InlineKeyboardMarkup(but))
-    else:
-        try:
-            await update.delete()
-        except:
-            pass
-        await message.reply_photo(up, caption="**hello**",reply_markup=InlineKeyboardMarkup(but))
+        is_callback = isinstance(update, types.CallbackQuery)
+        if is_callback:
+            try:
+                await update.answer()
+            except:
+                pass
+            chat_id = update.message.chat.id
+            await update.edit_message_caption("**hello**", reply_markup=InlineKeyboardMarkup(but))
         else:
-            await query.message.reply("Request failed try /again")
-    
+            try:
+                await update.delete()
+            except:
+                pass
+            await message.reply_photo(up, caption="**hello**", reply_markup=InlineKeyboardMarkup(but))
+    else:
+        await query.message.reply("Request failed try /again")
+          
