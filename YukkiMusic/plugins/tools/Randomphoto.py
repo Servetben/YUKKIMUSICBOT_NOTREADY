@@ -2,6 +2,8 @@ from pyrogram import Client, filters
 import requests
 import random
 import os
+from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InputMediaVideo, 
+                            InlineKeyboardMarkup, Message)
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup  
 
 from YukkiMusic import app
@@ -41,30 +43,42 @@ def get_waifu(client, message):
         message.reply("Request failed try /again")
                 
 @app.on_callback_query(filters.regex("again"))
-async def handle_query(client, query):
-        response = requests.get(url).json()
-        up = response['url']
-        if up:
-            but = [
-                [
-                    InlineKeyboardButton(
-                        "summon me ",
-                        url=f"https://t.me/meee",
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "Generate again ✨", 
-                        callback_data=f'again',
-                    ),
-                    InlineKeyboardButton(
-                        "Owner",
-                        url=f"https://t.me/kwajan",
-                    ),
-                ],
-            ]
-            markup = InlineKeyboardMarkup(but)
-            await query.message.reply_photo(up, caption="**animeGenBot**", reply_markup=markup)
+async def handle_callback(client: app, update: Union , query[types.Message, types.CallbackQuery]):
+   response = requests.get(url).json()
+    up = response['url']
+    if up:
+        but = [
+            [
+                InlineKeyboardButton(
+                    "summon me ",
+                    url=f"https://t.me/meee",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    "Generate again ✨", 
+                    callback_data="again",
+                ),
+                InlineKeyboardButton(
+                    "Owner",
+                    url=f"https://t.me/kwajan",
+                ),
+            ],
+        ]
+ is_callback = isinstance(update, types.CallbackQuery)
+    if is_callback:
+        try:
+            await update.answer()
+        except:
+            pass
+        chat_id = update.message.chat.id
+        await update.edit_message(up, caption="**hello**",reply_markup=InlineKeyboardMarkup(but))
+    else:
+        try:
+            await update.delete()
+        except:
+            pass
+        await message.reply_photo(up, caption="**hello**",reply_markup=InlineKeyboardMarkup(but))
         else:
             await query.message.reply("Request failed try /again")
     
