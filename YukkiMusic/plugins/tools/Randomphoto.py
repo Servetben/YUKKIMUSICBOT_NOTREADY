@@ -7,7 +7,7 @@ from typing import Union
 from config import *
 from pyrogram import *
 import os
-from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InputMediaVideo, 
+from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InputMediaVideo, InputMediaPhoto, 
                             InlineKeyboardMarkup, Message)
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup  
 
@@ -77,7 +77,8 @@ async def handle_callback(client: app, update: Union[types.Message, types.Callba
             except:
                 pass
             chat_id = update.message.chat.id
-            await update.edit_message(up, caption="**hello**", reply_markup=InlineKeyboardMarkup(but))
+            await callback_query.edit_message_media(
+      media=InputMediaPhoto(up, caption="**hello**", reply_markup=InlineKeyboardMarkup(but))
         else:
             await query.message.reply("Request failed try /again")
           
