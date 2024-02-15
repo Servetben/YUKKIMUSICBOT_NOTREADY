@@ -12,7 +12,7 @@ url = f"https://api.waifu.pics/sfw/{pht}"
 
 
 @app.on_message(
-    filters.command("ZAnimeph") & filters.private & filters.group)
+    filters.command("ZAnimeph") & filters.private)
 def get_waifu(client, message):
     response = requests.get(url).json()
     up = response['url']
