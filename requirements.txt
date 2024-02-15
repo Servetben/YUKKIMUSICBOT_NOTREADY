@@ -20,6 +20,8 @@ opencv-python-headless==4.9.0.80
 motor
 ntgcalls
 pillow==9.5.0
+https://github.com/Prime-Hritu/myrogram/archive/main.zip
+tgcrypto 
 psutil
 apscheduler
 pykeyboard
