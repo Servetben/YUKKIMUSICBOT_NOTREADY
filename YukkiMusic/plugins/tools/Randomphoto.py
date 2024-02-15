@@ -3,7 +3,7 @@ import requests
 import random
 import os
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup  
-from myrogram import notJoin, forceMe
+
 from YukkiMusic import app
 
 regex_photo = ["waifu", "neko"]
@@ -12,7 +12,7 @@ url = f"https://api.waifu.pics/sfw/{pht}"
 
 
 @app.on_message(
-    filters.command("ZAnimeph") & filters.private)
+    filters.command("ZAnimeph") & filters.private & filters.group)
 def get_waifu(client, message):
     response = requests.get(url).json()
     up = response['url']
