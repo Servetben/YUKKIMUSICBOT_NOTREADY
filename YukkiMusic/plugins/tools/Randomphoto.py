@@ -43,9 +43,6 @@ async def handle_query(client, query):
     filters.command("Animezz", prefixes=["/", "!", "%", ",", "", ".", "@", "#"])
     & filters.private & filters.group)
 def get_waifu(client, message):
-    res = forceMe(message.chat.id)
-    if res == "no":
-        return notJoin(client, message)
     response = requests.get(url).json()
     up = response['url']
     if up:
