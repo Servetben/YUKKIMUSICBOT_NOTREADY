@@ -1,6 +1,11 @@
 from pyrogram import Client, filters
 import requests
 import random
+from time import time, strftime, gmtime
+import config 
+from typing import Union
+from config import *
+from pyrogram import *
 import os
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InputMediaVideo, 
                             InlineKeyboardMarkup, Message)
