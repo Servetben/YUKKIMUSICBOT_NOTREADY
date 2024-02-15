@@ -77,9 +77,11 @@ async def handle_callback(client: app, update: Union[types.Message, types.Callba
             except:
                 pass
             chat_id = update.message.chat.id
-            await CallbackQuery.edit_message_media(
-      media=InputMediaPhoto(up),
-            reply_markup=InlineKeyboardMarkup(but))
+            # Use `edit_message_media()` on the message object
+            await update.message.edit_media(
+                media=InputMediaPhoto(up),
+                reply_markup=InlineKeyboardMarkup(but)
+            )
         else:
             await query.message.reply("Request failed try /again")
-          
+                  
