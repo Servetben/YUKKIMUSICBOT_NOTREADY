@@ -35,7 +35,7 @@ def circle(pfp, size=(450, 450)):
     return pfp
 
 def welcomepic(pic, user, chat, id, uname):
-    background = Image.open("Love/welwl2.png")
+    background = Image.open("Love/welcome.png")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
     pfp = pfp.resize(
@@ -54,36 +54,6 @@ def welcomepic(pic, user, chat, id, uname):
     )
     return f"downloads/welcome#{id}.png"
 
-@app.on_message(filters.command("swel", COMMAND_HANDLER) & ~filters.private)
-async def auto_state(_, message):
-    usage = "**Usage:**\n/swel [ENABLE|DISABLE]"
-    if len(message.command) == 1:
-        return await message.reply_text(usage)
-    chat_id = message.chat.id
-    user = await app.get_chat_member(message.chat.id, message.from_user.id)
-    if user.status in (
-        enums.ChatMemberStatus.ADMINISTRATOR,
-        enums.ChatMemberStatus.OWNER,
-    ):
-      A = await wlcm.find_one({"chat_id" : chat_id})
-      state = message.text.split(None, 1)[1].strip()
-      state = state.lower()
-      if state == "enable":
-        if A:
-           return await message.reply_text("Special Welcome Already Enabled")
-        elif not A:
-           await add_wlcm(chat_id)
-           await message.reply_text(f"Enabled Special Welcome in {message.chat.title}")
-      elif state == "disable":
-        if not A:
-           return await message.reply_text("Special Welcome Already Disabled")
-        elif A:
-           await rm_wlcm(chat_id)
-           await message.reply_text(f"Disabled Special Welcome in {message.chat.title}")
-      else:
-        await message.reply_text(usage)
-    else:
-        await message.reply("Only Admins Can Use This Command")
 
 #bhag 
 
@@ -119,31 +89,34 @@ async def greet_group(_, member: ChatMemberUpdated):
             member.chat.id,
             photo=welcomeimg,
             caption= f"""
-**✧══════•❁❀❁•══════✧
+**🆆ᴇʟᴄᴏᴍᴇ 🅣ᴏ 🅞ᴜʀ 🅶ʀoᴜᴘ 
+║┏━━━━━━➣
+║┣⪼ {chat.title} GROUP💫💕
+║┣⪼ 𝐍𝐀𝐌𝐄 - {user.mention}
+║┣⪼ 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 - {user.username}
+║┣⪼ 𝐔𝐒𝐄𝐑_𝐈𝐃 {user.id}
+║┗━━━━━━➣
+╚═════════════════❍⊱❁۪
+╔═════❰𝐑𝐔𝐋𝐄𝐒❱════❍⊱❁۪۪
+║
+👉 𝐏𝐥𝐞𝐚𝐬𝐞 ❥︎𝐎𝐛𝐞𝐲 ❥︎𝐑𝐮𝐥𝐞𝐬
 
-    ✦ 𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐓𝐨 {member.chat.title} ✦
+【💘 𝐍𝐨 𝐏𝐫𝐨𝐌𝐨𝐭𝐢𝐨𝐧】
+【🔞 𝐍𝐨 ✰ 𝐀𝐛𝐮𝐬𝐢𝐧𝐠】
+【📵 𝐍𝐨 𝐒𝐩𝐚𝐦𝐦𝐢𝐧𝐠】
+【👿 𝐍𝐨 ❥︎𝐂𝐡𝐞𝐚𝐭𝐞𝐫𝐬】
 
-✧══════•❁❀❁•══════✧
-╠╼➪ ✨ 𝐍𝐀𝐌𝐄 = {user.mention}
-╠╼➪ 💫 𝐔𝐒𝐄𝐑 𝐈𝐃 = {user.id}
-╠╼➪  🎁 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 =   @{user.username}
-✧══════•❁❀❁•══════✧
+💞 𝐓𝐡𝐚𝐧𝐤 𖨆 𝐘𝐨𝐮 𝐅𝐨𝐫 𝐉𝐨𝐢𝐧
 
-   ɢʀᴏᴜᴘ ʀᴜʟᴇs 🫂 ☟
-
-☞ ᴏɴʟʏ ʜɪɴᴅɪ ᴏʀ ᴇɴɢʟɪsʜ✔️
-☞ ɴᴏ ᴘʀᴏᴍᴏᴛɪᴏɴ❌
-☞ ɴᴏ нᴀтʀᴇᴅ ᴏʀ ᴀʙᴜsɪɴɢ❌
-☞ ɴᴏ ᴅᴍ ᴡɪᴛʜᴏᴜᴛ ᴘᴇʀᴍɪssɪᴏɴ 💔
-☞ ɴᴏ ʟɪɴᴋs ᴀʟʟᴏᴡᴇᴅ❌
-☞ ɴᴏ ᴀᴅᴜʟᴛ ᴄʜᴀᴛ ᴀɴᴅ ɢɪғ sᴛɪᴄᴋᴇʀ 🙈
-☞ ɴᴏ sᴘᴀᴍ ❌
-
-✧══════•❁❀❁•══════✧
-
-   ✨ Oɴᴄᴇ ᴀɢᴀɪɴ...ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴍʏ ʜᴏᴜsᴇ , Cᴏᴍᴇ ғʀᴇᴇʟʏ ,  Gᴏ sᴀғᴇʟʏ ᴀɴᴅ ʟᴇᴀᴠᴇ sᴏᴍᴇᴛʜɪɴɢ ᴏғ ᴛʜᴇ ʜᴀᴘᴘɪɴᴇss ʏᴏᴜ ʙʀɪɴɢ.✨
-
-ᴏᴡɴᴇʀ ☞ 💞 💙 💓 **
+🌷 𝐈𝐟 𝐘𝐨𝐮 𝐇𝐚𝐯𝐞 : 𝐀𝐧𝐲 𝐏𝐫𝐨𝐛𝐥𝐞𝐦𝐬
+🌹 𝐓𝐡𝐞𝐧 𝐃𝐌 𝐓𝐨: 
+║
+╚═════════════════❍⊱❁۪۪
+                  🖇🔐🍷
+            🌷 𝐅𝐑𝐈𝐄𝐍𝐃𝐒 🌷
+        ⇆  ◁ㅤㅤ❚❚ㅤㅤ▷  ↻
+•┈┈┈••┈┈┈••••●••••┈┈┈••┈┈┈•
+        **
 """,
 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton (f"{user.first_name}", url=f"https://t.me/{user.username}")]])
         )
