@@ -9,6 +9,8 @@ from YukkiMusic import app
 from Love.db2.weldb2 import *
 from config import LOG_GROUP_ID
 
+
+
 COMMAND_HANDLER = ". /".split()
 
 
@@ -39,21 +41,20 @@ def welcomepic(pic, user, chat, id, uname):
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
     pfp = pfp.resize(
-        (196, 196)
+        (1050, 1050)
     ) 
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype('Love/SwanseaBold-D0ox.ttf', size=33)
-    welcome_font = ImageFont.truetype('Love/SwanseaBold-D0ox.ttf', size=10)
-    draw.text((450, 220), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
-    draw.text((450, 280), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((450, 340), f"USERNAME : {uname}", fill=(255,255,255),font=font)
-    pfp_position = (137, 174)  
+    font = ImageFont.truetype('Love/font.ttf', size=120)
+    font2 = ImageFont.truetype('Love/font.ttf', size=90)
+    draw.text((1680, 850), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
+    draw.text((1680, 1050), f'ID: {id}', fill=(255, 255, 255), font=font)
+    draw.text((1680, 1250), f"USERNAME : {uname}", fill=(255,255,255),font=font)
+    pfp_position = (405, 560)  
     background.paste(pfp, pfp_position, pfp)  
     background.save(
         f"downloads/welcome#{id}.png"
     )
     return f"downloads/welcome#{id}.png"
-
 
 @app.on_message(filters.command("swel", COMMAND_HANDLER) & ~filters.private)
 async def auto_state(_, message):
@@ -85,7 +86,7 @@ async def auto_state(_, message):
         await message.reply_text(usage)
     else:
         await message.reply("Only Admins Can Use This Command")
-    
+
 #bhag 
 
 @app.on_chat_member_updated(filters.group, group=-3)
@@ -120,36 +121,20 @@ async def greet_group(_, member: ChatMemberUpdated):
             member.chat.id,
             photo=welcomeimg,
             caption= f"""
-**🆆ᴇʟᴄᴏᴍᴇ 🅣ᴏ 🅞ᴜʀ 🅶ʀoᴜᴘ 
-║┏━━━━━━➣
-║┣⪼  GROUP💫💕
-║┣⪼ 𝐍𝐀𝐌𝐄 - {user.mention}
-║┣⪼ 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 - {user.username}
-║┣⪼ 𝐔𝐒𝐄𝐑_𝐈𝐃 {user.id}
-║┗━━━━━━➣
-╚═════════════════❍⊱❁۪
-╔═════❰𝐑𝐔𝐋𝐄𝐒❱════❍⊱❁۪۪
-║
-👉 𝐏𝐥𝐞𝐚𝐬𝐞 ❥︎𝐎𝐛𝐞𝐲 ❥︎𝐑𝐮𝐥𝐞𝐬
+**✧══════•❁❀❁•══════✧
 
-【💘 𝐍𝐨 𝐏𝐫𝐨𝐌𝐨𝐭𝐢𝐨𝐧】
-【🔞 𝐍𝐨 ✰ 𝐀𝐛𝐮𝐬𝐢𝐧𝐠】
-【📵 𝐍𝐨 𝐒𝐩𝐚𝐦𝐦𝐢𝐧𝐠】
-【👿 𝐍𝐨 ❥︎𝐂𝐡𝐞𝐚𝐭𝐞𝐫𝐬】
+  ✦ 𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐓𝐨 {member.chat.title} ✦
 
-💞 𝐓𝐡𝐚𝐧𝐤 𖨆 𝐘𝐨𝐮 𝐅𝐨𝐫 𝐉𝐨𝐢𝐧
+     ｢ 𝐌ᴇᴍʙᴇʀ 𝐈ɴғᴏ 」
+┏━━━━━━━━━━━━━━━━❥
+┣ 𝐍ᴀᴍᴇ : {user.mention}
+┣ 𝐔𝐬ᴇʀɴᴀᴍᴇ : {user.id}
+┣ 𝐔𝐬ᴇʀɪᴅ : @{user.username}
+┗━━━━━━━━━━━━━━━━❥
 
-🌷 𝐈𝐟 𝐘𝐨𝐮 𝐇𝐚𝐯𝐞 : 𝐀𝐧𝐲 𝐏𝐫𝐨𝐛𝐥𝐞𝐦𝐬
-🌹 𝐓𝐡𝐞𝐧 𝐃𝐌 𝐓𝐨: 
-║
-╚═════════════════❍⊱❁۪۪
-                  🖇🔐🍷
-            🌷 𝐅𝐑𝐈𝐄𝐍𝐃𝐒 🌷
-        ⇆  ◁ㅤㅤ❚❚ㅤㅤ▷  ↻
-•┈┈┈••┈┈┈••••●••••┈┈┈••┈┈┈•
-        **
+ᴏᴡɴᴇʀ ☞ ᴜɴᴋɴᴏᴡɴ ✨**
 """,
-reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton (f"{user.first_name}", url=f"https://t.me/{user.username}")]])
+reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton (f"Kɪᴅɴᴀᴘ Mᴇ 🤧", url=f"https://t.me/SHALINIxMUSIC_RoBOT?startgroup=true")]])
         )
     except Exception as e:
         LOGGER.error(e)
@@ -158,8 +143,6 @@ reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton (f"{user.first_name}", 
         os.remove(f"downloads/pp{user.id}.png")
     except Exception as e:
         pass
-
-
 @app.on_message(filters.new_chat_members & filters.group, group=-1)
 async def bot_wel(_, message):
     for u in message.new_chat_members:
@@ -173,5 +156,8 @@ USERNAME: @{message.chat.username}
 
 **
 """)
+
+
+
 
 
