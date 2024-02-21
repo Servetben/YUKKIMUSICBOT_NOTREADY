@@ -41,15 +41,15 @@ def welcomepic(pic, user, chat, id, uname):
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
     pfp = pfp.resize(
-        (1050, 1050)
+        (1150, 1150)
     ) 
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('Love/font.ttf', size=120)
     font2 = ImageFont.truetype('Love/font.ttf', size=90)
-    draw.text((1680, 850), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
-    draw.text((1680, 1050), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((1680, 1250), f"USERNAME : {uname}", fill=(255,255,255),font=font)
-    pfp_position = (405, 560)  
+    draw.text((1880, 800), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
+    draw.text((1880, 1000), f'ID: {id}', fill=(255, 255, 255), font=font)
+    draw.text((1880, 1200), f"USERNAME : {uname}", fill=(255,255,255),font=font)
+    pfp_position = (405, 400)  
     background.paste(pfp, pfp_position, pfp)  
     background.save(
         f"downloads/welcome#{id}.png"
