@@ -54,7 +54,7 @@ async def today_(_, message):
             response = "**📈 LEADERBOARD TODAY**\n"
             for idx, (user_id, total_messages) in enumerate(sorted_users_data, start=1):
                 try:
-                    user_name = (await app.get_users(user_id)).first_name
+                    user_name = (await app.get_users(user_id)).first_name.mention
                 except:
                     user_name = "Unknown"
                 user_info = f"**{idx}**. {user_name} • {total_messages}\n"
