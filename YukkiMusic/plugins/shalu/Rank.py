@@ -80,8 +80,8 @@ async def ranking(_, message):
         user_id = member["_id"]
         total_messages = member["total_messages"]
         try:
-            user_name = (await app.get_users(user_id)).first_name
-        except:
+            user_mention = f"@{app.get_users(user_id).username}" if app.get_users(user_id).username else app.get_users(user_id).first_name
+    except:
             user_name = "Unknown"
         
         user_info = f"**{idx}**. {user_name} • {total_messages}\n"
