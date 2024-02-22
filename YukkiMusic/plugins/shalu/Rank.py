@@ -129,5 +129,4 @@ async def overall_rank(_, query):
         except:
             user_mention = "Unknown"
         
-        user_info = f"**{idx}**. {user_mention}
-            
+        user_info = f"**{idx}**. {user_mention} • {total_messages}\n"
