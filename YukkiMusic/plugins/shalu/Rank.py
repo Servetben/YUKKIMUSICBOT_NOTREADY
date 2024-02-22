@@ -81,10 +81,10 @@ async def ranking(_, message):
         total_messages = member["total_messages"]
         try:
             user_mention = f"@{app.get_users(user_id).username}" if app.get_users(user_id).username else app.get_users(user_id).first_name
-    except:
-            user_name = "Unknown"
+        except:
+            user_mention = "Unknown"
         
-        user_info = f"**{idx}**. {user_name} • {total_messages}\n"
+        user_info = f"**{idx}**. {user_mention} • {total_messages}\n"
         response += user_info 
     button = InlineKeyboardMarkup(
             [[    
@@ -144,11 +144,4 @@ async def overall_rank(_, query):
                InlineKeyboardButton("TODAY", callback_data="today"),
             ]])
     await query.message.edit_text(response, reply_markup=button)
-
-
-
-
-    
-
-
-  
+            
