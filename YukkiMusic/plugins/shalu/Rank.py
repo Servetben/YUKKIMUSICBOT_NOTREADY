@@ -58,7 +58,7 @@ async def today_(_, message):
                 [[    
                    InlineKeyboardButton("OVERALL", callback_data="overall"),
                 ]])
-            await message.reply_photo(photo=pic, caption=response, reply_markup=button, parse_mode="markdown")
+            await message.reply_photo(photo=pic, caption=response, reply_markup=button)
         else:
             await message.reply_text("No data available for today.")
     else:
@@ -84,7 +84,7 @@ async def ranking(_, message):
             [[    
                InlineKeyboardButton("TODAY", callback_data="today"),
             ]])
-    await message.reply_photo(photo=pic, caption=response, reply_markup=button, parse_mode="markdown")
+    await message.reply_photo(photo=pic, caption=response, reply_markup=button)
 
 # -------------------- regex -------------------- # 
 
@@ -109,7 +109,7 @@ async def today_rank(_, query):
                 [[    
                    InlineKeyboardButton("OVERALL", callback_data="overall"),
                 ]])
-            await query.message.edit_text(response, reply_markup=button, parse_mode="markdown")
+            await query.message.edit_text(response, reply_markup=button)
         else:
             await query.answer("No data available for today.")
     else:
