@@ -19,6 +19,7 @@ from config import (BANNED_USERS, CLEANMODE_DELETE_MINS,
                     MUSIC_BOT_NAME, OWNER_ID)
 from strings import get_command
 from YukkiMusic import app
+import config 
 import random 
 from YukkiMusic.utils.database import (add_nonadmin_chat,
                                        cleanmode_off, cleanmode_on,
@@ -103,13 +104,12 @@ async def gib_repo_callback(_, callback_query):
     await callback_query.edit_message_media(
         media=InputMediaVideo("https://telegra.ph/file/b1367262cdfbcd0b2af07.mp4", has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
-            [
-                [close_button]
-            ]
+            [[InlineKeyboardButton(text="⦿ ʙᴀᴄᴋ ⦿", callback_data=f"settingsback_helper")]]
         ),
     )
 
-close_button = InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")
+
+#fucked#
 
 
 
@@ -128,40 +128,26 @@ async def show_bot_info(c: app, q: CallbackQuery):
     return
 
 
-@app.on_callback_query(
-    filters.regex("settingsback_helper") & ~BANNED_USERS
-)
+@app.on_callback_query(filters.regex("settingsback_helper") & ~BANNED_USERS)
 @languageCB
-async def settings_back_markup(
-    client, CallbackQuery: CallbackQuery, _
-):
+async def settings_back_markup(client, CallbackQuery: CallbackQuery, _):
     try:
         await CallbackQuery.answer()
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
+    except:
+        pass
     if CallbackQuery.message.chat.type == ChatType.PRIVATE:
-        try:
-            await app.resolve_peer(OWNER_ID[0])
-            OWNER = OWNER_ID[0]
-        except:
-            OWNER = None
-        buttons = private_panel(_, app.username, OWNER)
-        try:
-            await CallbackQuery.edit_message_text(
-                _["start_2"].format(MUSIC_BOT_NAME),
-                reply_markup=InlineKeyboardMarkup(buttons),
-            )
-        except MessageNotModified:
-            pass
-    else:
-        buttons = setting_markup(_)
-        try:
-            await CallbackQuery.edit_message_reply_markup(
-                reply_markup=InlineKeyboardMarkup(buttons)
-            )
-        except MessageNotModified:
-            pass
+        await app.resolve_peer(OWNER_ID)
+        OWNER = OWNER_ID
+        image = config.START_IMG_URL
+        buttons = private_panel(_)
+        await CallbackQuery.edit_message_media(
+            InputMediaPhoto(media=image,
+                caption=_["start_2"].format(CallbackQuery.from_user.mention, app.mention),
+            ),
+        )
+        return await CallbackQuery.edit_message_reply_markup(
+            reply_markup=InlineKeyboardMarkup(buttons)
+        )
 
 
 ## Audio and Video Quality
