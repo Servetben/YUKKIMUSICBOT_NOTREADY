@@ -14,13 +14,13 @@ from pyrogram.errors.exceptions.bad_request_400 import (
 import datetime
 import random 
 from logging import getLogger
-from AnnieMusic import LOGGER
+from YukkiMusic import LOGGER
 from config import LOG_GROUP_ID
-from AnnieMusic.misc import SUDOERS
-from AnnieMusic import app
+from YukkiMusic.misc import SUDOERS
+from YukkiMusic import app
 from config import OWNER_ID
 from pyrogram.types import *
-from AnnieMusic.utils.annieban import admin_filter
+from YukkiMusic.utils.shalu_ban import admin_filter
 
 LOGGER = getLogger(__name__)
 
@@ -91,7 +91,7 @@ async def zkick_user(user_id, first_name, admin_id, admin_name, chat_id, message
 
 
 
-@app.on_message(filters.command("kick") & admin_filter)
+@app.on_message(filters.command("ppkick") & admin_filter)
 async def kickk_user(client, message):
     chat = message.chat
     reply = message.reply_to_message
@@ -132,11 +132,12 @@ async def kickk_user(client, message):
     else:
         await message.reply_text("Please specify a valid user or reply to that user's message")
         return
-msg_text, result = await zkick_user(user_id, first_name, admin_id, admin_name, chat_id, message)
-if result == False:
+        
+    msg_text, result = await zkick_user(user_id, first_name, admin_id, admin_name, chat_id, message)
+    if result == False:
         await message.reply_text(msg_text)
 
-@app.on_message(filters.command("kickme") & filters.group)
+@app.on_message(filters.command("zkickme") & filters.group)
 async def kickme_command(client, message):
     user_id = message.from_user.id
     user_name = message.from_user.first_name
@@ -151,7 +152,7 @@ async def kickme_command(client, message):
             caption=f"{user_name} ʜᴀs ʙᴇᴇɴ sᴇʟғ ᴋɪᴄᴋᴇᴅ ᴏᴜᴛ ᴏғ ᴛʜɪs ɢʀᴏᴜᴘ.",
             reply_markup=InlineKeyboardMarkup(button),
         )
-        await app.send_message(LOG_GROUP_ID, f"{user_name} used kickme command from {message.chat.id}")
+        await app.send_message(LOG_GROUP_ID, f"{user_name} used kickme command from {message.chat.title}")
     except Exception as e:
         # Handle any errors that may occur during the kicking process
         await message.reply_text(f"An error occurred: {str(e)}")
