@@ -97,7 +97,7 @@ async def kickk_user(client, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
     admin_id = message.from_user.id
-    user_name = message.from_user.first_name
+    admin_name = message.from_user.first_name
     member = await chat.get_member(admin_id)
     if member.status == enums.ChatMemberStatus.ADMINISTRATOR or member.status == enums.ChatMemberStatus.OWNER:
         if member.privileges.can_restrict_members:
