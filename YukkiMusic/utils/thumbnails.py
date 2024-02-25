@@ -1,17 +1,16 @@
 import os
 import re
 import textwrap
+
 import aiofiles
 import aiohttp
 import numpy as np
-import random
-from PIL import Image, ImageChops, ImageOps, ImageDraw, ImageEnhance, ImageFilter, ImageFont
+from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
+                 ImageFont, ImageOps)
 from youtubesearchpython.__future__ import VideosSearch
-from YukkiMusic import app as bot
-from YukkiMusic.Lol import *
-from config import YOUTUBE_IMG_URL
+from YukkiMusic import app
 
-colors = ["white", "black", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
+from config import YOUTUBE_IMG_URL,MUSIC_BOT_NAME
 
 
 
@@ -23,19 +22,38 @@ def changeImageSize(maxWidth, maxHeight, image):
     newImage = image.resize((newWidth, newHeight))
     return newImage
 
+def circle(img):
+    h,w=img.size
+    a = Image.new('L', [h,w], 0)
+    b = ImageDraw.Draw(a)
+    b.pieslice([(0, 0), (h,w)], 0, 360, fill = 255,outline = "white")
+    c = np.array(img)
+    d = np.array(a)
+    e = np.dstack((c, d))
+    return Image.fromarray(e)
 
-def add_corners(im):
-    bigsize = (im.size[0] * 3, im.size[1] * 3)
-    mask = Image.new("L", bigsize, 0)
-    ImageDraw.Draw(mask).ellipse((0, 0) + bigsize, fill=255)
-    mask = mask.resize(im.size, Image.ANTIALIAS)
-    mask = ImageChops.darker(mask, im.split()[-1])
-    im.putalpha(mask)
+def circle2(img,Xcenter,Ycenter):
+    h,w=img.size
+    a = Image.new('L', [h,w], 0)
+    b = ImageDraw.Draw(a)
+    b.pieslice([(0, 0), (h,w)], 0, 360, fill = 255,outline = "white")
+    b.pieslice([(int(Xcenter-50), int(Ycenter-30)), (int(Xcenter+50),int(Ycenter+30))], 0, 360, fill = 0,outline = "black")
+    c = np.array(img)
+    d = np.array(a)
+    e = np.dstack((c, d))
+    return Image.fromarray(e)
 
+def squ(img1):
+    a = Image.new('L', [640,500], 0)
+    b=ImageDraw.Draw(a)
+    b.line((320,0,240,550),fill="white",width=670)
+    e=Image.fromarray(np.dstack((np.array(img1),np.array(a))))
+    return e
 
-async def gen_thumb(videoid, user_id):
+async def gen_thumb(videoid,user_id):
     if os.path.isfile(f"cache/{videoid}_{user_id}.png"):
-        return f"cache/{videoid}_{user_id}.png"
+       return f"cache/{videoid}_{user_id}.png"
+
     url = f"https://www.youtube.com/watch?v={videoid}"
     try:
         results = VideosSearch(url, limit=1)
@@ -49,90 +67,150 @@ async def gen_thumb(videoid, user_id):
             try:
                 duration = result["duration"]
             except:
-                duration = "Unknown"
+                   duration = "Unknown Mins"
             thumbnail = result["thumbnails"][0]["url"].split("?")[0]
             try:
-                result["viewCount"]["short"]
+                views = result["viewCount"]["short"]
             except:
-                pass
+                views = "Unknown Views"
             try:
-                result["channel"]["name"]
+                channel = result["channel"]["name"]
             except:
-                pass
-
+                channel = "Unknown Channel"
         async with aiohttp.ClientSession() as session:
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
-                    f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
+                    f = await aiofiles.open(
+                        f"cache/thumb{videoid}.png", mode="wb"
+                    )
                     await f.write(await resp.read())
                     await f.close()
-
         p=0            
         try: 
-            async for photo in bot.get_chat_photos(user_id,1): 
-                sp=await bot.download_media(photo.file_id, file_name=f'{user_id}.jpg')
+            async for photo in app.get_chat_photos(user_id,1): 
+                sp=await app.download_media(photo.file_id, file_name=f'{user_id}.jpg')
                 p=1
             if p==0:
                 raise Exception
         except: 
-            async for photo in bot.get_chat_photos(bot.id,1): 
-                sp=await bot.download_media(photo.file_id, file_name=f'{bot.id}.jpg')
-        xy = Image.open(sp)
-        a = Image.new('L', [640, 640], 0)
-        b = ImageDraw.Draw(a)
-        b.pieslice([(0, 0), (640,640)], 0, 360, fill = 255, outline = "white")
-        c = np.array(xy)
-        d = np.array(a)
-        e = np.dstack((c, d))
-        f = Image.fromarray(e)
-        x = f.resize((107, 107))
-
-        
-        border = random.choice(colors)
+            async for photo in app.get_chat_photos(app.id,1): 
+                sp=await app.download_media(photo.file_id, file_name=f'{app.id}.jpg')
+        xp=Image.open(sp)
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"YukkiMusic/Lol/thumb_06.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(30))
+        background = image2.filter(filter=ImageFilter.BoxBlur(70))
         enhancer = ImageEnhance.Brightness(background)
-        background = enhancer.enhance(0.6)
-
-        image3 = changeImageSize(1280, 720, bg)
-        image5 = image3.convert("RGBA")
-        Image.alpha_composite(background, image5).save(f"cache/temp{videoid}.png")
-
-        Xcenter = youtube.width / 2
-        Ycenter = youtube.height / 2
-        x1 = Xcenter - 250
-        y1 = Ycenter - 250
-        x2 = Xcenter + 250
-        y2 = Ycenter + 250
-        logo = youtube.crop((x1, y1, x2, y2))
-        logo.thumbnail((520, 520), Image.ANTIALIAS)
-        logo.save(f"cache/chop{videoid}.png")
-        if not os.path.isfile(f"cache/cropped{videoid}.png"):
-            im = Image.open(f"cache/chop{videoid}.png").convert("RGBA")
-            add_corners(im)
-            im.save(f"cache/cropped{videoid}.png")
-
-        crop_img = Image.open(f"cache/cropped{videoid}.png")
-        logo = crop_img.convert("RGBA")
-        logo.thumbnail((365, 365), Image.ANTIALIAS)
-        width = int((1280 - 365) / 2)
-        background = Image.open(f"cache/temp{videoid}.png")
-        background.paste(logo, (width + 2, 138), mask=logo)
-        background.paste(x, (710, 427), mask=x)
-        background.paste(image3, (0, 0), mask=image3)
-
+        background = enhancer.enhance(0.5)
+        Xcen1 = image1.width / 2
+        Ycen1 = image1.height / 2
+        Xcen2 =xp.width / 2
+        Ycen2 = xp.height / 2
+        
+        #y=changeImageSize(400,400,circle2(youtube,Xcen1,Ycen1))
+        y=changeImageSize(400,400,circle(youtube))
+        background.paste(y,(690,40),mask=y)
+        b=ImageDraw.Draw(background)
+        b.pieslice([(690, 40), (1090,440)], 0, 360,outline = "white",width=10)
+        x= changeImageSize(270,270,circle(xp))
+        background.paste(x, (960,240), mask=x)
+        b=ImageDraw.Draw(background)
+        b.pieslice([(960,240), (1230,510)], 0, 360,outline ='black',width=10)
+    
+        draw=ImageDraw.Draw(background)
+        font = ImageFont.truetype("assets/TiltWarp-Regular.ttf",35)
+        font2 = ImageFont.truetype("assets/FasterOne-Regular.ttf",75)
+        arial = ImageFont.truetype("assets/font2.ttf", 30)
+        name_font = ImageFont.truetype("assets/font6.ttf", 30)
+        font3=ImageFont.truetype("assets/font3.ttf",30)
+        font4=ImageFont.truetype("assets/font4.ttf",30)
+        font5=ImageFont.truetype("assets/Gugi-Regular.ttf",40)
+        para = textwrap.wrap(title, width=32)
+        j = 0
+        draw.text(
+                    (30,10),
+                    f"{MUSIC_BOT_NAME}",
+                    fill="white",
+                    stroke_width=5,
+                    stroke_fill="black",
+                    font=font5,
+        )
+        draw.text(
+                    (100, 100),
+                    "NOW PLAYING",
+                    fill="white",
+                    stroke_width=8,
+                    stroke_fill="black",
+                    font=font2,
+                )
+        for line in para:
+                    if j == 1:
+                        j += 1
+                        draw.text(
+                            (120, 280),
+                            f"{line}",
+                            fill="white",
+                            stroke_width=5,
+                            stroke_fill="black",
+                            font=font,
+                        )
+                    if j == 0:
+                        j += 1
+                        draw.text(
+                            (120, 220),
+                            f"{line}",
+                            fill="white",
+                            stroke_width=5,
+                            stroke_fill="black",
+                            font=font,
+                        )
+        draw.text(
+                    (120, 340),
+                    f"Views : {views[:23]}",
+                    (255, 255, 255),
+                    font=arial,
+                )
+        draw.text(
+                    (120, 390),
+                    f"Duration : {duration[:23]} Mins",
+                    (255, 255, 255),
+                    font=arial,
+                )
+        draw.text(
+                    (120, 440),
+                    f"Channel : {channel}",
+                    (255, 255, 255),
+                    font=arial,
+                )
+        
+        draw.text(
+                (540,550),
+                f"ﮩﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـ٨ـﮩﮩ٨ـﮩ٨ـﮩﮩ٨ـ",
+                (255, 255, 255),
+                font=name_font,
+        )
+        draw.text(
+            (50, 600),
+            f"00:55 ─────────────●─────────────────────────────────────────── {duration}",
+            (255, 255, 255),
+            font=font3,
+        
+        )
+        draw.text(
+                (50,650),
+                f"Volume: ■■■■■□□□                      ↻      ◁     II    ▷     ↺",
+                (255, 255, 255),
+                font=font4,
+        )
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
             pass
-        img.save(f"cache/{videoid}_{user_id}.png")
+        background.save(f"cache/{videoid}_{user_id}.png")
         return f"cache/{videoid}_{user_id}.png"
     except Exception as e:
-        print(e)
         return YOUTUBE_IMG_URL
+
 
 
 async def get_qthumb(videoid, user_id):
