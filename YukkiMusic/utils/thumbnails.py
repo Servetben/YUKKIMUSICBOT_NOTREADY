@@ -10,9 +10,10 @@ from PIL import Image, ImageChops, ImageOps, ImageDraw, ImageEnhance, ImageFilte
 from youtubesearchpython.__future__ import VideosSearch
 
 from YukkiMusic import app as bot
-from YukkiMusic.Lol import thumbs, colors
+from YukkiMusic.Lol import *
 from config import YOUTUBE_IMG_URL
 
+colors = ["white", "black", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
 
 
 def changeImageSize(maxWidth, maxHeight, image):
