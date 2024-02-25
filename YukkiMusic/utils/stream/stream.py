@@ -11,7 +11,6 @@
 import os
 from random import randint
 from typing import Union
-from YukkiMusic.utils.inline.queue import queue_markup
 from pyrogram.types import InlineKeyboardMarkup
 import random
 from YukkiMusic.utils.thumbnails import get_qthumb
@@ -24,7 +23,7 @@ from YukkiMusic.utils.database import (add_active_chat,
                                        is_active_chat,
                                        is_video_allowed, music_on)
 from YukkiMusic.utils.exceptions import AssistantErr
-from YukkiMusic.utils.inline.play import (stream_markup,
+from YukkiMusic.utils.inline.play import (stream_markup, queue_markup, 
                                           telegram_markup)
 from YukkiMusic.utils.inline.playlist import close_markup
 from YukkiMusic.utils.pastebin import Yukkibin
