@@ -102,7 +102,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
 
 #queue markup
 
-def queue_markup(_, videoid, chat_id):
+def queue_markup(_, videoid):
     buttons = [
          [
             InlineKeyboardButton(
