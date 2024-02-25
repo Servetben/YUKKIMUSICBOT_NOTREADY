@@ -125,13 +125,7 @@ async def gen_thumb(videoid, user_id):
         background.paste(logo, (width + 2, 138), mask=logo)
         background.paste(x, (710, 427), mask=x)
         background.paste(image3, (0, 0), mask=image3)
-        img = ImageOps.expand(background, border=10, fill=f"{border}")
-        draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype("YukkiMusic/Lol/font2.ttf", 45)
-        font2 = ImageFont.truetype("YukkiMusic/Lol/font2.ttf", 70)
-        arial = ImageFont.truetype("YukkiMusic/Lol/font2.ttf", 30)
-        font3 = ImageFont.truetype("YukkiMusic/Lol/font.ttf", 30)
-        para = textwrap.wrap(title, width=32)
+
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
