@@ -76,7 +76,7 @@ def queue_back_markup(_, CPLAY):
     return upl
     
 
-def aq_markup(_, chat_id, videoid):
+def aq_markup(chat_id, videoid):
     buttons = [
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
@@ -86,14 +86,14 @@ def aq_markup(_, chat_id, videoid):
         ],
         [
             InlineKeyboardButton(
-                text=_["PL_B_2"],
+                text="playlist",
                 callback_data=f"add_playlist {videoid}",
             ),
             InlineKeyboardButton(
-                text=_["S_B_7"],
+                text="owner",
                 url=f"tg://openmessage?user_id=6761639198",
             ),
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+        [InlineKeyboardButton(text="close", callback_data="close")],
     ]
     return buttons
