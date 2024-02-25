@@ -1,6 +1,6 @@
 import os
 import re
-
+from unidecode import unidecode
 import aiofiles
 import aiohttp
 import numpy as np
