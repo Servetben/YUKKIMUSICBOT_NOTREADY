@@ -11,7 +11,7 @@
 import os
 from random import randint
 from typing import Union
-from YukkiMusic.utils.inline.play import queue_markup
+from YukkiMusic.utils.inline.queue import queue_markup
 from pyrogram.types import InlineKeyboardMarkup
 import random
 from YukkiMusic.utils.thumbnails import get_qthumb
