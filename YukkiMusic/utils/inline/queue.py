@@ -57,6 +57,25 @@ def queue_markup(
     return upl
 
 
+    
+def queue_back_markup(_, CPLAY):
+    upl = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text=_["BACK_BUTTON"],
+                    callback_data=f"queue_back_timer {CPLAY}",
+                ),
+                InlineKeyboardButton(
+                    text=_["CLOSE_BUTTON"],
+                    callback_data="close",
+                ),
+            ]
+        ]
+    )
+    return upl
+    
+
 def aq_markup(_, chat_id):
     buttons = [
         [
