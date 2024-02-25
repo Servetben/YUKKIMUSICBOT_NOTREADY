@@ -102,25 +102,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
 
 #queue markup
 
-def queue_markup(_, videoid):
-    buttons = [
-         [
-            InlineKeyboardButton(
-                text=_["PL_B_2"],
-                callback_data=f"add_playlist {videoid}",
-            ),
-            InlineKeyboardButton(
-                text=_["S_B_7"],
-                url=f"tg://openmessage?user_id=6761639198",
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"], callback_data="close"
-            )
-        ],
-    ]
-    return buttons
+
     
 def stream_markup(_, videoid, chat_id):
     buttons = [
@@ -378,3 +360,25 @@ def panel_markup_3(_, videoid, chat_id):
     return buttons
 
 
+## Queue Markup
+
+def queue_markup(_, videoid, chat_id):
+    buttons = [
+   [
+InlineKeyboardButton(text="ᴘᴀᴜꜱᴇ", callback_data=f"ADMIN Pause|{chat_id}"),
+InlineKeyboardButton(text="ʀᴇꜱᴜᴍᴇ", callback_data=f"ADMIN Resume|{chat_id}"),
+InlineKeyboardButton(text="ꜱᴋɪᴘ", callback_data=f"ADMIN Skip|{chat_id}"),
+InlineKeyboardButton(text="ꜱᴛᴏᴘ", callback_data=f"ADMIN Stop|{chat_id}"),
+        ],
+          [
+            InlineKeyboardButton( text="owner" , url=f"https://t.me/funny" ,
+            ),
+            InlineKeyboardButton(
+                text="playlist",
+                callback_data=f"add_playlist {videoid}",
+            ),
+        ],
+        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+    ]
+    return buttons
+    
