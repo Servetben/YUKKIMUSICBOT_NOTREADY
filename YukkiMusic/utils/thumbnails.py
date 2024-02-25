@@ -96,43 +96,7 @@ async def gen_thumb(videoid,user_id):
         draw = ImageDraw.Draw(background)
         arial = ImageFont.truetype("assets/font2.ttf", 30)
         font = ImageFont.truetype("assets/font.ttf", 30)
-        draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
-        draw.text(
-                (55, 560),
-                f"{channel} | {views[:23]}",
-                (255, 255, 255),
-                font=arial,
-            )
-        draw.text(
-                (57, 600),
-                clear(title),
-                (255, 255, 255),
-                font=font,
-            )
-        draw.line(
-                [(55, 660), (1220, 660)],
-                fill="white",
-                width=5,
-                joint="curve",
-            )
-        draw.ellipse(
-                [(918, 648), (942, 672)],
-                outline="white",
-                fill="white",
-                width=15,
-            )
-        draw.text(
-                (36, 685),
-                "00:00",
-                (255, 255, 255),
-                font=arial,
-            )
-        draw.text(
-                (1185, 685),
-                f"{duration[:23]}",
-                (255, 255, 255),
-                font=arial,
-            )
+        
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
@@ -140,8 +104,8 @@ async def gen_thumb(videoid,user_id):
         background.save(f"cache/{videoid}_{user_id}.png")
         return f"cache/{videoid}_{user_id}.png"
     except Exception as e:
-        print({e})
-         
+        print(e)
+        return YOUTUBE_IMG_URL
         
   
                             
