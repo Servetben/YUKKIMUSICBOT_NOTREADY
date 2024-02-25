@@ -15,6 +15,7 @@ from pyrogram.types import InlineKeyboardMarkup
 import random
 from YukkiMusic.utils.thumbnails import get_qthumb
 import config
+from YukkiMusic.utils.inline import aq_markup
 from YukkiMusic import Carbon, YouTube, app
 from YukkiMusic.core.call import Yukki
 from YukkiMusic.misc import db
@@ -173,7 +174,7 @@ async def stream(
                 "video" if video else "audio",
             )
             position = len(db.get(chat_id)) - 1
-            button = stream_markup(_, videoid, chat_id)
+            button = aq_markup(_, chat_id)
             img = await get_qthumb(vidid)
             run = await app.send_photo(
                 chat_id=original_chat_id,
