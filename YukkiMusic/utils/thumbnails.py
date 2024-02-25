@@ -163,7 +163,7 @@ async def gen_thumb(videoid):
 
 
 
-async def gen_qthumb(videoid):
+async def get_qthumb(videoid):
     if os.path.isfile(f"cache/{videoid}_v4.png"):
         return f"cache/{videoid}_v4.png"
 
