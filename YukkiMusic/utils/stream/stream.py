@@ -11,7 +11,7 @@
 import os
 from random import randint
 from typing import Union
-
+from YukkiMusic.utils.inline.play import queue_markup
 from pyrogram.types import InlineKeyboardMarkup
 import random
 from YukkiMusic.utils.thumbnails import get_qthumb
@@ -174,6 +174,7 @@ async def stream(
                 "video" if video else "audio",
             )
             position = len(db.get(chat_id)) - 1
+            button = queue_markup(_, videoid)
             img = await get_qthumb(vidid)
             run = await app.send_photo(
                 chat_id=original_chat_id,
@@ -181,6 +182,7 @@ async def stream(
                 caption=_["queue_4"].format(
                     position, title[:30], duration_min, user_name,
                 ),
+                reply_markup=InlineKeyboardMarkup(button),
             )
         else:
             if not forceplay:
