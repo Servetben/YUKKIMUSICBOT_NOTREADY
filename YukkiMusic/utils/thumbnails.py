@@ -13,6 +13,9 @@ from config import YOUTUBE_IMG_URL
 
 colors = ["white", "black", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
 
+font_path_1 = "YukkiMusic/Lol/font2.ttf"
+font_path_2 = "YukkiMusic/Lol/font.ttf"
+
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
@@ -125,48 +128,10 @@ async def gen_thumb(videoid, user_id):
         img = ImageOps.expand(background, border=10, fill=f"{border}")
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype("YukkiMusic/Lol/font2.ttf", 45)
-        ImageFont.truetype("YukkiMusic/Lol/font2.ttf", 70)
+        font2 = ImageFont.truetype("YukkiMusic/Lol/font2.ttf", 70)
         arial = ImageFont.truetype("YukkiMusic/Lol/font2.ttf", 30)
-        ImageFont.truetype("YukkiMusic/Lol/font.ttf", 30)
+        font3 = ImageFont.truetype("YukkiMusic/Lol/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
-        try:
-            draw.text(
-                (450, 35),
-                f"STARTED PLAYING",
-                fill="white",
-                stroke_width=1,
-                stroke_fill="white",
-                font=font,
-            )
-            if para[0]:
-                text_w, text_h = draw.textsize(f"{para[0]}", font=font)
-                draw.text(
-                    ((1280 - text_w) / 2, 560),
-                    f"{para[0]}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
-            if para[1]:
-                text_w, text_h = draw.textsize(f"{para[1]}", font=font)
-                draw.text(
-                    ((1280 - text_w) / 2, 610),
-                    f"{para[1]}",
-                    fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
-                    font=font,
-                )
-        except:
-            pass
-        text_w, text_h = draw.textsize(f"Duration: {duration} Mins", font=arial)
-        draw.text(
-            ((1280 - text_w) / 2, 665),
-            f"Duration: {duration} Mins",
-            fill="white",
-            font=arial,
-        )
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
