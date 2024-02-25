@@ -5,10 +5,8 @@ import aiofiles
 import aiohttp
 import numpy as np
 import random
-
 from PIL import Image, ImageChops, ImageOps, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 from youtubesearchpython.__future__ import VideosSearch
-
 from YukkiMusic import app as bot
 from YukkiMusic.Lol import *
 from config import YOUTUBE_IMG_URL
@@ -68,13 +66,17 @@ async def gen_thumb(videoid, user_id):
                     await f.write(await resp.read())
                     await f.close()
 
-        try:
-            wxyz = await bot.get_profile_photos(user_id)
-            wxy = await bot.download_media(wxyz[0]['file_id'], file_name=f'{user_id}.jpg')
-        except:
-            abc = await bot.get_profile_photos(bot.id)
-            wxy = await bot.download_media(abc[0]['file_id'], file_name=f'{bot.id}.jpg')
-        xy = Image.open(wxy)
+        p=0            
+        try: 
+            async for photo in bot.get_chat_photos(user_id,1): 
+                sp=await bot..download_media(photo.file_id, file_name=f'{user_id}.jpg')
+                p=1
+            if p==0:
+                raise Exception
+        except: 
+            async for photo in bot.get_chat_photos(bot.id,1): 
+                sp=await bot.download_media(photo.file_id, file_name=f'{bot.id}.jpg')
+        xy = Image.open(sp)
         a = Image.new('L', [640, 640], 0)
         b = ImageDraw.Draw(a)
         b.pieslice([(0, 0), (640,640)], 0, 360, fill = 255, outline = "white")
