@@ -13,8 +13,6 @@ from config import YOUTUBE_IMG_URL
 
 colors = ["white", "black", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
 
-font_path_1 = "YukkiMusic/Lol/font2.ttf"
-font_path_2 = "YukkiMusic/Lol/font.ttf"
 
 
 def changeImageSize(maxWidth, maxHeight, image):
