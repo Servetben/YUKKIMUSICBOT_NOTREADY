@@ -69,7 +69,7 @@ async def gen_thumb(videoid, user_id):
         p=0            
         try: 
             async for photo in bot.get_chat_photos(user_id,1): 
-                sp=await bot..download_media(photo.file_id, file_name=f'{user_id}.jpg')
+                sp=await bot.download_media(photo.file_id, file_name=f'{user_id}.jpg')
                 p=1
             if p==0:
                 raise Exception
