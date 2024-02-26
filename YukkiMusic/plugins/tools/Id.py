@@ -41,7 +41,7 @@ async def get_userinfo_img(
         circular_img = Image.new("RGBA", img.size, (0, 0, 0, 0))
         circular_img.paste(img, (0, 0), mask)
         resized = circular_img.resize((1090, 1090))
-        bg.paste(resized, (156, 1099), resized)
+        bg.paste(resized, (1000, 309), resized)
         
     img_draw = ImageDraw.Draw(bg)
     img_draw.text(
@@ -50,13 +50,7 @@ async def get_userinfo_img(
         font=get_font(148, font_path),
         fill=(0, 255, 0),
     )
-    img_draw.text(
-        (1370, 1550),
-        text="YOUR INFORMATION",
-        font=get_font(138, font_path),
-        fill=(0, 0, 255),
-)
-
+    
     path = f"./userinfo_img_{user_id}.png"
     bg.save(path)
     return path
@@ -64,7 +58,7 @@ async def get_userinfo_img(
 
 # --------------------------------------------------------------------------------- #
 
-bg_path = "Love/Info.jpg"
+bg_path = "assets/CUTE_BACHHA.png"
 font_path = "Love/SwanseaBold-D0ox.ttf"
 
 # --------------------------------------------------------------------------------- #
