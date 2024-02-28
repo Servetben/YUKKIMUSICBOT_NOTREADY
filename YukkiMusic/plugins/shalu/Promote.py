@@ -1,57 +1,68 @@
 from pyrogram import Client, filters
 from pyrogram.types import ChatPermissions, ChatMember
-from YukkiMusic import app
-import random 
+from pyrogram.errors.exceptions.bad_request_400 import UserAdminInvalid
+
 # Initialize the Pyrogram client
-
-
-# Function to check if a user has the "add new admins" permission
+from YukkiMusic import app 
+# Function to check if the user is an admin with "add new admins" permission
 async def has_add_admin_permission(user_id, chat_id):
     member = await app.get_chat_member(chat_id, user_id)
     return member.status == "administrator" and member.can_promote_members
 
-# Function to promote a member
+# Function to promote a member with specific privileges
 async def promote_member(chat_id, user_id):
-    # Replace these privileges with the ones you want to grant
     privileges = ChatPermissions(
+        can_send_messages=True,
+        can_send_media_messages=True,
+        can_send_polls=True,
+        can_send_other_messages=True,
+        can_add_web_page_previews=True,
         can_change_info=False,
         can_invite_users=True,
-        can_delete_messages=True,
-        can_restrict_members=False,
-        can_pin_messages=True,
-        can_promote_members=False,
-        can_manage_chat=True,
-        can_manage_video_chats=True,
+        can_pin_messages=True
     )
-    await app.promote_chat_member(chat_id, user_id, permissions=privileges)
+    try:
+        await app.promote_chat_member(chat_id, user_id, permissions=privileges)
+        return True
+    except UserAdminInvalid:
+        return False
 
-# Command to promote a member by reply or user ID
-@app.on_message(filters.command("promote") & filters.reply)
-async def promote_by_reply(client, message):
+# Command to promote a member via reply or user ID
+@app.on_message(filters.command("promote") & filters.group)
+async def promote_member_command(client, message):
     chat_id = message.chat.id
-    if await has_add_admin_permission(message.from_user.id, chat_id):
-        replied_user_id = message.reply_to_message.from_user.id
-        await promote_member(chat_id, replied_user_id)
+    from_user_id = message.from_user.id
+    
+    # Check if the message is a reply
+    if message.reply_to_message:
+        user_id = message.reply_to_message.from_user.id
+    # Check if user ID is provided in the message
+    elif len(message.command) == 2:
+        user_id = int(message.command[1])
+    else:
+        # If neither reply nor user ID is provided, send a message to the group
+        await message.reply_text("Please reply to a message or provide a user ID.")
+        return
+    
+    # Check if the user is authorized to use the command
+    if not await has_add_admin_permission(from_user_id, chat_id):
+        await message.reply_text("You don't have permission to promote members.")
+        return
+    
+    # Check if the bot has permission to promote members
+    if not await has_add_admin_permission(await app.get_me().id, chat_id):
+        await message.reply_text("I don't have permission to promote members.")
+        return
+    
+    # Promote the member
+    success = await promote_member(chat_id, user_id)
+    if success:
+        # If promoted successfully, send a message to the group
         admin_mention = message.from_user.mention()
-        user_mention = message.reply_to_message.from_user.mention()
+        user_mention = message.reply_to_message.from_user.mention() if message.reply_to_message else f"`{user_id}`"
         await message.reply(f"{admin_mention} has promoted {user_mention} to admin!")
     else:
-        await message.reply("You don't have permission to promote members.")
+        # If promotion fails, send a message to the group
+        await message.reply_text("Failed to promote the member.")
 
-# Command to promote a member by user ID
-@app.on_message(filters.command("promote") & filters.group)
-async def promote_by_user_id(client, message):
-    chat_id = message.chat.id
-    if len(message.command) == 2:
-        if await has_add_admin_permission(message.from_user.id, chat_id):
-            user_id = int(message.command[1])
-            await promote_member(chat_id, user_id)
-            admin_mention = message.from_user.mention()
-            await message.reply(f"{admin_mention} has promoted a user to admin!")
-        else:
-            await message.reply("You don't have permission to promote members.")
-    else:
-        await message.reply("Please provide a user ID.")
-
-
-      
+# Run the client
