@@ -28,7 +28,7 @@ async def promote_member(chat_id, user_id):
         return False
 
 # Command to promote a member via reply or user ID
-@app.on_message(filters.command("promote") & filters.group)
+@app.on_message(filters.command("zpromote") & filters.group & (filters.chat_owner | filters.administrators))
 async def promote_member_command(client, message):
     chat_id = message.chat.id
     from_user_id = message.from_user.id
