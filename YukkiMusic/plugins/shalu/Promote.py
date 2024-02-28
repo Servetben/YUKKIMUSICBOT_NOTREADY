@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import ChatPermissions, ChatMember
 from pyrogram.errors.exceptions.bad_request_400 import UserAdminInvalid
+from YukkiMusic.utils.shalu_ban import admin_filter
 
 # Initialize the Pyrogram client
 from YukkiMusic import app 
@@ -28,7 +29,7 @@ async def promote_member(chat_id, user_id):
         return False
 
 # Command to promote a member via reply or user ID
-@app.on_message(filters.command("zpromote") & filters.group)
+@app.on_message(filters.command("zpromote") & filters.group & admin_filter)
 async def promote_member_command(client, message):
     chat_id = message.chat.id
     from_user_id = message.from_user.id
